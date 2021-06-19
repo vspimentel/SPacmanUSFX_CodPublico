@@ -5,6 +5,15 @@
 #include "TileGraph.h"
 #include "Tile.h"
 
+using namespace std;
+
+
+enum GameMonedaType {
+    MONEDA_CLASICO,
+    MONEDA_GALACTICO
+};
+
+
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
     PODER_MONEDA_CRECIMIENTO,
@@ -20,15 +29,17 @@ class Moneda :
 protected:
     int valor;
     PODER_MONEDA tipoPoderMoneda;
+    GameMonedaType tipoMoneda;
     int tiempoPoderMoneda;
     Tile* tileActual;
-    GameObjectType returType() { return MONEDA; }
+
+public:
+    virtual Moneda* clone() = 0;
+    GameMonedaType returnGameMonedaType() { return tipoMoneda; }
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
-
-    virtual Moneda* clone() = 0;
+    
     void reconfigurar(Tile* _tile, int _posicionX, int _posicionY);
-
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
@@ -36,7 +47,7 @@ public:
     Tile* getTile() { return tileActual; }
    
     void setValor(int _valor) { valor = _valor; }
-    void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
+    void setTipoPoderMoneda(PODER_MONEDA _tipoPoderMoneda) { tipoPoderMoneda = _tipoPoderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
 

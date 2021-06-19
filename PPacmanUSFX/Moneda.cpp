@@ -25,6 +25,7 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	tiempoPoderMoneda = 0;
 }
 
+
 void Moneda::reconfigurar(Tile* _tile, int _posicionX, int _posicionY) {
 	tileActual = _tile;
 	if (tileActual != nullptr) {

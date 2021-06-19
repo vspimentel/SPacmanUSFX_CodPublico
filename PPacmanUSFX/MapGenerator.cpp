@@ -49,7 +49,7 @@ bool MapGenerator::load(string path)
 			case '.':
 				//objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
 				objetoNuevo = MonedaFactory::getTipoMonedaClasico();
-				((Moneda*)objetoNuevo)->setTile(tileNuevo);
+				((Moneda*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
