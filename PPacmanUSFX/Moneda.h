@@ -1,0 +1,47 @@
+#pragma once
+#include <SDL.h>
+#include "GameObject.h"
+#include "Texture.h"
+#include "TileGraph.h"
+#include "Tile.h"
+
+enum PODER_MONEDA {
+    PODER_MONEDA_NINGUNO,
+    PODER_MONEDA_CRECIMIENTO,
+    PODER_MONEDA_COMER,
+    PODER_MONEDA_VELOCIDAD,
+    PODER_MONEDA_SALTO
+};
+
+
+class Moneda :
+    public GameObject
+{
+protected:
+    int valor;
+    PODER_MONEDA tipoPoderMoneda;
+    int tiempoPoderMoneda;
+    Tile* tileActual;
+    GameObjectType returType() { return MONEDA; }
+public:
+    Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
+
+    virtual Moneda* clone() = 0;
+    void reconfigurar(Tile* _tile, int _posicionX, int _posicionY);
+
+
+    int getValor() { return valor; }
+    PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
+    int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
+    Tile* getTile() { return tileActual; }
+   
+    void setValor(int _valor) { valor = _valor; }
+    void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
+    void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
+    void setTile(Tile* _tileNuevo);
+
+    void deleteGameObject() override;
+    //void render();
+
+};
+
