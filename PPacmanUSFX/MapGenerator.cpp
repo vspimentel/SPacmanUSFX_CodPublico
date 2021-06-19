@@ -57,25 +57,9 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
-				
 				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 5);
 				objetoNuevo->setParametrosAnimacion(4);
-
-				//objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 1);
-				//objetoNuevo->setParametrosAnimacion(4);
-				//objetoFantasmaClonado = ((Fantasma*)objetoNuevo)->clone();
-				//if (objetoFantasmaClonado != nullptr) {
-				//	objetoFantasmaClonado->setVelocidadPatron(4);
-				//	cout << "Se ha clonado satisfactoriamente el fantasma 1" << endl;
-				//	vectorObjetosJuego.push_back(objetoFantasmaClonado);
-				//}
-				//objetoFantasmaClonado = ((Fantasma*)objetoNuevo)->clone();
-				//if (objetoFantasmaClonado != nullptr) {
-				//	objetoFantasmaClonado->setVelocidadPatron(5);
-				//	cout << "Se ha clonado satisfactoriamente el fantasma 1" << endl;
-				//	vectorObjetosJuego.push_back(objetoFantasmaClonado);
-				//}
 				break;
 			case 'b':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);
@@ -91,7 +75,6 @@ bool MapGenerator::load(string path)
 				break;
 			}
 
-			// If the object was created, add it to the vector
 			if (objetoNuevo != nullptr) {
 				vectorObjetosJuego.push_back(objetoNuevo);
 			}
@@ -111,10 +94,6 @@ bool MapGenerator::load(string path)
 
 void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
 {
-	/*for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
-		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
-	}*/
-
 	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
 		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}

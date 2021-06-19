@@ -14,12 +14,6 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 		ancho = Tile::anchoTile;
 		alto = Tile::altoTile;
 	}
-	else {
-		posicionX = 0;
-		posicionY = 0;
-	}
-
-	// Inicializa propiedade de de pacman
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
@@ -41,6 +35,8 @@ void Moneda::reconfigurar(Tile* _tile, int _posicionX, int _posicionY) {
 		posicionX = 0;
 		posicionY = 0;
 	}
+	colisionador->w = ancho;
+	colisionador->h = alto;
 }
 
 void Moneda::setTile(Tile* _tileNuevo) {

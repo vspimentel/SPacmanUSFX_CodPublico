@@ -51,7 +51,6 @@ protected:
 	
 public:
 	virtual Fantasma* clone() = 0;
-
 	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 public:
 	//Constructores y destructores
@@ -72,7 +71,7 @@ public:
 	// Metodos varios
 	
 	// Actualizar datos fantasma
-	virtual void update() override ;
+	virtual void update() override;
 	void render() override;
 	static bool avoidInPathFinder(Tile* _tile);
 	bool hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint);

@@ -6,21 +6,18 @@
 class MonedaFactory
 {
 private:
-
-
 	static Moneda* tipoMonedaClasico;
 	static Moneda* tipoSuperMonedaClasico;
 
 	static Moneda* tipoMonedaGalactico;
 	static Moneda* tipoSuperMonedaGalactico;
-
 public:
 	static void initialize() {
-		tipoMonedaClasico = new MonedaClasico(nullptr, (new TextureManager())->getTexture("moneda_clasico"), 0, 0);
-		tipoSuperMonedaClasico = new MonedaClasico(nullptr, (new TextureManager())->getTexture("supermoneda_clasico"), 0, 0);
+		tipoMonedaClasico = new MonedaClasico(nullptr, (new TextureManager())->getTexture("moneda_clasico"), 50, 50);
+		tipoSuperMonedaClasico = new MonedaClasico(nullptr, (new TextureManager())->getTexture("supermoneda_clasico"), 50, 50);
 
-		tipoMonedaGalactico = new MonedaGalactico(nullptr, (new TextureManager())->getTexture("moneda_galactico"), 0, 0);
-		tipoSuperMonedaGalactico = new MonedaGalactico(nullptr, (new TextureManager())->getTexture("supermoneda_galactico"), 0, 0);
+		tipoMonedaGalactico = new MonedaGalactico(nullptr, (new TextureManager())->getTexture("moneda_galactico"), 50, 50);
+		tipoSuperMonedaGalactico = new MonedaGalactico(nullptr, (new TextureManager())->getTexture("supermoneda_galactico"), 50, 50);
 	}
 
 	static Moneda* getTipoMonedaClasico();
