@@ -46,6 +46,9 @@ int GameManager::onExecute() {
 			}
 		}
 
+		generadorNivelJuego->newObjects();
+		generadorNivelJuego->populate(actoresJuego);
+
 
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);

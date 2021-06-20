@@ -52,13 +52,7 @@ void Moneda::setTile(Tile* _tileNuevo) {
 
 		ancho = Tile::anchoTile;
 		alto = Tile::altoTile;
-
-		colisionador->w = ancho;
-		colisionador->h = alto;
  	}
-	else {
-		cout << "error" << endl;
-	}
 }
 
 void Moneda::deleteGameObject()

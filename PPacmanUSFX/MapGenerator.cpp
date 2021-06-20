@@ -7,6 +7,10 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManage
 	textureManager = _textureManager;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
+
+	FantasmasFactory::initialize();
+	MonedaFactory::initialize();
+	FrutaFactory::initialize();
 }
 
 bool MapGenerator::load(string path)
@@ -30,9 +34,6 @@ bool MapGenerator::load(string path)
 	while (getline(file, line)) {
 		// Divide la linea leida y la guarda en un vector de caracteres
 		vector<char> chars(line.begin(), line.end());
-
-		FantasmasFactory::initialize();
-		MonedaFactory::initialize();
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* objetoNuevo = nullptr;
@@ -90,10 +91,31 @@ bool MapGenerator::load(string path)
 	return true;
 }
 
+void MapGenerator::newObjects() {
+	int time = 300;
+	Tile* newTile;
+	if (cont < time) {
+		cont++;
+	}
+	else {
+		do {
+			newTile = tileGraph->getTileEn(rand() % tileGraph->getAnchoTile(), rand() % tileGraph->getAltoTile());
+		} while (newTile->getPared() != nullptr);
+		TIPO_FRUTA t = static_cast<TIPO_FRUTA> (rand()% MAX);
+		if (newTile->getMoneda() != nullptr)
+			newTile->getMoneda()->deleteGameObject();
+		GameObject* newObject = FrutaFactory::getTipoFrutaGalactico();
+		((Fruta*)newObject)->reconfigurar(newTile, t);
+		if (newObject != nullptr)
+			vectorObjetosJuego.push_back(newObject);
+		cont = 0;
+	}
+}
+
 void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
 {
 	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
 		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}
-
+	vectorObjetosJuego.clear();
 }

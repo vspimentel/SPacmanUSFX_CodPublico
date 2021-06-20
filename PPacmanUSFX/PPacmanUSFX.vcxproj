@@ -30,6 +30,7 @@
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
+    <ClCompile Include="FrutaFactory.cpp" />
     <ClCompile Include="FrutaGalactico.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />
+    <ClInclude Include="FrutaFactory.h" />
     <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />

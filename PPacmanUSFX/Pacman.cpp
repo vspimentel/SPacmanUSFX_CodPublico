@@ -1,17 +1,6 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-//Pacman* Pacman::instancia = nullptr;
-//
-//Pacman* Pacman::crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) {
-//	if (instancia == nullptr) {
-//		instancia = new Pacman(_tile, _texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _velocidadPatron);
-//	}
-//	
-//	return instancia;
-//
-//}
-
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad) :
 	GameObject(_texturaPacman, _posicionX, _posicionY)
 {
@@ -145,16 +134,15 @@ void Pacman::update()
 {
 	// Revisar colisiones con monedas
 	// NOTE: Should this be nextTile?
+	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
-		SDL_Rect* eatingHole = new SDL_Rect({
-			posicionX /*+ Point::Margin*/,
-			posicionY /*+ Point::Margin*/,
-			ancho,
-			alto,
-			});
-
-		if (revisarColision(eatingHole, tileSiguiente->getMoneda()->getColisionador())) {
-			tileSiguiente->getMoneda()->deleteGameObject();
+		if (revisarColision(colisionador, tileActual->getMoneda()->getColisionador())) {
+			tileActual->getMoneda()->deleteGameObject();
+		}
+	}
+	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
+		if (revisarColision(colisionador, tileActual->getFruta()->getColisionador())) {
+			tileActual->getFruta()->deleteGameObject();
 		}
 	}
 
@@ -222,7 +210,6 @@ void Pacman::render()
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
-
 	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 

@@ -21,6 +21,7 @@
 #include "Factory.h"
 #include "FantasmasFactory.h"
 #include "MonedaFactory.h"
+#include "FrutaFactory.h"
 
 #include "GamePanel.h"
 using namespace std;
@@ -35,11 +36,15 @@ private:
 
 	int anchoPantalla;
 	int altoPantalla;
+
+	int cont = 0;
 public:
 	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* fabrica);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);
+
+	void newObjects();
 
 	// carga los objetos generados por la clase MapGeneratos a un array de punteros a objetos GameObject*
 	void populate(vector<GameObject*> &_vectorObjetosJuegoGM);

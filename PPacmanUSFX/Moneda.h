@@ -23,8 +23,7 @@ enum PODER_MONEDA {
 };
 
 
-class Moneda :
-    public GameObject
+class Moneda : public GameObject
 {
 protected:
     Tile* tileActual;
@@ -52,7 +51,5 @@ public:
     void setTile(Tile* _tileNuevo);
 
     void deleteGameObject() override;
-    //void render();
-
 };
 

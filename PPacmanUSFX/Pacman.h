@@ -12,6 +12,7 @@
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
 #include "Moneda.h"
+#include "Fruta.h"
 
 using namespace std;
 
