@@ -27,11 +27,11 @@ class Moneda :
     public GameObject
 {
 protected:
+    Tile* tileActual;
     int valor;
     PODER_MONEDA tipoPoderMoneda;
     GameMonedaType tipoMoneda;
     int tiempoPoderMoneda;
-    Tile* tileActual;
 
 public:
     virtual Moneda* clone() = 0;

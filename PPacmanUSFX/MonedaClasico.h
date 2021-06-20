@@ -1,6 +1,5 @@
 #pragma once
-#include "Moneda.h"
-#include "Tile.h"
+#include "Moneda.h" 
 class MonedaClasico : public Moneda
 {
 public:

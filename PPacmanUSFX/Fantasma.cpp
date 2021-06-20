@@ -30,6 +30,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
 
+
+
 	colisionador->w = ancho;
 	colisionador->h = alto;
 
@@ -53,6 +55,7 @@ void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _ve
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
+	
 	colisionador->w = ancho;
 	colisionador->h = alto;
 

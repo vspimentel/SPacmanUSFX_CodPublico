@@ -48,7 +48,7 @@ bool MapGenerator::load(string path)
 				break;
 			case '.':
 				//objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
-				objetoNuevo = MonedaFactory::getTipoMonedaClasico();
+				objetoNuevo = MonedaFactory::getTipoMonedaGalactico();
 				((Moneda*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
@@ -74,12 +74,10 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			}
-
 			if (objetoNuevo != nullptr) {
 				vectorObjetosJuego.push_back(objetoNuevo);
 			}
 		}
-
 		y++;
 	}
 

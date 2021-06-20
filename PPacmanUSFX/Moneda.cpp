@@ -22,6 +22,7 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 
 void Moneda::reconfigurar(Tile* _tile, int _posicionX, int _posicionY) {
 	tileActual = _tile;
+
 	if (tileActual != nullptr) {
 		tileActual->setMoneda(this);
 
@@ -31,12 +32,9 @@ void Moneda::reconfigurar(Tile* _tile, int _posicionX, int _posicionY) {
 		ancho = Tile::anchoTile;
 		alto = Tile::altoTile;
 	}
-	else {
-		posicionX = 0;
-		posicionY = 0;
-	}
-	colisionador->w = ancho;
-	colisionador->h = alto;
+	colisionador = new SDL_Rect({ _posicionX, _posicionY, 0, 0 });
+
+	cout << tileActual->getPosicionX() << endl;
 }
 
 void Moneda::setTile(Tile* _tileNuevo) {
@@ -54,7 +52,13 @@ void Moneda::setTile(Tile* _tileNuevo) {
 
 		ancho = Tile::anchoTile;
 		alto = Tile::altoTile;
+
+		colisionador->w = ancho;
+		colisionador->h = alto;
  	}
+	else {
+		cout << "error" << endl;
+	}
 }
 
 void Moneda::deleteGameObject()

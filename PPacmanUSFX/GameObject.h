@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Texture.h"
+#include "Tile.h"
 #include "GameObjectType.h"
 
 using namespace std;
@@ -25,6 +26,8 @@ protected:
 protected:
 	// Textura para representacion grafica del objeto
 	Texture* textura;
+
+	Tile* tileActual;
 
 	bool visible;
 	bool enMovimiento;
@@ -68,6 +71,8 @@ public:
 	void setVisible(bool _visible) { visible = _visible; }
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
+	virtual void setTile(Tile* _tileNuevo) {};
+
 
 	// Metodos varios
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
