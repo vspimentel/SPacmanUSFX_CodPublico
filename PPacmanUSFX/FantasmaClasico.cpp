@@ -1,18 +1,7 @@
 #include "FantasmaClasico.h"
 
 FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
-	Fantasma(_tile, _fantasmaClasicoTextura, _posicionX, _posicionY, _velocidadPatron)
-{
-	tileActual = _tile;
-	tileSiguiente = nullptr;
-
-	if (tileActual != nullptr) {
-		tileActual->setFantasma(this);
-		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-	}
+	Fantasma(_tile, _fantasmaClasicoTextura, _posicionX, _posicionY, _velocidadPatron){
 	tipoFantasma = FANTASMA_CLASICO;
 }
 

@@ -58,7 +58,7 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
-				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
+				objetoNuevo = FantasmasFactory::getTipoGalacticoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 5);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;

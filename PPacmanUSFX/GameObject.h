@@ -3,28 +3,16 @@
 #include <string>
 #include "Texture.h"
 #include "Tile.h"
-#include "GameObjectType.h"
 
 using namespace std;
 
 class TileGraph;
-
 class GameObject
 {
 protected:
-	string nombre;
-	static int numeroObjetosCreados;
-
-	// Posicion en el eje X y Y
-	int idObjeto;
-
-	// Si el objeto es visible
 	bool eliminar;
-	GameObjectType tipoObjeto;
-	
-//Propiedades para representacion grafica
 protected:
-	// Textura para representacion grafica del objeto
+
 	Texture* textura;
 
 	Tile* tileActual;
@@ -35,7 +23,6 @@ protected:
 	int posicionX;
 	int posicionY;
 
-	// Ancho y Alto de la imagen del objeto en pixeles
 	int ancho;
 	int alto;
 
@@ -44,7 +31,6 @@ protected:
 	int framesMovimiento;
 
 	SDL_Rect* colisionador;
-
 public:
 	static TileGraph* tileGraph;
 
@@ -55,7 +41,6 @@ public:
 	~GameObject() {};
 
 	//Metodos accesores
-	int getIdObjeto() { return idObjeto; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
 	int getAncho() { return ancho; }

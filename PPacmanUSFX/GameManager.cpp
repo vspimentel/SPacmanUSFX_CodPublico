@@ -8,10 +8,8 @@ GameManager* GameManager::crearInstancia() {
 	if (instancia == nullptr) {
 		instancia = new GameManager();
 	}
-
 	return instancia;
 }
-
 
 GameManager::GameManager() {
 	gWindow = nullptr;
@@ -26,9 +24,7 @@ int GameManager::onExecute() {
     if (onInit() == false) {
         return -1;
     }
-		
 	srand(time(nullptr));
-
 	TileGraph tileGraphGM(20, 15, 800, 600);
 	textureManager = new TextureManager();
 	GameObject::tileGraph = &tileGraphGM;
@@ -49,7 +45,6 @@ int GameManager::onExecute() {
 		generadorNivelJuego->newObjects();
 		generadorNivelJuego->populate(actoresJuego);
 
-
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
@@ -57,21 +52,16 @@ int GameManager::onExecute() {
 			}
         }
 
-		auto idob = actoresJuego[3]->getIdObjeto();
-
 		////Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
 
 		//Update screen
-		
         onLoop();
         onRender();
 		SDL_RenderPresent(gRenderer);
     }
-
     onCleanup();
-
     return 0;
 }
 
@@ -96,7 +86,6 @@ bool GameManager::onInit() {
 		}
 		else
 		{
-			
 			//Create vsynced renderer for window
 			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 			if (gRenderer == nullptr)
@@ -108,16 +97,14 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-				if (TTF_Init()== -1) {
+				if (TTF_Init() == -1) {
 					cout << "Error inicializacion SDL_ttf" << TTF_GetError() << endl;
 					success = false;
 				}
 			}
-
 			Texture::renderer = gRenderer;
 		}
 	}
-
 	return success;
 };
 
@@ -137,6 +124,5 @@ void GameManager::onRender() {
 };
 
 void GameManager::onCleanup() {
-	
 	SDL_Quit();
 };

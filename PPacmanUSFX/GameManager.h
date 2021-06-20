@@ -8,11 +8,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "Pacman.h"
-#include "Fantasma.h"
-#include "Fruta.h"
-#include "Moneda.h"
-#include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"

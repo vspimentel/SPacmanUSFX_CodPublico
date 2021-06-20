@@ -2,7 +2,6 @@
 
 Pared::Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY):
 GameObject(_paredTextura, _posicionX, _posicionY){
-	tipoTexturaPared = TEXTURA_UNO;
 	setTexture(tipoTexturaPared);
 	tileActual = _tile;
 	if (tileActual != nullptr) {

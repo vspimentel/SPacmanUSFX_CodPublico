@@ -7,7 +7,6 @@
 
 #include "GameObject.h"
 #include "Texture.h"
-#include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
@@ -38,22 +37,10 @@ protected:
 	int energia;
 	int state;
 
-	GameObjectType returType() { return PACMAN; }
 public:
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
-
-	//	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-
-		//Constructores y destructores
-
-		//~Pacman();
-
-		//Metodos accesores
-	
 	int getState() { return state; }
 	void setState(int _state) { state = _state; }
-
-
 
 	int getVelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }

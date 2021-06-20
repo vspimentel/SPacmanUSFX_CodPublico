@@ -2,17 +2,13 @@
 #include <SDL.h>
 #include "GameObject.h"
 #include "Texture.h"
-#include "TileGraph.h"
-#include "Tile.h"
 
 using namespace std;
-
 
 enum GameMonedaType {
     MONEDA_CLASICO,
     MONEDA_GALACTICO
 };
-
 
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
@@ -21,7 +17,6 @@ enum PODER_MONEDA {
     PODER_MONEDA_VELOCIDAD,
     PODER_MONEDA_SALTO
 };
-
 
 class Moneda : public GameObject
 {

@@ -13,7 +13,6 @@
 #include "TextureAnimation.h"
 #include "PathFinder.h"
 #include "Pacman.h"
-#include "GameObjectType.h"
 
 using namespace std;
 
@@ -25,16 +24,9 @@ enum GameFantasmaType {
 
 class Fantasma : public GameObject {
 protected:
-	//Velocidad en eje X y Y
-	
-	//Velocidad a la que mueve el fantasma en cualquier eje
 	GameFantasmaType tipoFantasma;
 
-
 	int velocidad;
-
-	int incrementoPosicionX;
-	int incrementoPosicionY;
 
 	vector<Tile*> camino;
 	SDL_Point lastPacmanPos;
@@ -68,12 +60,8 @@ public:
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
 
-	// Metodos varios
-	
-	// Actualizar datos fantasma
 	virtual void update() override;
 	void render() override;
 	static bool avoidInPathFinder(Tile* _tile);
-	bool hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint);
 	void deleteGameObject() override;
 };

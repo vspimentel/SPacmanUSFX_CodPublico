@@ -57,9 +57,6 @@
     <ClCompile Include="PathFinder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="PacmanBase.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="PacmanGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -179,12 +176,6 @@
     <ClInclude Include="PathFinder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Laberinto.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="PacmanBase.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="PacmanGalactico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -237,9 +228,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PacmanClasico.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjectType.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="FantasmasFactory.h">

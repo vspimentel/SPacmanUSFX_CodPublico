@@ -6,23 +6,18 @@
 #include <fstream>
 
 #include "GameObject.h"
-#include "Texture.h"
 #include "Moneda.h"
 #include "Fantasma.h"
-#include "Pacman.h"
 #include "Fruta.h"
-#include "Pared.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "TextureAnimation.h"
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
 #include "FantasmasFactory.h"
 #include "MonedaFactory.h"
 #include "FrutaFactory.h"
-
 #include "GamePanel.h"
 using namespace std;
 
