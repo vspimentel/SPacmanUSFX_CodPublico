@@ -9,6 +9,9 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura) :
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
+
+	framesMovimiento = 4;
+
 }
 
 Moneda::~Moneda() {

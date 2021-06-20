@@ -43,34 +43,27 @@ bool MapGenerator::load(string path)
 			{
 			case 'x':
 				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, false);
-				objetoNuevo->setParametrosAnimacion(1);
 				break;
 			case '.':
-				//objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);
-				objetoNuevo = MonedaFactory::getTipoMonedaClasico();
-				((Moneda*)objetoNuevo)->reconfigurar(tileNuevo);
-				objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);
+				//objetoNuevo = MonedaFactory::getTipoMonedaClasico();
+				//((Moneda*)objetoNuevo)->reconfigurar(tileNuevo);
 				break;
 			case 'p':
 				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, 5);
-				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
 				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
-				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'b':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 2);
-				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'c':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 2);
-				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'd':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 3);
-				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			}
 			if (objetoNuevo != nullptr) {

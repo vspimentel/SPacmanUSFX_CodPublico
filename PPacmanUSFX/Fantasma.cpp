@@ -21,6 +21,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _velocidad) :
 	direccionSiguiente = MOVE_RIGHT;
 
 	velocidad = _velocidad;
+
+	framesMovimiento = 4;
 }
 
 Fantasma::~Fantasma() {

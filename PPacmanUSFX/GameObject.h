@@ -65,8 +65,6 @@ public:
 	virtual void setTile(Tile* _tileNuevo) {};
 	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }
 
-
-	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 	
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);

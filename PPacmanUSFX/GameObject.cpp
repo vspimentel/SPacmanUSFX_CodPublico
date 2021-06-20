@@ -19,7 +19,7 @@ GameObject::GameObject(Texture* _textura, Tile* _tile) {
 	enMovimiento = false;
 	numeroFrame = 0;
 	contadorFrames = 0;
-	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0});
+	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 }
 
 GameObject::~GameObject() {

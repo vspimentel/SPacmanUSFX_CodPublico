@@ -20,25 +20,26 @@ enum PODER_MONEDA {
 class Moneda : public GameObject
 {
 protected:
-    Tile* tileActual;
+
     int valor;
+
     PODER_MONEDA tipoPoderMoneda;
+
     GameMonedaType tipoMoneda;
+
     int tiempoPoderMoneda;
 
-public:
-    virtual Moneda* clone() = 0;
-    GameMonedaType returnGameMonedaType() { return tipoMoneda; }
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura);
     ~Moneda();
 
+    virtual Moneda* clone() = 0;
     void reconfigurar(Tile* _tile);
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
-    Tile* getTile() { return tileActual; }
+    GameMonedaType returnGameMonedaType() { return tipoMoneda; }
    
     void setValor(int _valor) { valor = _valor; }
     void setTipoPoderMoneda(PODER_MONEDA _tipoPoderMoneda) { tipoPoderMoneda = _tipoPoderMoneda; }

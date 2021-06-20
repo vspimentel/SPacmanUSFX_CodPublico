@@ -18,11 +18,7 @@ protected:
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
-
 	int velocidad;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
 
 	TextureAnimation* texturaAnimacion;
 
@@ -35,14 +31,11 @@ public:
 	~Pacman();
 
 	int getVelocidad() { return velocidad; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
 	int getEnergia() { return energia; }
 	int getState() { return state; }
 
 	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	void setEnergia(int _energia) { energia = _energia; }
 	void setState(int _state) { state = _state; }
 

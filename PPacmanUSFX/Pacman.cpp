@@ -22,6 +22,8 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad):
 
 	velocidad= _velocidad;
 	energia = 5;
+
+	framesMovimiento = 2;
 }
 
 Pacman::~Pacman() {
@@ -199,7 +201,7 @@ void Pacman::render()
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
-	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	texturaAnimacion->getTexture()->render(posicionX, posicionY, cuadroAnimacion);
 }
 
 void Pacman::deleteGameObject()
