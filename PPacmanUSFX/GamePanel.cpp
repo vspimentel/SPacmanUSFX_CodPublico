@@ -1,7 +1,10 @@
 #include "GamePanel.h"
 
-GamePanel::GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY):GameObject(_texturaGamePanel, _posicionX, _posicionY)
+GamePanel::GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY):
+	GameObject(_texturaGamePanel, nullptr)
 {
+	posicionX = _posicionX;
+	posicionY = _posicionY;
 	texto = "Pacman USFX, solo para universitarios.";
 }
 

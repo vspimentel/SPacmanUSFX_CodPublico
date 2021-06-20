@@ -10,18 +10,18 @@ using namespace std;
 class TileGraph
 {
 private:
+
 	vector<Tile*> vectorTilesGraph;
 	int getIndice(int _x, int _y);
 
 public:
+
 	static int anchoTileGraph;
 	static int altoTileGraph;
-	static int anchoPantalla;
-	static int altoPantalla;
 		
 public:
 	TileGraph();
-	TileGraph(int _anchoTileGraph, int _altoTileGraph, int _anchoPantalla, int _altoPantalla);
+	TileGraph(int _anchoTileGraph, int _altoTileGraph);
 	~TileGraph();
 
 	void reconfigurar(int _anchoTileGraph, int _altoTileGraph);

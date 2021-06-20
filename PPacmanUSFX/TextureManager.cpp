@@ -87,9 +87,7 @@ void TextureManager::addTexture(string _key, Texture* _texture)
 
 void TextureManager::free()
 {
-	//for (auto elementoMapTexturas : mapTexturas) {
 	for (pair<string, Texture*> elementoMapTexturas : mapTexturas) {
-		//delete elementoMapTexturas.second;
 		mapTexturas.erase(elementoMapTexturas.first);
 	}
 }

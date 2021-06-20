@@ -6,7 +6,7 @@ class ParedClasicoAdapter :
     public Pared, private Wall
 {
 public:
-    ParedClasicoAdapter(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
+    ParedClasicoAdapter(Tile* _tile, Texture* _paredTextura);
     
     void render() override { Wall::Render(); }
     

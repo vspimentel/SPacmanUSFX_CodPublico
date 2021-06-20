@@ -6,8 +6,7 @@ using namespace std;
 class PacmanGalactico : public Pacman
 {
 public:
-	PacmanGalactico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad);
-	~PacmanGalactico();
+	PacmanGalactico(Tile* _tile, Texture* _texturaPacmanClasico, int _velocidad);
 };
 
 

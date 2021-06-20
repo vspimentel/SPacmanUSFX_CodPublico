@@ -1,22 +1,12 @@
 #include "Fruta.h"
-#include <iostream>
 
-using namespace std;
-
-Fruta::Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY) :
-	GameObject( _frutaTexture, _posicionX, _posicionY)
+Fruta::Fruta(Tile* _tile, Texture* _frutaTexture) :
+	GameObject(_frutaTexture, _tile)
 {
 	tileActual = _tile;
 
-	if (tileActual != nullptr) {
+	if (tileActual != nullptr) 
 		tileActual->setFruta(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		ancho = Tile::anchoTile + 10;
-		alto = Tile::altoTile + 10;
-	}
 
 	tipoFruta = TIPO_FRUTA_FRUTILLA;
 	

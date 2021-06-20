@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "Pacman.h"
 
-Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad) :
-	GameObject(_texturaPacman, _posicionX, _posicionY)
+Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad):
+	GameObject(_texturaPacman, _tile)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_texturaPacman);
@@ -15,32 +14,18 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
-	tileActual = _tile;
-	tileSiguiente = nullptr;
-
-	if (tileActual != nullptr) {
+	if (tileActual != nullptr) 
 		tileActual->setPacman(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
-	}
-	else {
-		posicionX = 0;
-		posicionY = 0;
-	}
-
 
 	direccionActual = MOVE_RIGHT;
 	direccionSiguiente = MOVE_RIGHT;
 
-
-	// Inicializa propiedade de de pacman
-
 	velocidad= _velocidad;
-
 	energia = 5;
+}
+
+Pacman::~Pacman() {
+	deleteGameObject();
 }
 
 void Pacman::restarEnergia() {
@@ -48,7 +33,6 @@ void Pacman::restarEnergia() {
 		energia--;
 	}
 }
-
 
 void Pacman::setTile(Tile* _tileNuevo) {
 
@@ -64,7 +48,6 @@ void Pacman::setTile(Tile* _tileNuevo) {
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
-
 }
 
 void Pacman::handleEvent(SDL_Event* event)
@@ -95,8 +78,6 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 {
 	Tile* tileDestino = nullptr;
 
-	// Retorna el tile destino dependiendo de la direccion de movimiento
-
 	switch (_direccionNueva)
 	{
 	case MOVE_UP:
@@ -115,8 +96,21 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 	// Si el tile destino es nullptr, no se puede avanzar ahi
 	if (tileDestino == nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
+		switch (_direccionNueva)
+		{
+		case MOVE_UP:
+			tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + tileGraph->getAltoTile() - 1);
+			break;
+		case MOVE_DOWN:
+			tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - (tileGraph->getAltoTile() - 1));
+			break;
+		case MOVE_LEFT:
+			tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + tileGraph->getAnchoTile() - 1, tileActual->getPosicionY());
+			break;
+		case MOVE_RIGHT:
+			tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - (tileGraph->getAnchoTile() - 1), tileActual->getPosicionY());
+			break;
+		}
 	}
 
 	// Si el tile destino es una pared, no se puede avanzar ahi
@@ -132,8 +126,6 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 void Pacman::update()
 {
-	// Revisar colisiones con monedas
-	// NOTE: Should this be nextTile?
 	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
 		if (revisarColision(colisionador, tileActual->getMoneda()->getColisionador())) {
@@ -146,12 +138,10 @@ void Pacman::update()
 		}
 	}
 
-	// Animacion de pacman
 	if (enMovimiento) {
 		GameObject::update();
 	}
 
-	// Cambiar de tile/direccion
 	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
 		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
 			direccionActual = direccionSiguiente;
@@ -179,7 +169,6 @@ void Pacman::update()
 			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
-
 
 		colisionador->x = posicionX;
 		colisionador->y = posicionY;

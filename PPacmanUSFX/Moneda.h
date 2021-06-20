@@ -1,7 +1,6 @@
 #pragma once
 #include <SDL.h>
 #include "GameObject.h"
-#include "Texture.h"
 
 using namespace std;
 
@@ -31,9 +30,10 @@ public:
     virtual Moneda* clone() = 0;
     GameMonedaType returnGameMonedaType() { return tipoMoneda; }
 public:
-    Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
-    
-    void reconfigurar(Tile* _tile, int _posicionX, int _posicionY);
+    Moneda(Tile* _tile, Texture* _monedaTextura);
+    ~Moneda();
+
+    void reconfigurar(Tile* _tile);
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }

@@ -1,24 +1,22 @@
 #pragma once
-#include <iostream>
-#include <string>
+
 #include "Texture.h"
 #include "Tile.h"
 
 using namespace std;
 
-class TileGraph;
-class GameObject
+class TileGraph; class GameObject
 {
-protected:
-	bool eliminar;
 protected:
 
 	Texture* textura;
 
 	Tile* tileActual;
+	Tile* tileSiguiente;
 
 	bool visible;
 	bool enMovimiento;
+	bool eliminar;
 
 	int posicionX;
 	int posicionY;
@@ -31,14 +29,19 @@ protected:
 	int framesMovimiento;
 
 	SDL_Rect* colisionador;
+
 public:
+
 	static TileGraph* tileGraph;
+
+	static const int anchoPantalla = 800;
+	static const int altoPantalla = 600;
 
 public:
 	//Constructores y destructores
 	GameObject();
-	GameObject(Texture* _textura, int _posicionX, int _posicionY);
-	~GameObject() {};
+	GameObject(Texture* _textura, Tile* _tile);
+	~GameObject();
 
 	//Metodos accesores
 	int getPosicionX() { return posicionX; }
@@ -48,6 +51,9 @@ public:
 	bool getVisible() { return visible; }
 	bool getEliminar() { return eliminar; }
 	bool getEnMovimiento() { return enMovimiento; }
+	Tile* getTile() { return tileActual; }
+	Tile* getTileSiguiente() { return tileSiguiente; }
+	virtual SDL_Rect* getColisionador() { return colisionador; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
@@ -57,21 +63,21 @@ public:
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 	virtual void setTile(Tile* _tileNuevo) {};
+	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }
 
 
-	// Metodos varios
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
-	virtual SDL_Rect* getColisionador() { return colisionador; }
+	
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
 
-
-	// Renderizar imagen
 	virtual void render();
 	virtual void update();
+
 	virtual void handleEvent(SDL_Event* event) {};
+
 	virtual void deleteGameObject() { eliminar = true; }
-	virtual void free(){};
+	virtual void free() {};
 	void Delete() { deleteGameObject(); }
 	void Free() { free(); }
 };

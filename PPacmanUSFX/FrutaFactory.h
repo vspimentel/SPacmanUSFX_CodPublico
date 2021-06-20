@@ -1,8 +1,10 @@
 #pragma once
+
 #include "FrutaClasico.h"
 #include "FrutaGalactico.h"
 #include "FrutaAsesino.h"
 #include "TextureManager.h"
+
 class FrutaFactory
 {
 private:
@@ -13,9 +15,9 @@ private:
 public:
 	static void initialize() {
 		TextureManager* textures = new TextureManager;
-		tipoFrutaClasico = new FrutaClasico(nullptr, textures->getTexture("fruta_clasico"), 0, 0);
-		tipoFrutaGalactico = new FrutaGalactico(nullptr, textures->getTexture("fruta_galactico"), 0, 0);
-		tipoFrutaAsesino = new FrutaAsesino(nullptr, textures->getTexture("fruta_galactico"), 0, 0);
+		tipoFrutaClasico = new FrutaClasico(nullptr, textures->getTexture("fruta_clasico"));
+		tipoFrutaGalactico = new FrutaGalactico(nullptr, textures->getTexture("fruta_galactico"));
+		tipoFrutaAsesino = new FrutaAsesino(nullptr, textures->getTexture("fruta_galactico"));
 	}
 
 	static Fruta* getTipoFrutaClasico();

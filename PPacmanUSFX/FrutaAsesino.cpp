@@ -1,7 +1,7 @@
 #include "FrutaAsesino.h"
 
-FrutaAsesino::FrutaAsesino(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY):
-	Fruta(_tile, _frutaTextura, _posicionX, _posicionY){
+FrutaAsesino::FrutaAsesino(Tile* _tile, Texture* _frutaTextura):
+	Fruta(_tile, _frutaTextura){
 	GameFrutaTipo = FRUTA_ASESINO;
 }
 

@@ -4,15 +4,21 @@
 class Pared : public GameObject
 {
 protected:
-    Tile* tileActual;
+
     int frameX;
     int frameY;
+
     int altoClip;
     int anchoClip;
+
     int tipoTexturaPared;
+
+    int state;
+
 public:
-    Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
-    Tile* getTile() { return tileActual; }
+
+    Pared(Tile* _tile, Texture* _paredTextura);
+
     void setTile(Tile* _tileNuevo);
     void render() override;
     void setTexture(int tipoTextura);

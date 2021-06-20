@@ -1,12 +1,9 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
 
 #include <SDL.h>
-#include <SDL_image.h>
 
 #include "MapGenerator.h"
 #include "TileGraph.h"
@@ -16,14 +13,10 @@
 
 using namespace std;
 
-
-//Screen dimension constants
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
-
 class GameManager
 {
 private:
+
     bool juego_en_ejecucion;
 
     //The window we'll be rendering to
@@ -33,14 +26,15 @@ private:
     SDL_Renderer* gRenderer;
    
     vector<GameObject*> actoresJuego;
-    list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
     Factory* tipoFabrica;
 
     GameManager();
     static GameManager* instancia;
+
 public:
+
     static GameManager* crearInstancia();
 
     int onExecute();

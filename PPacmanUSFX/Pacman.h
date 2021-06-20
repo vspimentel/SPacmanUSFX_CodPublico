@@ -1,13 +1,9 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <algorithm>
 
 #include <SDL.h>
 
-#include "GameObject.h"
-#include "Texture.h"
 #include "TileGraph.h"
+#include "GameObject.h"
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
 #include "Moneda.h"
@@ -18,40 +14,37 @@ using namespace std;
 class Pacman : public GameObject
 {
 protected:
-	Tile* tileActual;
-	Tile* tileSiguiente;
 
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
 
-	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidad;
 
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
 	TextureAnimation* texturaAnimacion;
-	//static Pacman* instancia;
 
 	int energia;
 	int state;
 
 public:
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
-	int getState() { return state; }
-	void setState(int _state) { state = _state; }
+
+	Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad);
+	~Pacman();
 
 	int getVelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	int getEnergia() { return energia; }
-
+	int getState() { return state; }
 
 	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	void setEnergia(int _energia) { energia = _energia; }
+	void setState(int _state) { state = _state; }
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);

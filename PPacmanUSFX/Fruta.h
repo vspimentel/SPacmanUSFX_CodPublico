@@ -1,11 +1,7 @@
 #pragma once
-#include <iostream>
-#include <vector>
 #include <SDL.h>
 
 #include "GameObject.h"
-#include "Texture.h"
-#include "Tile.h"
 
 using namespace std;
 
@@ -29,7 +25,7 @@ protected:
 	TIPO_FRUTA tipoFruta;
 	GameFrutaType GameFrutaTipo;
 
-	const int timeFruit = 398;
+	const int timeFruit = 400;
 	int cont = 0;
 
 	int frameX = 0;
@@ -38,9 +34,10 @@ protected:
 	int anchoClip = 25;
 
 	Tile* tileActual;
+
 public:
 
-	Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY);
+	Fruta(Tile* _tile, Texture* _frutaTexture);
 	~Fruta();
 	
 	void reconfigurar(Tile* _tileNuevo, TIPO_FRUTA tipoFruta);
@@ -49,14 +46,13 @@ public:
 
 	//Metodos accesores
 	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
-	Tile* getTile() { return tileActual; }
 	GameFrutaType getTipo() { return GameFrutaTipo; }
 
-	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setTile(Tile* _tileNuevo);
 
 	void update();
 	void render() override; 
+
 	void deleteGameObject() override;
 };
 

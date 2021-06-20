@@ -1,10 +1,7 @@
 #include "Fantasma.h"
-#include <iostream>
 
-using namespace std;
-
-Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidad) :
-	GameObject(_fantasmaTexture, _posicionX, _posicionY)
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _velocidad) :
+	GameObject(_fantasmaTexture, _tile)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_fantasmaTexture);
@@ -16,20 +13,9 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
-	
-	tileActual = _tile;
-	tileSiguiente = nullptr;
 
-	if (tileActual != nullptr) {
+	if (tileActual != nullptr)
 		tileActual->setFantasma(this);
-		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-	}
-
-	colisionador->w = ancho;
-	colisionador->h = alto;
 
 	direccionActual = MOVE_RIGHT;
 	direccionSiguiente = MOVE_RIGHT;
@@ -37,25 +23,26 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 	velocidad = _velocidad;
 }
 
-void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad) 
+Fantasma::~Fantasma() {
+	deleteGameObject();
+}
+
+void Fantasma::reconfigurar(Tile* _tile, int _velocidad) 
 {
 	tileActual = _tile;
-	tileSiguiente = nullptr;
 
 	if (tileActual != nullptr) {
 		tileActual->setFantasma(this);
-		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
+		tileSiguiente = tileActual;
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
-	
-	colisionador->w = ancho;
-	colisionador->h = alto;
 
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
-
+	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 	velocidad = _velocidad;
 }
 
@@ -72,38 +59,6 @@ void Fantasma::setTile(Tile* _tileNuevo) {
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
-}
-
-bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
-	Tile* tileDestino = nullptr;
-
-	switch (_direccionNueva) {
-	case MOVE_UP:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
-		break;
-	case MOVE_DOWN:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
-		break;
-	case MOVE_LEFT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
-		break;
-	case MOVE_RIGHT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
-		break;
-	}
-
-	if (tileDestino == nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	if (tileDestino->getPared() != nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	setTileSiguiente(tileDestino);
-	return true;
 }
 
 void Fantasma::update()
@@ -191,10 +146,8 @@ void Fantasma::render()
 
 bool Fantasma::avoidInPathFinder(Tile* _tile)
 {
-	if (_tile->getPared() != nullptr) {
-
+	if (_tile->getPared() != nullptr)
 		return true;
-	}
 	return false;
 }
 

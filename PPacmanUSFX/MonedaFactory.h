@@ -14,11 +14,11 @@ private:
 public:
 	static void initialize() {
 		TextureManager* textures = new TextureManager;
-		tipoMonedaClasico = new MonedaClasico(nullptr, textures->getTexture("moneda_clasico"), 50, 50);
-		tipoSuperMonedaClasico = new MonedaClasico(nullptr, textures->getTexture("supermoneda_clasico"), 50, 50);
+		tipoMonedaClasico = new MonedaClasico(nullptr, textures->getTexture("moneda_clasico"));
+		tipoSuperMonedaClasico = new MonedaClasico(nullptr, textures->getTexture("supermoneda_clasico"));
 
-		tipoMonedaGalactico = new MonedaGalactico(nullptr, textures->getTexture("moneda_galactico"), 50, 50);
-		tipoSuperMonedaGalactico = new MonedaGalactico(nullptr, textures->getTexture("supermoneda_galactico"), 50, 50);
+		tipoMonedaGalactico = new MonedaGalactico(nullptr, textures->getTexture("moneda_galactico"));
+		tipoSuperMonedaGalactico = new MonedaGalactico(nullptr, textures->getTexture("supermoneda_galactico"));
 	}
 
 	static Moneda* getTipoMonedaClasico();

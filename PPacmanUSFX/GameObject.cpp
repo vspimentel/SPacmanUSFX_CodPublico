@@ -2,30 +2,33 @@
 
 TileGraph* GameObject::tileGraph = nullptr;
 
-GameObject::GameObject() {
+GameObject::GameObject() {}
 
-}
-
-GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY) {
+GameObject::GameObject(Texture* _textura, Tile* _tile) {
 	textura = _textura;
-	posicionX = _posicionX;
-	posicionY = _posicionY;
-	alto = 0;
-	ancho = 0;
+	tileActual = _tile;
+	if (tileActual != nullptr) {
+		tileSiguiente = tileActual;
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
+	}
 	visible = true;
 	eliminar = false;
 	enMovimiento = false;
 	numeroFrame = 0;
 	contadorFrames = 0;
-	framesMovimiento = 1;
-	colisionador = new SDL_Rect({ _posicionX, _posicionY, ancho, alto});
+	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0});
+}
+
+GameObject::~GameObject() {
+	deleteGameObject();
 }
 
 void GameObject::render()
 {
 	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
-
-	// Renderizar en la pantalla
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 

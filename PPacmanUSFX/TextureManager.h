@@ -8,27 +8,26 @@ class TextureManager
 private:
 	map<string, Texture*> mapTexturas;
 
-	const string pathPacmanClasico = "Resources/PacMan.bmp";
-	const string pathFantasmaClasico1 = "Resources/Blinky.bmp";
-	const string pathFantasmaClasico2 = "Resources/Clyde.bmp";
-	const string pathFantasmaClasico3 = "Resources/Inkey.bmp";
-	const string pathFantasmaClasico4 = "Resources/Pinky.bmp";
-	const string pathFrutaClasico = "Resources/Frutas.png";
-	const string pathMonedaClasico = "Resources/Monedas02.jpg";
-	const string pathSuperMonedaClasico = "Resources/Monedas03.jpg";
-	const string pathParedClasico = "Resources/WallTextures.png";
-	const string pathParedClasicoAdapter = "Resources/wall_sprite.bmp";
+	const string pathPacmanClasico = "Resources/PacmanClasico.bmp";
+	const string pathFantasmaClasico1 = "Resources/BlinkyClasico.bmp";
+	const string pathFantasmaClasico2 = "Resources/ClydeClasico.bmp";
+	const string pathFantasmaClasico3 = "Resources/InkeyClasico.bmp";
+	const string pathFantasmaClasico4 = "Resources/PinkyClasico.bmp";
+	const string pathFrutaClasico = "Resources/FrutasClasico.png";
+	const string pathMonedaClasico = "Resources/MonedasClasico.jpg";
+	const string pathSuperMonedaClasico = "Resources/SupermonedasClasico.jpg";
+	const string pathParedClasico = "Resources/Pared.png";
+	const string pathParedClasicoAdapter = "Resources/ParedClasico.bmp";
 
-	const string pathPacmanGalactico = "Resources/PacMan.bmp";
-	const string pathFantasmaGalactico1 = "Resources/fantasmaamarillo.bmp ";
-	const string pathFantasmaGalactico2 = "Resources/azul.png ";
-	const string pathFantasmaGalactico3 = "Resources/fantasma.png ";
-	const string pathFantasmaGalactico4 = "Resources/fantasmarojo.bmp ";
-	const string pathFantasmaGalactico5 = "Resources/Pacmanultimo.bmp ";
-	const string pathFrutaGalactico = "Resources/espacial2.png";
-	const string pathMonedaGalactico = "Resources/monedagalactico1.png";
-	const string pathSuperMonedaGalactico = "Resources/Monedas03.jpg";
-	const string pathParedGalactico = "Resources/WallTextures.png";
+	const string pathPacmanGalactico = "Resources/PacmanGalactico.bmp";
+	const string pathFantasmaGalactico1 = "Resources/BlinkyGalactico.bmp";
+	const string pathFantasmaGalactico2 = "Resources/ClydeGalactico.bmp";
+	const string pathFantasmaGalactico3 = "Resources/InkeyGalactico.png";
+	const string pathFantasmaGalactico4 = "Resources/PinkyGalactico.bmp";
+	const string pathFrutaGalactico = "Resources/FrutasGalactico.png";
+	const string pathMonedaGalactico = "Resources/MonedasGalactico.png";
+	const string pathSuperMonedaGalactico = "Resources/SupermonedasGalactico.png";
+	const string pathParedGalactico = "Resources/Pared.png";
 
 
 	Texture* pacmanClasicoTexture;
@@ -53,6 +52,7 @@ private:
 	Texture* paredGalacticoTexture;
 	
 public:
+
 	TextureManager();
 	~TextureManager();
 
