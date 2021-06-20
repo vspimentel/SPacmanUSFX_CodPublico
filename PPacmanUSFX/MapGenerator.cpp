@@ -7,7 +7,6 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManage
 	textureManager = _textureManager;
 
 	FantasmasFactory::initialize();
-	MonedaFactory::initialize();
 	FrutaFactory::initialize();
 }
 
@@ -35,7 +34,6 @@ bool MapGenerator::load(string path)
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* objetoNuevo = nullptr;
-			Fantasma* objetoFantasmaClonado = nullptr;
 			Tile* tileNuevo = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
@@ -46,24 +44,29 @@ bool MapGenerator::load(string path)
 				break;
 			case '.':
 				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);
-				//objetoNuevo = MonedaFactory::getTipoMonedaClasico();
-				//((Moneda*)objetoNuevo)->reconfigurar(tileNuevo);
 				break;
 			case 'p':
 				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, 5);
 				break;
 			case 'a':
-				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
+				//objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
+				objetoNuevo = FantasmasFactory::getTipoGalacticoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
 				break;
 			case 'b':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 2);
+				//objetoNuevo = FantasmasFactory::getTipoClasicoClyde();
+				objetoNuevo = FantasmasFactory::getTipoGalacticoClyde();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
 				break;
 			case 'c':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 2);
+				//objetoNuevo = FantasmasFactory::getTipoClasicoInkey();
+				objetoNuevo = FantasmasFactory::getTipoGalacticoInkey();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
 				break;
 			case 'd':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, 3);
+				//objetoNuevo = FantasmasFactory::getTipoClasicoPinky();
+				objetoNuevo = FantasmasFactory::getTipoGalacticoPinky();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
 				break;
 			}
 			if (objetoNuevo != nullptr) {
@@ -75,8 +78,9 @@ bool MapGenerator::load(string path)
 
 	// Close the file
 	file.close();
-
+	
 	GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
+	
 	vectorObjetosJuego.push_back(objetoPanel);
 
 	return true;
@@ -95,7 +99,8 @@ void MapGenerator::newObjects() {
 		TIPO_FRUTA t = static_cast<TIPO_FRUTA> (rand()% MAX);
 		if (newTile->getMoneda() != nullptr)
 			newTile->getMoneda()->deleteGameObject();
-		GameObject* newObject = FrutaFactory::getTipoFrutaClasico();
+		//GameObject* newObject = FrutaFactory::getTipoFrutaClasico();
+		GameObject* newObject = FrutaFactory::getTipoFrutaGalactico();
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)
 			vectorObjetosJuego.push_back(newObject);

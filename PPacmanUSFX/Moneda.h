@@ -33,7 +33,6 @@ public:
     Moneda(Tile* _tile, Texture* _monedaTextura);
     ~Moneda();
 
-    virtual Moneda* clone() = 0;
     void reconfigurar(Tile* _tile);
 
     int getValor() { return valor; }

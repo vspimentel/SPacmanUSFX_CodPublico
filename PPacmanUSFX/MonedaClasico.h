@@ -4,6 +4,5 @@ class MonedaClasico : public Moneda
 {
 public:
     MonedaClasico(Tile* _tile, Texture* _monedaTextura);
-    Moneda* clone();
 };
 

@@ -6,6 +6,3 @@ MonedaGalactico::MonedaGalactico(Tile* _tile, Texture* _monedaTextura) :
 	tipoMoneda = MONEDA_GALACTICO;
 }
 
-Moneda* MonedaGalactico::clone() {
-	return new MonedaGalactico(*this);
-}

@@ -39,7 +39,6 @@
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="MonedaClasico.cpp" />
-    <ClCompile Include="MonedaFactory.cpp" />
     <ClCompile Include="MonedaGalactico.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="PacmanClasico.cpp" />
@@ -77,7 +76,6 @@
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MonedaClasico.h" />
-    <ClInclude Include="MonedaFactory.h" />
     <ClInclude Include="MonedaGalactico.h" />
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="Pacman.h" />

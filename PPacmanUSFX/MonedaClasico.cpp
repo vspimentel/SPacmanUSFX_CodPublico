@@ -5,8 +5,5 @@ MonedaClasico::MonedaClasico(Tile* _tile, Texture* _monedaTextura) :
 	tipoMoneda = MONEDA_CLASICO;
 }
 
-Moneda* MonedaClasico::clone() {
-	return new MonedaClasico(*this);
-}
 
 

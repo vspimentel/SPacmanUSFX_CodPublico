@@ -3,6 +3,7 @@
 Moneda::Moneda(Tile* _tile, Texture* _monedaTextura) :
 	GameObject(_monedaTextura, _tile)
 {
+
 	if (tileActual != nullptr)
 		tileActual->setMoneda(this);
 

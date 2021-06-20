@@ -120,9 +120,6 @@
     <ClCompile Include="ParedClasicoAdapter.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="MonedaFactory.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="FrutaFactory.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -237,9 +234,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ParedClasicoAdapter.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="MonedaFactory.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="FrutaFactory.h">

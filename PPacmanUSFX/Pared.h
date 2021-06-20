@@ -18,9 +18,12 @@ protected:
 public:
 
     Pared(Tile* _tile, Texture* _paredTextura);
+    ~Pared();
 
     void setTile(Tile* _tileNuevo);
     void render() override;
     void setTexture(int tipoTextura);
+
+    void deleteGameObject() override;
 };
 

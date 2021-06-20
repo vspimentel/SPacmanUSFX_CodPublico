@@ -10,7 +10,6 @@
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
 #include "FantasmasFactory.h"
-#include "MonedaFactory.h"
 #include "FrutaFactory.h"
 #include "GamePanel.h"
 

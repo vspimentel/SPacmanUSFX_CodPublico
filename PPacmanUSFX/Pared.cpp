@@ -12,6 +12,9 @@ GameObject(_paredTextura, _tile){
 	anchoClip = 140;
 };
 
+Pared::~Pared() {
+	deleteGameObject();
+}
 
 void Pared::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr)
@@ -45,5 +48,10 @@ void Pared::setTexture(int tipoTextura)
 	frameX = (tipoTextura - frameY * 4) - 1;;
 }
 
+
+void Pared::deleteGameObject() {
+	GameObject::deleteGameObject();
+	tileActual->setPared(nullptr);
+}
 
 

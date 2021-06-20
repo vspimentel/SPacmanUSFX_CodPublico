@@ -5,6 +5,5 @@ class MonedaGalactico :
 {
 public:
     MonedaGalactico(Tile* _tile, Texture* _monedaTextura);
-    Moneda* clone();
 };
 
