@@ -1,45 +1,49 @@
 #pragma once
 #include "FantasmaClasico.h"
 #include "FantasmaGalactico.h"
+#include "FantasmaAsesino.h"
 #include "TextureManager.h" 
 
 class FantasmasFactory
 {
 private:
-	static Fantasma* tipoClasicoBlinky;
-	static Fantasma* tipoClasicoClyde;
-	static Fantasma* tipoClasicoInkey;
-	static Fantasma* tipoClasicoPinky;
-
-	static Fantasma* tipoGalacticoBlinky;
-	static Fantasma* tipoGalacticoClyde;
-	static Fantasma* tipoGalacticoInkey;
-	static Fantasma* tipoGalacticoPinky;
+	 
+	static Fantasma* tipoBlinky;
+	static Fantasma* tipoClyde;
+	static Fantasma* tipoInkey;
+	static Fantasma* tipoPinky;
 
 public:
-	static void  initialize()
+
+	static void  initializeClasico()
 	{
 		TextureManager* textures = TextureManager::createInstance();
-		tipoClasicoBlinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico1"), 0);
-		tipoClasicoClyde = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico2"), 0);
-		tipoClasicoInkey = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico3"), 0);
-		tipoClasicoPinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico4"), 0);
-		
-		tipoGalacticoBlinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico1"), 0);
-		tipoGalacticoClyde = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico2"), 0);
-		tipoGalacticoInkey = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico3"), 0);
-		tipoGalacticoPinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico4"), 0);
+		tipoBlinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico1"), 0);
+		tipoClyde = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico2"), 0);
+		tipoInkey = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico3"), 0);
+		tipoPinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico4"), 0);
 	}
 
-	static Fantasma* getTipoClasicoBlinky();
-	static Fantasma* getTipoClasicoClyde();
-	static Fantasma* getTipoClasicoInkey();
-	static Fantasma* getTipoClasicoPinky();
-	
-	static Fantasma* getTipoGalacticoBlinky();
-	static Fantasma* getTipoGalacticoClyde();
-	static Fantasma* getTipoGalacticoInkey();
-	static Fantasma* getTipoGalacticoPinky();
+	static void initializeGalactico(){
+		TextureManager* textures = TextureManager::createInstance();
+		tipoBlinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico1"), 0);
+		tipoClyde = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico2"), 0);
+		tipoInkey = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico3"), 0);
+		tipoPinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico4"), 0);
+	}
+
+	static void initializaeAsesino() {
+		TextureManager* textures = TextureManager::createInstance();
+		tipoBlinky = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico1"), 0);
+		tipoClyde = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico2"), 0);
+		tipoInkey = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico3"), 0);
+		tipoPinky = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico4"), 0);
+	}
+
+	static Fantasma* getTipoBlinky();
+	static Fantasma* getTipoClyde();
+	static Fantasma* getTipoInkey();
+	static Fantasma* getTipoPinky();
 
 };
 

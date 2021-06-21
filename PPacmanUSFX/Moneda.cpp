@@ -17,22 +17,6 @@ Moneda::~Moneda() {
 	deleteGameObject();
 }
 
-void Moneda::reconfigurar(Tile* _tile) {
-	
-	tileActual = _tile;
-
-	if (tileActual != nullptr) {
-		tileActual->setMoneda(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
-	}
-	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
-}
-
 void Moneda::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
 		tileActual->setMoneda(nullptr);

@@ -11,9 +11,9 @@ GameObject::GameObject(Texture* _textura, Tile* _tile) {
 		tileSiguiente = tileActual;
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
 	}
+	ancho = Tile::anchoTile;
+	alto = Tile::altoTile;
 	visible = true;
 	eliminar = false;
 	enMovimiento = false;

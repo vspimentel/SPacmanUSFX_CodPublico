@@ -11,7 +11,8 @@ using namespace std;
 
 enum GameFantasmaType {
 	FANTASMA_CLASICO,
-	FANTASMA_GALACTICO
+	FANTASMA_GALACTICO,
+	FANTASMA_ASESINO
 };
 
 class Fantasma : public GameObject {

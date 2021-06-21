@@ -14,8 +14,12 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManage
 	tileGraph = _tileGraph;
 	textureManager = _textureManager;
 
-	FantasmasFactory::initialize();
-	FrutaFactory::initialize();
+	//FantasmasFactory::initializeClasico();
+	FantasmasFactory::initializeGalactico();
+	//FantasmasFactory::initializaeAsesino();
+	//FrutaFactory::initializeClasico();
+	FrutaFactory::initializeGalactico();
+	//FrutaFactory::initializeAsesino();
 }
 
 bool MapGenerator::load(string path)
@@ -56,23 +60,19 @@ bool MapGenerator::load(string path)
 				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, 5);
 				break;
 			case 'a':
-				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
-				//objetoNuevo = FantasmasFactory::getTipoGalacticoBlinky();
+				objetoNuevo = FantasmasFactory::getTipoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
 				break;
 			case 'b':
-				objetoNuevo = FantasmasFactory::getTipoClasicoClyde();
-				//objetoNuevo = FantasmasFactory::getTipoGalacticoClyde();
+				objetoNuevo = FantasmasFactory::getTipoClyde();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
 				break;
 			case 'c':
-				objetoNuevo = FantasmasFactory::getTipoClasicoInkey();
-				//objetoNuevo = FantasmasFactory::getTipoGalacticoInkey();
+				objetoNuevo = FantasmasFactory::getTipoInkey();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
 				break;
 			case 'd':
-				objetoNuevo = FantasmasFactory::getTipoClasicoPinky();
-				//objetoNuevo = FantasmasFactory::getTipoGalacticoPinky();
+				objetoNuevo = FantasmasFactory::getTipoPinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
 				break;
 			}
@@ -106,8 +106,7 @@ void MapGenerator::newObjects() {
 		TIPO_FRUTA t = static_cast<TIPO_FRUTA> (rand()% MAX);
 		if (newTile->getMoneda() != nullptr)
 			newTile->getMoneda()->deleteGameObject();
-		GameObject* newObject = FrutaFactory::getTipoFrutaClasico();
-		//GameObject* newObject = FrutaFactory::getTipoFrutaGalactico();
+		GameObject* newObject = FrutaFactory::getTipoFruta();
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)
 			vectorObjetosJuego.push_back(newObject);

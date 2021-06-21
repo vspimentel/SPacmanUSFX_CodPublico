@@ -29,6 +29,15 @@ private:
 	const string pathSuperMonedaGalactico = "Resources/SupermonedasGalactico.png";
 	const string pathParedGalactico = "Resources/Pared.png";
 
+	const string pathPacmanAsesino = "Resources/PacmanGalactico.bmp";
+	const string pathFantasmaAsesino1 = "Resources/BlinkyGalactico.bmp";
+	const string pathFantasmaAsesino2 = "Resources/ClydeGalactico.bmp";
+	const string pathFantasmaAsesino3 = "Resources/InkeyGalactico.png";
+	const string pathFantasmaAsesino4 = "Resources/PinkyGalactico.bmp";
+	const string pathFrutaAsesino = "Resources/FrutasGalactico.png";
+	const string pathMonedaAsesino = "Resources/MonedasGalactico.png";
+	const string pathSuperMonedaAsesino = "Resources/SupermonedasGalactico.png";
+	const string pathParedAsesino = "Resources/Pared.png";
 
 	Texture* pacmanClasicoTexture;
 	Texture* fantasmaClasico1Texture;
@@ -50,6 +59,16 @@ private:
 	Texture* monedaGalacticoTexture;
 	Texture* superMonedaGalacticoTexture;
 	Texture* paredGalacticoTexture;
+
+	Texture* pacmanAsesinoTexture;
+	Texture* fantasmaAsesino1Texture;
+	Texture* fantasmaAsesino2Texture;
+	Texture* fantasmaAsesino3Texture;
+	Texture* fantasmaAsesino4Texture;
+	Texture* frutaAsesinoTexture;
+	Texture* monedaAsesinoTexture;
+	Texture* superMonedaAsesinoTexture;
+	Texture* paredAsesinoTexture;
 
 	TextureManager();
 	static TextureManager* instance;

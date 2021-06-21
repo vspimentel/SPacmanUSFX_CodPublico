@@ -29,8 +29,6 @@ void Fruta::reconfigurar(Tile* _tileNuevo, TIPO_FRUTA _tipoFruta) {
 		tileActual->setFruta(this); {
 			posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 			posicionY = tileActual->getPosicionY() * Tile::altoTile;
-			ancho = Tile::anchoTile;
-			alto = Tile::altoTile;
 		}
 		colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 	}

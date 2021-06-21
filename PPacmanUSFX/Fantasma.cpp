@@ -40,10 +40,7 @@ void Fantasma::reconfigurar(Tile* _tile, int _velocidad)
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
 	}
-
 	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 	velocidad = _velocidad;
 }

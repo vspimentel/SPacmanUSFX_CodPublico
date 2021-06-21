@@ -3,6 +3,8 @@
 ParedAsesino::ParedAsesino(Tile* _tile, Texture* _paredTextura, bool _isElectrica)
 	:Pared(_tile, _paredTextura)
 {
+	tipoTexturaPared = 14;
+	setTexture(tipoTexturaPared);
 	isElectrica = _isElectrica;
 	tileActual = _tile;
 	state = 0;

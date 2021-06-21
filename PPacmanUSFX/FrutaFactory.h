@@ -9,21 +9,25 @@ class FrutaFactory
 {
 private:
 
-	static Fruta* tipoFrutaClasico;
-	static Fruta* tipoFrutaGalactico;
-	static Fruta* tipoFrutaAsesino;
+	static Fruta* tipoFruta;
 
 public:
 
-	static void initialize() {
+	static void initializeClasico() {
 		TextureManager* textures = TextureManager::createInstance();
-		tipoFrutaClasico = new FrutaClasico(nullptr, textures->getTexture("fruta_clasico"));
-		tipoFrutaGalactico = new FrutaGalactico(nullptr, textures->getTexture("fruta_galactico"));
-		tipoFrutaAsesino = new FrutaAsesino(nullptr, textures->getTexture("fruta_galactico"));
+		tipoFruta = new FrutaClasico(nullptr, textures->getTexture("fruta_clasico"));
 	}
 
-	static Fruta* getTipoFrutaClasico();
-	static Fruta* getTipoFrutaGalactico();
-	static Fruta* getTipoFrutaAsesino();
+	static void initializeGalactico() {
+		TextureManager* textures = TextureManager::createInstance();
+		tipoFruta = new FrutaGalactico(nullptr, textures->getTexture("fruta_galactico"));
+	}
+
+	static void initializeAsesino() {
+		TextureManager* textures = TextureManager::createInstance();
+		tipoFruta = new FrutaAsesino(nullptr, textures->getTexture("fruta_galactico"));
+	}
+
+	static Fruta* getTipoFruta();
 };
 

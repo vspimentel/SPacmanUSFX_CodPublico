@@ -33,8 +33,6 @@ public:
     Moneda(Tile* _tile, Texture* _monedaTextura);
     ~Moneda();
 
-    void reconfigurar(Tile* _tile);
-
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
