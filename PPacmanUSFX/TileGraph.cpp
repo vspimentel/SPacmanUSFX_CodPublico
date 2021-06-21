@@ -3,13 +3,6 @@
 int TileGraph::anchoTileGraph = 0;
 int TileGraph::altoTileGraph = 0;
 
-TileGraph::TileGraph()
-{
-	//tiles = nullptr;
-
-	anchoTileGraph = 0;
-	altoTileGraph = 0;
-}
 
 TileGraph::TileGraph(int _anchoTileGraph, int _altoTileGraph)
 {

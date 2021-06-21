@@ -28,8 +28,9 @@ GameObject::~GameObject() {
 
 void GameObject::render()
 {
-	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
-	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, ancho, alto });
+	//textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	textura->render(posicionX, posicionY, cuadroAnimacion);
 }
 
 bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)

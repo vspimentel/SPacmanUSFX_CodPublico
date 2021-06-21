@@ -57,8 +57,8 @@ void Fruta::setTile(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
 		tileActual->setFruta(this);{
-			posicionX = tileActual->getPosicionX() * Tile::anchoTile + 10;
-			posicionY = tileActual->getPosicionY() * Tile::altoTile + 10;
+			posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+			posicionY = tileActual->getPosicionY() * Tile::altoTile;
 			ancho = Tile::anchoTile;
 			alto = Tile::altoTile;
 		}

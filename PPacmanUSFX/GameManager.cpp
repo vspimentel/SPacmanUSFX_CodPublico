@@ -5,9 +5,8 @@ using namespace std;
 GameManager* GameManager::instancia = nullptr;
 
 GameManager* GameManager::crearInstancia() {
-	if (instancia == nullptr) {
+	if (instancia == nullptr) 
 		instancia = new GameManager();
-	}
 	return instancia;
 }
 
@@ -17,8 +16,6 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 
 	juego_en_ejecucion = true;
-	//tipoFabrica = new FactoryPacmanClasico;
-	tipoFabrica = new FactoryPacmanGalactico;
 }
 
 int GameManager::onExecute() {
@@ -27,9 +24,11 @@ int GameManager::onExecute() {
     }
 	srand(time(nullptr));
 	TileGraph tileGraphGM(20, 15);
-	textureManager = new TextureManager();
+	textureManager = TextureManager::createInstance();
 	GameObject::tileGraph = &tileGraphGM;
-	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, tipoFabrica);
+	tipoFabrica = new FactoryPacmanClasico;
+	//tipoFabrica = new FactoryPacmanGalactico;
+	generadorNivelJuego = MapGenerator::createInstance(&tileGraphGM, textureManager, tipoFabrica);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 

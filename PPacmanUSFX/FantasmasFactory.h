@@ -19,7 +19,7 @@ private:
 public:
 	static void  initialize()
 	{
-		TextureManager* textures = new TextureManager;
+		TextureManager* textures = TextureManager::createInstance();
 		tipoClasicoBlinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico1"), 0);
 		tipoClasicoClyde = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico2"), 0);
 		tipoClasicoInkey = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico3"), 0);

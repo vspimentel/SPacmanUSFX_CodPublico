@@ -50,10 +50,14 @@ private:
 	Texture* monedaGalacticoTexture;
 	Texture* superMonedaGalacticoTexture;
 	Texture* paredGalacticoTexture;
+
+	TextureManager();
+	static TextureManager* instance;
 	
 public:
 
-	TextureManager();
+	static TextureManager* createInstance();
+
 	~TextureManager();
 
 	Texture* getTexture(string _key) { return mapTexturas[_key]; }

@@ -20,7 +20,6 @@ public:
 	static int altoTileGraph;
 		
 public:
-	TileGraph();
 	TileGraph(int _anchoTileGraph, int _altoTileGraph);
 	~TileGraph();
 

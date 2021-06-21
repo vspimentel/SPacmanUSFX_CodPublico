@@ -26,9 +26,12 @@ private:
 
 	int cont = 0;
 
+	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
+	static MapGenerator* instance;
+
 public:
 
-	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
+	static MapGenerator* createInstance(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

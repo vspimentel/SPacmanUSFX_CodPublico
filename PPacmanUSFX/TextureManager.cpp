@@ -1,5 +1,13 @@
 #include "TextureManager.h"
 
+TextureManager* TextureManager::instance = nullptr;
+
+TextureManager* TextureManager::createInstance() {
+	if (instance == nullptr)
+		instance = new TextureManager();
+	return instance;
+}
+
 TextureManager::TextureManager()
 {
 	pacmanClasicoTexture = new Texture();
@@ -71,9 +79,6 @@ TextureManager::TextureManager()
 	paredGalacticoTexture = new Texture();
 	paredGalacticoTexture->loadFromImage(pathParedGalactico);
 	addTexture("pared_galactico", paredGalacticoTexture);
-
-
-	
 }
 
 TextureManager::~TextureManager() {
