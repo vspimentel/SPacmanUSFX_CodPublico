@@ -15,11 +15,11 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManage
 	textureManager = _textureManager;
 
 	//FantasmasFactory::initializeClasico();
-	FantasmasFactory::initializeGalactico();
-	//FantasmasFactory::initializaeAsesino();
+	//FantasmasFactory::initializeGalactico();
+	FantasmasFactory::initializaeAsesino();
 	//FrutaFactory::initializeClasico();
-	FrutaFactory::initializeGalactico();
-	//FrutaFactory::initializeAsesino();
+	//FrutaFactory::initializeGalactico();
+	FrutaFactory::initializeAsesino();
 }
 
 bool MapGenerator::load(string path)
