@@ -46,8 +46,7 @@ public:
 	virtual Fantasma* clone() = 0;
 	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 
-	virtual void update() override;
-	void render() override;
+	virtual void update();
 	static bool avoidInPathFinder(Tile* _tile);
 
 	void deleteGameObject() override;

@@ -73,7 +73,7 @@ class RightStrategy: public Strategy
         char buf[80];
         int offset = width_ - strlen(line);
         memset(buf, ' ', 80);
-        strcpy_s(&(buf[offset]), line);
+        //strcpy_s(&(buf[offset]), line);
         cout << buf << endl;
         line[0] = '\0';
     }
@@ -89,7 +89,7 @@ class CenterStrategy: public Strategy
         char buf[80];
         int offset = (width_ - strlen(line)) / 2;
         memset(buf, ' ', 80);
-        strcpy_s(&(buf[offset]), line);
+        //strcpy_s(&(buf[offset]), line);
         cout << buf << endl;
         line[0] = '\0';
     }

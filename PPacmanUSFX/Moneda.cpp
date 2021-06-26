@@ -29,9 +29,6 @@ void Moneda::setTile(Tile* _tileNuevo) {
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
  	}
 }
 

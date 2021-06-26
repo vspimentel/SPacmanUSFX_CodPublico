@@ -30,15 +30,6 @@ void Pared::setTile(Tile* _tileNuevo) {
 	}
 };
 
-void Pared::render()
-{
-	if (visible) {
-		SDL_Rect rect = { posicionX, posicionY, ancho, alto };
-		SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
-		textura->render(posicionX, posicionY, &clip, &rect);
-	}
-};
-
 void Pared::setTexture(int tipoTextura)
 {
 	if (tipoTextura % 4 == 0)

@@ -24,7 +24,13 @@ private:
 	TextureManager* textureManager;
 	Factory* factory;
 
-	int cont = 0;
+	Tile* start;
+
+	int contFruta = 0;
+	const int frutaTime = 300;
+
+	int contDelay = 100;
+	const int delayTime = 100;
 
 	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
 	static MapGenerator* instance;

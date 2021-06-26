@@ -28,11 +28,6 @@ protected:
 	const int timeFruit = 400;
 	int cont = 0;
 
-	int frameX = 0;
-	int frameY;
-	int altoClip = 25;
-	int anchoClip = 25;
-
 	Tile* tileActual;
 
 public:
@@ -51,7 +46,6 @@ public:
 	void setTile(Tile* _tileNuevo);
 
 	void update();
-	void render() override; 
 
 	void deleteGameObject() override;
 };

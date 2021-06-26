@@ -14,6 +14,7 @@ void GamePanel::render()
 	SDL_Color colorFuente = { 155, 25, 255 };
 	textura->loadFromRenderedText(fuente, texto, colorFuente);
 	SDL_Rect* cuadroTexto = new SDL_Rect({ 0, 0, textura->getAncho(), textura->getAlto() });
+	SDL_Rect* rect = new SDL_Rect{ posicionX, posicionY, textura->getAncho(), textura->getAlto() };
 	textura->setColor(24, 56, 255);
-	textura->render(posicionX, posicionY, cuadroTexto);
+	textura->render(cuadroTexto, rect);
 }

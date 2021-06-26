@@ -28,9 +28,11 @@ GameObject::~GameObject() {
 
 void GameObject::render()
 {
-	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, ancho, alto });
-	//textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
-	textura->render(posicionX, posicionY, cuadroAnimacion);
+	if (visible) {
+		SDL_Rect rect = { posicionX, posicionY, ancho, alto };
+		SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
+		textura->render(&clip, &rect);
+	}
 }
 
 bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
@@ -75,13 +77,16 @@ bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect*
 	return true;
 }
 
-void GameObject::update() {
-	contadorFrames++;
-	numeroFrame = contadorFrames / 8;
 
-	if (numeroFrame > framesMovimiento - 1) {
-		numeroFrame = 0;
+void GameObject::updateFrames() {
+	contadorFrames++;
+	if (contadorFrames >= 10)
+	{
+		frameX++;
+		if (frameX == framesMovimiento)
+		{
+			frameX -= framesMovimiento;
+		}
 		contadorFrames = 0;
 	}
-
 }

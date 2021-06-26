@@ -9,9 +9,7 @@ Fruta::Fruta(Tile* _tile, Texture* _frutaTexture) :
 		tileActual->setFruta(this);
 
 	tipoFruta = TIPO_FRUTA_FRUTILLA;
-	
-	visible = false;
-
+	framesMovimiento = 1;
 }
 
 Fruta::~Fruta() {
@@ -57,10 +55,7 @@ void Fruta::setTile(Tile* _tileNuevo) {
 		tileActual->setFruta(this);{
 			posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 			posicionY = tileActual->getPosicionY() * Tile::altoTile;
-			ancho = Tile::anchoTile;
-			alto = Tile::altoTile;
 		}
-		colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 	}
 }
 
@@ -78,10 +73,3 @@ void Fruta::deleteGameObject() {
 	GameObject::deleteGameObject();
 	tileActual->setFruta(nullptr);
 }
-
-void Fruta::render()
-{
-	SDL_Rect rect = { posicionX, posicionY, ancho, alto };
-	SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
-	textura->render(posicionX, posicionY, &clip, &rect);
-};

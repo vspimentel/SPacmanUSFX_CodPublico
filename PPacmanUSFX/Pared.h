@@ -5,11 +5,11 @@ class Pared : public GameObject
 {
 protected:
 
-    int frameX;
-    int frameY;
+    //int frameX;
+    //int frameY;
 
-    int altoClip;
-    int anchoClip;
+    //int altoClip;
+    //int anchoClip;
 
     int tipoTexturaPared;
 
@@ -21,7 +21,6 @@ public:
     ~Pared();
 
     void setTile(Tile* _tileNuevo);
-    void render() override;
     void setTexture(int tipoTextura);
 
     void deleteGameObject() override;

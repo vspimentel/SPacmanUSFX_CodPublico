@@ -14,12 +14,12 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManage
 	tileGraph = _tileGraph;
 	textureManager = _textureManager;
 
-	//FantasmasFactory::initializeClasico();
+	FantasmasFactory::initializeClasico();
 	//FantasmasFactory::initializeGalactico();
-	FantasmasFactory::initializaeAsesino();
-	//FrutaFactory::initializeClasico();
+	//FantasmasFactory::initializaeAsesino();
+	FrutaFactory::initializeClasico();
 	//FrutaFactory::initializeGalactico();
-	FrutaFactory::initializeAsesino();
+	//FrutaFactory::initializeAsesino();
 }
 
 bool MapGenerator::load(string path)
@@ -62,6 +62,7 @@ bool MapGenerator::load(string path)
 			case 'a':
 				objetoNuevo = FantasmasFactory::getTipoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
+				start = tileNuevo;
 				break;
 			case 'b':
 				objetoNuevo = FantasmasFactory::getTipoClyde();
@@ -94,10 +95,9 @@ bool MapGenerator::load(string path)
 }
 
 void MapGenerator::newObjects() {
-	int time = 300;
 	Tile* newTile;
-	if (cont < time) {
-		cont++;
+	if (contFruta < frutaTime) {
+		contFruta++;
 	}
 	else {
 		do {
@@ -110,7 +110,7 @@ void MapGenerator::newObjects() {
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)
 			vectorObjetosJuego.push_back(newObject);
-		cont = 0;
+		contFruta = 0;
 	}
 }
 
