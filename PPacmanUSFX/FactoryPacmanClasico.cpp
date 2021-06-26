@@ -5,13 +5,19 @@ GameObject* FactoryPacmanClasico::createPacmanInstance(Tile* _tile, TextureManag
 }
 
 
-//GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager, bool _isElectric) {
-//    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"));
+GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager) {
+    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"));
+}
+
+//GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager) {
+ //   return ((Pared*)new ParedClasicoAdapter(_tile, _textureManager->getTexture("pared_clasico_adapter")));
 //}
 
-GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager, bool _isElectric) {
-    return ((Pared*)new ParedClasicoAdapter(_tile, _textureManager->getTexture("pared_clasico_adapter")));
+GameObject* FactoryPacmanClasico::createParedPoderInstance(Tile* _tile, TextureManager* _textureManager)
+{
+    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"));
 }
+
 
 GameObject* FactoryPacmanClasico::createMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
     return new MonedaClasico(_tile, _textureManager->getTexture("moneda_clasico"));

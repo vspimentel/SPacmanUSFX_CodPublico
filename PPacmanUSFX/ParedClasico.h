@@ -6,7 +6,7 @@ class ParedClasico :public Pared
 {
 private:
 
-	const int timeColor = 100;
+	const int timeColor = 50;
 	int cont;
 
 public:

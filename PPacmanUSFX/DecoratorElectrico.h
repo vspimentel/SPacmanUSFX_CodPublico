@@ -1,26 +1,18 @@
 #pragma once
-#include "Pared.h"
+#include "Decorator.h"
 #include "Pacman.h"
-
-class ParedGalactico :  public Pared
+class DecoratorElectrico : public Decorator
 {
 private:
     int velocidadPacman;
-
-    bool isElectrica;
-
     int state;
-
     int cont1 = 50;
     int cont2 = 100;
-
     const int electricTime = 50;
     const int notElectricTime = 100;
-
 public:
-
-     ParedGalactico(Tile* _tile, Texture* _paredTextura);
-     void update();
-
+    DecoratorElectrico(Pared* _widget);
+    void update();
+    //void render() { widget->render(); }
 };
 

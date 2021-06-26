@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Decorator.cpp" />
+    <ClCompile Include="DecoratorElectrico.cpp" />
     <ClCompile Include="FactoryPacmanAsesino.cpp" />
     <ClCompile Include="FactoryPacmanClasico.cpp" />
     <ClCompile Include="FactoryPacmanGalactico.cpp" />
@@ -59,6 +61,8 @@
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Decorator.h" />
+    <ClInclude Include="DecoratorElectrico.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="FactoryPacmanAsesino.h" />
     <ClInclude Include="FactoryPacmanClasico.h" />

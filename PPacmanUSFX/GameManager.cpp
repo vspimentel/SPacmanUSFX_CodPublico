@@ -26,13 +26,12 @@ int GameManager::onExecute() {
 	TileGraph tileGraphGM(20, 15);
 	textureManager = TextureManager::createInstance();
 	GameObject::tileGraph = &tileGraphGM;
-	tipoFabrica = new FactoryPacmanClasico;
-	//tipoFabrica = new FactoryPacmanGalactico;
+	//tipoFabrica = new FactoryPacmanClasico;
+	tipoFabrica = new FactoryPacmanGalactico;
 	//tipoFabrica = new FactoryPacmanAsesino;
 	generadorNivelJuego = MapGenerator::createInstance(&tileGraphGM, textureManager, tipoFabrica);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
-
     SDL_Event Event;
 
     while (juego_en_ejecucion) {

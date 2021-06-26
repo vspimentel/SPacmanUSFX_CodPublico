@@ -150,23 +150,15 @@ void Pacman::update()
 		{
 		case MOVE_UP:
 			posicionY = std::max(posicionY - velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
-			frameX = 2;
-			frameY = 1;
 			break;
 		case MOVE_DOWN:
 			posicionY = std::min(posicionY + velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
-			frameX = 2;
-			frameY = 0;
 			break;
 		case MOVE_LEFT:
 			posicionX = std::max(posicionX - velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			frameX = 0;
-			frameY = 0;
 			break;
 		case MOVE_RIGHT:
 			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			frameX = 0;
-			frameY = 1;
 			break;
 		}
 

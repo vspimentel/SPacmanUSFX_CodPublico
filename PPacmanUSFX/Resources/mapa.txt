@@ -1,6 +1,6 @@
-xxxxxxxxxxxxxxxxxxxx
-x..................x
-x.xxx.xxx..xxx.xxx.x
+///xxxxxxxxxxxxxx///
+/................../
+/./xx.xxx..xxx.xx/./
 x..................x
 x.xxx.x.xxxx.x.xxx.x
 x.....x......x.....x

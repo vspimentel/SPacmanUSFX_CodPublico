@@ -95,7 +95,7 @@ public:
 
 	virtual void render();
 	virtual void update() {};
-	virtual void updateFrames();
+	virtual void updateFrames() {};
 
 	virtual void handleEvent(SDL_Event* event) {};
 

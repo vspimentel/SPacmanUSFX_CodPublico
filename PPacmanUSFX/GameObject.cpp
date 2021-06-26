@@ -76,17 +76,3 @@ bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect*
 
 	return true;
 }
-
-
-void GameObject::updateFrames() {
-	contadorFrames++;
-	if (contadorFrames >= 10)
-	{
-		frameX++;
-		if (frameX == framesMovimiento)
-		{
-			frameX -= framesMovimiento;
-		}
-		contadorFrames = 0;
-	}
-}

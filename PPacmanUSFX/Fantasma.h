@@ -47,6 +47,7 @@ public:
 	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 
 	virtual void update();
+	void updateFrames();
 	static bool avoidInPathFinder(Tile* _tile);
 
 	void deleteGameObject() override;

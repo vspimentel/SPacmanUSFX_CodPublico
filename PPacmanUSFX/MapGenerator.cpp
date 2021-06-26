@@ -51,7 +51,10 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'x':
-				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, false);
+				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager);
+				break;
+			case '/':
+				objetoNuevo = factory->createParedPoderInstance(tileNuevo, textureManager);
 				break;
 			case '.':
 				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);

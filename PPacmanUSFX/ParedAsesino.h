@@ -16,6 +16,6 @@ private:
 
 public:
 
-    ParedAsesino(Tile* _tile, Texture* _paredTextura, bool _isElectrica);
+    ParedAsesino(Tile* _tile, Texture* _paredTextura);
     void update();
 };

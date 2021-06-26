@@ -1,11 +1,10 @@
 #include "ParedGalactico.h"
 
-ParedGalactico::ParedGalactico(Tile* _tile, Texture* _paredTextura, bool _isElectrica)
+ParedGalactico::ParedGalactico(Tile* _tile, Texture* _paredTextura)
 :Pared(_tile, _paredTextura)
 {
 	tipoTexturaPared = 10;
 	setTexture(tipoTexturaPared);
-	isElectrica = _isElectrica;
 	tileActual = _tile;
 	state = 0;
 }

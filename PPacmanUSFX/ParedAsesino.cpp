@@ -1,11 +1,11 @@
 #include "ParedAsesino.h"
 
-ParedAsesino::ParedAsesino(Tile* _tile, Texture* _paredTextura, bool _isElectrica)
+ParedAsesino::ParedAsesino(Tile* _tile, Texture* _paredTextura)
 	:Pared(_tile, _paredTextura)
 {
-	tipoTexturaPared = 14;
+	//isElectrica = true;
+	tipoTexturaPared = 10;
 	setTexture(tipoTexturaPared);
-	isElectrica = _isElectrica;
 	state = 0;
 }
 

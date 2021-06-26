@@ -1,5 +1,9 @@
 #include "Pared.h"
 
+
+Pared::Pared() {
+}
+
 Pared::Pared(Tile* _tile, Texture* _paredTextura):
 GameObject(_paredTextura, _tile){
 
@@ -10,7 +14,8 @@ GameObject(_paredTextura, _tile){
 
 	altoClip = 140;
 	anchoClip = 140;
-};
+}
+
 
 Pared::~Pared() {
 	deleteGameObject();

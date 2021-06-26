@@ -43,6 +43,7 @@ public:
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
 
+    void updateFrames();
     void deleteGameObject() override;
 };
 

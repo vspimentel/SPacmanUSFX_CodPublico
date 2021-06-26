@@ -5,19 +5,13 @@ class Pared : public GameObject
 {
 protected:
 
-    //int frameX;
-    //int frameY;
-
-    //int altoClip;
-    //int anchoClip;
-
     int tipoTexturaPared;
-
     int state;
 
 public:
 
     Pared(Tile* _tile, Texture* _paredTextura);
+    Pared();
     ~Pared();
 
     void setTile(Tile* _tileNuevo);

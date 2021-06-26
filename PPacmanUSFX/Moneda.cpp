@@ -32,6 +32,19 @@ void Moneda::setTile(Tile* _tileNuevo) {
  	}
 }
 
+void Moneda::updateFrames() {
+	contadorFrames++;
+	if (contadorFrames >= 10)
+	{
+		frameX++;
+		if (frameX == framesMovimiento)
+		{
+			frameX -= framesMovimiento;
+		}
+		contadorFrames = 0;
+	}
+}
+
 void Moneda::deleteGameObject()
 {
 	GameObject::deleteGameObject();

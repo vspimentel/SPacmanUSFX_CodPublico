@@ -12,7 +12,7 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _velocidad) :
 	direccionSiguiente = MOVE_RIGHT;
 
 	velocidad = _velocidad;
-
+	eliminar = true;
 	framesMovimiento = 4;
 }
 
@@ -111,6 +111,19 @@ void Fantasma::update()
 
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
+	}
+}
+
+void Fantasma::updateFrames() {
+	contadorFrames++;
+	if (contadorFrames >= 10)
+	{
+		frameX++;
+		if (frameX == framesMovimiento)
+		{
+			frameX -= framesMovimiento;
+		}
+		contadorFrames = 0;
 	}
 }
 

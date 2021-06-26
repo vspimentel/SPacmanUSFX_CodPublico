@@ -9,6 +9,5 @@ public:
     ParedClasicoAdapter(Tile* _tile, Texture* _paredTextura);
     
     void render() override { Wall::Render(); }
-    
 };
 
