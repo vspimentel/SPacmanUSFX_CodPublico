@@ -17,5 +17,5 @@ private:
 public:
 
     ParedAsesino(Tile* _tile, Texture* _paredTextura);
-    void update();
+
 };
