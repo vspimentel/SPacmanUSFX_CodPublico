@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <iostream>
 #include "GameObject.h"
 
 using namespace std;

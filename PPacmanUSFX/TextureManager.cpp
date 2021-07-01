@@ -114,6 +114,19 @@ TextureManager::TextureManager()
 	addTexture("pared_asesino", paredAsesinoTexture);
 }
 
+void TextureManager::initializeSDL(SDL_Renderer* _renderer) {
+	load("Resources/PacmanClasico.bmp", "pacman_clasico", _renderer);
+	load("Resources/BlinkyClasico.bmp", "fantasma_clasico1", _renderer);
+	load("Resources/ClydeClasico.bmp", "fantasma_clasico2", _renderer);
+	load("Resources/InkeyClasico.bmp", "fantasma_clasico3", _renderer);
+	load("Resources/PinkyClasico.bmp", "fantasma_clasico4", _renderer);
+	load("Resources/FrutasClasico.png", "fruta_clasico", _renderer);
+	load("Resources/MonedasClasico.jpg", "moneda_clasico", _renderer);
+	load("Resources/SupermonedasClasico.jpg", "supermoneda_clasico", _renderer);
+	load("Resources/Pared.png", "pared_clasico", _renderer);
+	load("Resources/ParedClasico.bmp", "pared_clasico_adapter", _renderer);
+}
+
 TextureManager::~TextureManager() {
 	free();
 }
@@ -128,4 +141,84 @@ void TextureManager::free()
 	for (pair<string, Texture*> elementoMapTexturas : mapTexturas) {
 		mapTexturas.erase(elementoMapTexturas.first);
 	}
+}
+
+
+bool TextureManager::load(string fileName, string id, SDL_Renderer* pRenderer)
+{
+
+	SDL_Surface* tempsurface = IMG_Load(fileName.c_str());
+	//Checks
+	if (tempsurface == 0)
+	{
+		cout << IMG_GetError();
+		return false;
+	}
+	//Create a texture from temporary surface
+	SDL_Texture* sdltexture = SDL_CreateTextureFromSurface(pRenderer, tempsurface);
+	SDL_FreeSurface(tempsurface);
+
+	if (sdltexture != 0)
+	{
+		texturemap[id] = sdltexture;
+		return true;
+	}
+
+	return false;
+}
+
+void TextureManager::draw(std::string id, int x, int y,
+	int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+
+	srcRect.x = 0;
+	srcRect.y = 0;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, 0, 0, flip);
+}
+
+void TextureManager::drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, double angle, int alpha, SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+	srcRect.x = width * currentFrame;
+	srcRect.y = height * currentRow;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_SetTextureAlphaMod(texturemap[id], alpha);
+	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, angle, 0, flip);
+}
+
+void TextureManager::drawTile(std::string id, int margin, int spacing, int x, int y,
+	int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+	srcRect.x = margin + (spacing + width) * currentFrame;
+	srcRect.y = margin + (spacing + height) * currentRow;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, 0, 0, SDL_FLIP_NONE);
+}
+
+void TextureManager::clearTextureMap()
+{
+	texturemap.clear();
+}
+
+void TextureManager::clearFromTextureMap(string _key)
+{
+	texturemap.erase(_key);
 }

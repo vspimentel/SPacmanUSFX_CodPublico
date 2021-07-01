@@ -1,5 +1,6 @@
 #pragma once
 #include<map>
+#include <iostream>
 #include "Texture.h"
 using namespace std;
 
@@ -72,6 +73,8 @@ private:
 
 	TextureManager();
 	static TextureManager* instance;
+
+	map<string, SDL_Texture*> texturemap;
 	
 public:
 
@@ -79,10 +82,19 @@ public:
 
 	~TextureManager();
 
+	void initializeSDL(SDL_Renderer* _renderer);
+
 	Texture* getTexture(string _key) { return mapTexturas[_key]; }
 	void addTexture(string _key, Texture* _texture);
 	void free();
 
+	bool load(string fileName, string id, SDL_Renderer* pRenderer);
 
+	void clearTextureMap();
+	void clearFromTextureMap(string _key);
+
+	void draw(string id, int x, int y, int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawFrame(string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, double angle, int alpha, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawTile(string id, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer);
 };
 
