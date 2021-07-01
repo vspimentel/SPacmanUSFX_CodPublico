@@ -32,6 +32,7 @@ protected:
 
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura);
+    Moneda(Tile* _tile, string _monedaTextura);
     ~Moneda();
 
     int getValor() { return valor; }

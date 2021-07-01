@@ -4,7 +4,7 @@
 class FantasmaClasico : public Fantasma
 {
 public:
-    FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, int _velocidadPatron);
+    FantasmaClasico(Tile* _tile, string _fantasmaClasicoTextura, int _velocidadPatron);
     Fantasma* clone();
 };
 

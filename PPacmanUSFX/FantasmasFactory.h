@@ -18,26 +18,26 @@ public:
 	static void  initializeClasico()
 	{
 		TextureManager* textures = TextureManager::createInstance();
-		tipoBlinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico1"), 0);
-		tipoClyde = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico2"), 0);
-		tipoInkey = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico3"), 0);
-		tipoPinky = new FantasmaClasico(nullptr, textures->getTexture("fantasma_clasico4"), 0);
+		tipoBlinky = new FantasmaClasico(nullptr, "fantasma_clasico1", 0);
+		tipoClyde = new FantasmaClasico(nullptr, "fantasma_clasico2", 0);
+		tipoInkey = new FantasmaClasico(nullptr, "fantasma_clasico3", 0);
+		tipoPinky = new FantasmaClasico(nullptr, "fantasma_clasico4", 0);
 	}
 
 	static void initializeGalactico(){
 		TextureManager* textures = TextureManager::createInstance();
-		tipoBlinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico1"), 0);
-		tipoClyde = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico2"), 0);
-		tipoInkey = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico3"), 0);
-		tipoPinky = new FantasmaGalactico(nullptr, textures->getTexture("fantasma_galactico4"), 0);
+		tipoBlinky = new FantasmaGalactico(nullptr, "fantasma_galactico1", 0);
+		tipoClyde = new FantasmaGalactico(nullptr, "fantasma_galactico2", 0);
+		tipoInkey = new FantasmaGalactico(nullptr, "fantasma_galactico3", 0);
+		tipoPinky = new FantasmaGalactico(nullptr, "fantasma_galactico4", 0);
 	}
 
 	static void initializaeAsesino() {
 		TextureManager* textures = TextureManager::createInstance();
-		tipoBlinky = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico1"), 0);
-		tipoClyde = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico2"), 0);
-		tipoInkey = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico3"), 0);
-		tipoPinky = new FantasmaAsesino(nullptr, textures->getTexture("fantasma_galactico4"), 0);
+		tipoBlinky = new FantasmaAsesino(nullptr, "fantasma_galactico1", 0);
+		tipoClyde = new FantasmaAsesino(nullptr, "fantasma_galactico2", 0);
+		tipoInkey = new FantasmaAsesino(nullptr, "fantasma_galactico3", 0);
+		tipoPinky = new FantasmaAsesino(nullptr, "fantasma_galactico4", 0);
 	}
 
 	static Fantasma* getTipoBlinky();

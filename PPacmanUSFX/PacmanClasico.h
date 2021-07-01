@@ -4,5 +4,5 @@
 class PacmanClasico : public Pacman
 {
 public:
-	PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico, int _velocidad);
+	PacmanClasico(Tile* _tile, string _texturaPacmanClasico, int _velocidad);
 };

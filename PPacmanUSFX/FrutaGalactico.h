@@ -4,7 +4,7 @@
 class FrutaGalactico : public Fruta
 {
 public:
-    FrutaGalactico(Tile* _tile, Texture* _frutaTextura);
+    FrutaGalactico(Tile* _tile, string _frutaTextura);
     Fruta* clone();
 };
 

@@ -18,6 +18,6 @@ private:
     const int notElectricTime = 100;
 
 public:
-     ParedGalactico(Tile* _tile, Texture* _paredTextura);
+     ParedGalactico(Tile* _tile, string _paredTextura);
 };
 

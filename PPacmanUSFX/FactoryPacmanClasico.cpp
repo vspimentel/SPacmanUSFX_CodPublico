@@ -1,12 +1,12 @@
 #include "FactoryPacmanClasico.h"
 
 GameObject* FactoryPacmanClasico::createPacmanInstance(Tile* _tile, TextureManager* _textureManager, int _velocidad) {
-    return new PacmanClasico(_tile, _textureManager->getTexture("pacman_clasico"), _velocidad);
+    return new PacmanClasico(_tile, "pacman_clasico", _velocidad);
 }
 
 
 GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager) {
-    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"));
+    return new ParedClasico(_tile, "pared_clasico");
 }
 
 //GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager) {
@@ -15,10 +15,10 @@ GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManage
 
 GameObject* FactoryPacmanClasico::createParedPoderInstance(Tile* _tile, TextureManager* _textureManager)
 {
-    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"));
+    return new ParedClasico(_tile, "pared_clasico");
 }
 
 
 GameObject* FactoryPacmanClasico::createMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
-    return new MonedaClasico(_tile, _textureManager->getTexture("moneda_clasico"));
+    return new MonedaClasico(_tile, "moneda_clasico");
 }

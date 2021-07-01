@@ -3,7 +3,7 @@
 class FrutaClasico : public Fruta
 {
 public:
-	FrutaClasico(Tile* _tile, Texture* _frutaTexture);
+	FrutaClasico(Tile* _tile, string _frutaTexture);
 	Fruta* clone();
 };
  

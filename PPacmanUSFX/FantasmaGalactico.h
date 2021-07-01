@@ -4,6 +4,6 @@
 class FantasmaGalactico : public Fantasma
 {
 public:
-    FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _velocidadPatron);
+    FantasmaGalactico(Tile* _tile, string _fantasmaGalacticoTextura, int _velocidadPatron);
     Fantasma* clone();
 };

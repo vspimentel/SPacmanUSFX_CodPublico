@@ -33,6 +33,7 @@ protected:
 public:
 
 	Fruta(Tile* _tile, Texture* _frutaTexture);
+	Fruta(Tile* _tile, string _frutaTexture);
 	~Fruta();
 	
 	void reconfigurar(Tile* _tileNuevo, TIPO_FRUTA tipoFruta);

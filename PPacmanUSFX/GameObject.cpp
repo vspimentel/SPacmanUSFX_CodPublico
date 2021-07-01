@@ -6,6 +6,26 @@ GameObject::GameObject() {}
 
 GameObject::GameObject(Texture* _textura, Tile* _tile) {
 	textura = _textura;
+	textureID = "";
+	tileActual = _tile;
+	if (tileActual != nullptr) {
+		tileSiguiente = tileActual;
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+	}
+	ancho = Tile::anchoTile;
+	alto = Tile::altoTile;
+	visible = true;
+	eliminar = false;
+	enMovimiento = false;
+	numeroFrame = 0;
+	contadorFrames = 0;
+	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
+}
+
+GameObject::GameObject(string _textureID, Tile* _tile) {
+	textureID = _textureID;
+	textura = nullptr;
 	tileActual = _tile;
 	if (tileActual != nullptr) {
 		tileSiguiente = tileActual;
@@ -28,11 +48,18 @@ GameObject::~GameObject() {
 
 void GameObject::render()
 {
-	if (visible) {
-		SDL_Rect rect = { posicionX, posicionY, ancho, alto };
-		SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
-		textura->render(&clip, &rect);
+	if (textura != nullptr) {
+		if (visible) {
+			SDL_Rect rect = { posicionX, posicionY, ancho, alto };
+			SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
+			textura->render(&clip, &rect);
+		}
 	}
+}
+
+void GameObject::draw() {
+	TextureManager::createInstance()->drawFrame(textureID, (Uint32)posicionX, (Uint32)posicionY,
+		ancho, alto, frameY, frameX, altoClip, anchoClip, 0, 255);
 }
 
 bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)

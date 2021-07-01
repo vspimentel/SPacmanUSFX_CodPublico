@@ -15,17 +15,17 @@ public:
 
 	static void initializeClasico() {
 		TextureManager* textures = TextureManager::createInstance();
-		tipoFruta = new FrutaClasico(nullptr, textures->getTexture("fruta_clasico"));
+		tipoFruta = new FrutaClasico(nullptr, "fruta_clasico");
 	}
 
 	static void initializeGalactico() {
 		TextureManager* textures = TextureManager::createInstance();
-		tipoFruta = new FrutaGalactico(nullptr, textures->getTexture("fruta_galactico"));
+		tipoFruta = new FrutaGalactico(nullptr, "fruta_galactico");
 	}
 
 	static void initializeAsesino() {
 		TextureManager* textures = TextureManager::createInstance();
-		tipoFruta = new FrutaAsesino(nullptr, textures->getTexture("fruta_galactico"));
+		tipoFruta = new FrutaAsesino(nullptr, "fruta_galactico");
 	}
 
 	static Fruta* getTipoFruta();

@@ -3,5 +3,5 @@
 class MonedaAsesino : public Moneda
 {
 public:
-    MonedaAsesino(Tile* _tile, Texture* _monedaTextura);
+    MonedaAsesino(Tile* _tile, string _monedaTextura);
 };

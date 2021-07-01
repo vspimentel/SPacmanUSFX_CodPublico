@@ -10,10 +10,13 @@ TextureManager* TextureManager::createInstance() {
 
 TextureManager::TextureManager()
 {
+}
+
+void TextureManager::initialize() {
 	pacmanClasicoTexture = new Texture();
 	pacmanClasicoTexture->loadFromImage(pathPacmanClasico);
 	addTexture("pacman_clasico", pacmanClasicoTexture);
-	
+
 	fantasmaClasico1Texture = new Texture();
 	fantasmaClasico1Texture->loadFromImage(pathFantasmaClasico1);
 	addTexture("fantasma_clasico1", fantasmaClasico1Texture);
@@ -114,17 +117,37 @@ TextureManager::TextureManager()
 	addTexture("pared_asesino", paredAsesinoTexture);
 }
 
-void TextureManager::initializeSDL(SDL_Renderer* _renderer) {
-	load("Resources/PacmanClasico.bmp", "pacman_clasico", _renderer);
-	load("Resources/BlinkyClasico.bmp", "fantasma_clasico1", _renderer);
-	load("Resources/ClydeClasico.bmp", "fantasma_clasico2", _renderer);
-	load("Resources/InkeyClasico.bmp", "fantasma_clasico3", _renderer);
-	load("Resources/PinkyClasico.bmp", "fantasma_clasico4", _renderer);
-	load("Resources/FrutasClasico.png", "fruta_clasico", _renderer);
-	load("Resources/MonedasClasico.jpg", "moneda_clasico", _renderer);
-	load("Resources/SupermonedasClasico.jpg", "supermoneda_clasico", _renderer);
-	load("Resources/Pared.png", "pared_clasico", _renderer);
-	load("Resources/ParedClasico.bmp", "pared_clasico_adapter", _renderer);
+void TextureManager::initializeSDL() {
+	load(pathPacmanClasico, "pacman_clasico");
+	load(pathFantasmaClasico1, "fantasma_clasico1");
+	load(pathFantasmaClasico2, "fantasma_clasico2");
+	load(pathFantasmaClasico3, "fantasma_clasico3");
+	load(pathFantasmaClasico4, "fantasma_clasico4");
+	load(pathFrutaClasico, "fruta_clasico");
+	load(pathMonedaClasico, "moneda_clasico");
+	load(pathSuperMonedaClasico, "supermoneda_clasico");
+	load(pathParedClasico, "pared_clasico");
+	load(pathParedClasicoAdapter, "pared_clasico_adapter");
+
+	load(pathPacmanGalactico, "pacman_galactico");
+	load(pathFantasmaGalactico1, "fantasma_galactico1");
+	load(pathFantasmaGalactico2, "fantasma_galactico2");
+	load(pathFantasmaGalactico3, "fantasma_galactico3");
+	load(pathFantasmaGalactico4, "fantasma_galactico4");
+	load(pathFrutaGalactico, "fruta_galactico");
+	load(pathMonedaGalactico, "moneda_galactico");
+	load(pathSuperMonedaGalactico, "supermoneda_galactico");
+	load(pathParedGalactico, "pared_galactico");
+
+	load(pathPacmanAsesino, "pacman_asesino");
+	load(pathFantasmaAsesino1, "fantasma_asesino1");
+	load(pathFantasmaAsesino2, "fantasma_asesino2");
+	load(pathFantasmaAsesino3, "fantasma_asesino3");
+	load(pathFantasmaAsesino4, "fantasma_asesino4");
+	load(pathFrutaAsesino, "fruta_asesino");
+	load(pathMonedaAsesino, "moneda_asesino");
+	load(pathSuperMonedaAsesino, "supermoneda_asesino");
+	load(pathParedAsesino, "pared_asesino");
 }
 
 TextureManager::~TextureManager() {
@@ -144,7 +167,7 @@ void TextureManager::free()
 }
 
 
-bool TextureManager::load(string fileName, string id, SDL_Renderer* pRenderer)
+bool TextureManager::load(string fileName, string id)
 {
 
 	SDL_Surface* tempsurface = IMG_Load(fileName.c_str());
@@ -155,20 +178,22 @@ bool TextureManager::load(string fileName, string id, SDL_Renderer* pRenderer)
 		return false;
 	}
 	//Create a texture from temporary surface
-	SDL_Texture* sdltexture = SDL_CreateTextureFromSurface(pRenderer, tempsurface);
+	SDL_Texture* sdltexture = SDL_CreateTextureFromSurface(renderer, tempsurface);
 	SDL_FreeSurface(tempsurface);
 
-	if (sdltexture != 0)
+	if (sdltexture != NULL)
 	{
 		texturemap[id] = sdltexture;
+		if (texturemap[id] == NULL)
+			cout << "Error" << endl;
 		return true;
 	}
 
 	return false;
 }
 
-void TextureManager::draw(std::string id, int x, int y,
-	int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+void TextureManager::draw(string id, int x, int y,
+	int width, int height, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
@@ -180,26 +205,28 @@ void TextureManager::draw(std::string id, int x, int y,
 	destRect.x = x;
 	destRect.y = y;
 
-	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, 0, 0, flip);
+	SDL_RenderCopyEx(renderer, texturemap[id], &srcRect, &destRect, 0, 0, flip);
 }
 
-void TextureManager::drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, double angle, int alpha, SDL_RendererFlip flip)
+void TextureManager::drawFrame(string id, int x, int y, int width, int height, int currentRow, int currentFrame, int anchoClip, int altoClip, double angle, int alpha, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
-	srcRect.x = width * currentFrame;
-	srcRect.y = height * currentRow;
-	srcRect.w = destRect.w = width;
-	srcRect.h = destRect.h = height;
+	srcRect.x = anchoClip * currentFrame;
+	srcRect.y = altoClip * currentRow;
+	destRect.w = width;
+	destRect.h = height;
+	srcRect.w = anchoClip;
+	srcRect.h = altoClip;
 	destRect.x = x;
 	destRect.y = y;
 
 	SDL_SetTextureAlphaMod(texturemap[id], alpha);
-	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, angle, 0, flip);
+	SDL_RenderCopyEx(renderer, texturemap[id], &srcRect, &destRect, angle, 0, flip);
 }
 
-void TextureManager::drawTile(std::string id, int margin, int spacing, int x, int y,
-	int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer)
+void TextureManager::drawTile(string id, int margin, int spacing, int x, int y,
+	int width, int height, int currentRow, int currentFrame)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
@@ -210,7 +237,7 @@ void TextureManager::drawTile(std::string id, int margin, int spacing, int x, in
 	destRect.x = x;
 	destRect.y = y;
 
-	SDL_RenderCopyEx(pRenderer, texturemap[id], &srcRect, &destRect, 0, 0, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer, texturemap[id], &srcRect, &destRect, 0, 0, SDL_FLIP_NONE);
 }
 
 void TextureManager::clearTextureMap()

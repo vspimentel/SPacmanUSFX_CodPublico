@@ -12,6 +12,18 @@ Fruta::Fruta(Tile* _tile, Texture* _frutaTexture) :
 	framesMovimiento = 1;
 }
 
+Fruta::Fruta(Tile* _tile, string _frutaTexture) :
+	GameObject(_frutaTexture, _tile)
+{
+	tileActual = _tile;
+
+	if (tileActual != nullptr)
+		tileActual->setFruta(this);
+
+	tipoFruta = TIPO_FRUTA_FRUTILLA;
+	framesMovimiento = 1;
+}
+
 Fruta::~Fruta() {
 	deleteGameObject();
 }

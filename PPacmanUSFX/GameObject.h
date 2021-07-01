@@ -1,6 +1,8 @@
 #pragma once
+#include <string>
 
 #include "Texture.h"
+#include "TextureManager.h"
 #include "Tile.h"
 
 using namespace std;
@@ -42,6 +44,8 @@ protected:
 	int anchoClip = Tile::anchoTile;
 	int altoClip = Tile::altoTile;
 
+	string textureID;
+
 	int numeroFrame;
 	int contadorFrames;
 	int framesMovimiento;
@@ -59,6 +63,7 @@ public:
 	//Constructores y destructores
 	GameObject();
 	GameObject(Texture* _textura, Tile* _tile);
+	GameObject(string _textureID, Tile* _tile);
 	~GameObject();
 
 	//Metodos accesores
@@ -75,6 +80,7 @@ public:
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	Texture* getTextura() { return textura; }
+	string getTexturaID() { return textureID; }
 	virtual SDL_Rect* getColisionador() { return colisionador; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
@@ -95,6 +101,7 @@ public:
 
 	virtual void render();
 	virtual void update() {};
+	virtual void draw();
 	virtual void updateFrames() {};
 
 	virtual void handleEvent(SDL_Event* event) {};

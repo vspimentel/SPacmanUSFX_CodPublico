@@ -1,9 +1,9 @@
 #include "FrutaClasico.h"
-FrutaClasico::FrutaClasico(Tile* _tile, Texture* _frutaTexture):
+FrutaClasico::FrutaClasico(Tile* _tile, string _frutaTexture):
 	Fruta(_tile, _frutaTexture){
 	GameFrutaTipo = FRUTA_CLASICO;
-	ancho = Tile::anchoTile + 5;
-	alto = Tile::altoTile + 5;
+	ancho = Tile::anchoTile;
+	alto = Tile::altoTile;
 }
 
 Fruta* FrutaClasico::clone() {

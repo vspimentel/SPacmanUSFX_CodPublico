@@ -25,9 +25,11 @@ int GameManager::onExecute() {
 	srand(time(nullptr));
 	TileGraph tileGraphGM(20, 15);
 	textureManager = TextureManager::createInstance();
+	textureManager->setRenderer(gRenderer);
+	textureManager->initializeSDL();
 	GameObject::tileGraph = &tileGraphGM;
-	tipoFabrica = new FactoryPacmanClasico;
-	//tipoFabrica = new FactoryPacmanGalactico;
+	//tipoFabrica = new FactoryPacmanClasico;
+	tipoFabrica = new FactoryPacmanGalactico;
 	//tipoFabrica = new FactoryPacmanAsesino;
 	generadorNivelJuego = MapGenerator::createInstance(&tileGraphGM, textureManager, tipoFabrica);
 	generadorNivelJuego->load("Resources/mapa.txt");
@@ -100,7 +102,6 @@ bool GameManager::onInit() {
 					success = false;
 				}
 			}
-			textureManager->initializeSDL(gRenderer);
 			Texture::renderer = gRenderer;
 		}
 	}
@@ -118,7 +119,8 @@ void GameManager::onLoop() {};
 void GameManager::onRender() {
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		actoresJuego[i]->updateFrames();
-		actoresJuego[i]->update();
+		//actoresJuego[i]->update();
+		actoresJuego[i]->draw();
 		actoresJuego[i]->render();
 	}
 };

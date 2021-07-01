@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include <string>
 
 #include "TileGraph.h"
 #include "GameObject.h"
@@ -30,6 +31,7 @@ protected:
 public:
 
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad);
+	Pacman(Tile* _tile, string _texturaPacman, int _velocidad);
 	~Pacman();
 
 	int getVelocidad() { return velocidad; }
@@ -47,7 +49,8 @@ public:
 	// Mover pacman
 	void update();
 
-	void render() override;
+	//void render() override;
+	void draw() override;
 	void updateFrames() override; 
 
 	void changeState();

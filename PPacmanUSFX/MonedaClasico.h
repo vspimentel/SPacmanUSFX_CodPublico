@@ -3,6 +3,6 @@
 class MonedaClasico : public Moneda
 {
 public:
-    MonedaClasico(Tile* _tile, Texture* _monedaTextura);
+    MonedaClasico(Tile* _tile, string _monedaTextura);
 };
 

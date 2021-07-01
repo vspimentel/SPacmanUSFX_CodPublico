@@ -3,7 +3,7 @@
 DecoratorElectrico::DecoratorElectrico(Pared* _widget):Decorator(_widget) {
 	posicionX = _widget->getPosicionX();
 	posicionY = _widget->getPosicionY();
-	textura = _widget->getTextura();
+	textureID = _widget->getTexturaID();
 	ancho = _widget->getAncho();
 	alto = _widget->getAlto();
 	tileActual = _widget->getTile();
