@@ -11,6 +11,6 @@ private:
     string texto;
 public:
     GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY);
-    void render() override;
+    void draw() override;
 };
 

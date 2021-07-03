@@ -10,13 +10,10 @@ enum GameMonedaType {
     MONEDA_GALACTICO
 };
 
-enum PODER_MONEDA {
-    PODER_MONEDA_NINGUNO,
-    PODER_SUPERMONEDA,
-    PODER_MONEDA_COMER,
-    PODER_MONEDA_VELOCIDAD,
-    PODER_MONEDA_SALTO
-};
+//enum PODER_MONEDA {
+//    PODER_MONEDA_NINGUNO,
+//    PODER_SUPERMONEDA
+//};
 
 class Moneda : public GameObject
 {
@@ -24,15 +21,13 @@ protected:
 
     int valor;
 
-    PODER_MONEDA tipoPoderMoneda;
-
     GameMonedaType tipoMoneda;
 
     int tiempoPoderMoneda;
 
 public:
-    Moneda(Tile* _tile, Texture* _monedaTextura);
     Moneda(Tile* _tile, string _monedaTextura);
+    Moneda(Tile* _tile, string _monedaTextura, PODER_MONEDA _poder);
     ~Moneda();
 
     int getValor() { return valor; }

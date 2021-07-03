@@ -9,7 +9,7 @@ DecoratorElectrico::DecoratorElectrico(Pared* _widget):Decorator(_widget) {
 	tileActual = _widget->getTile();
 	altoClip = 140;
 	anchoClip = 140;
-	setTexture(tipoTexturaPared);
+	((Pared*)widget)->setTexture(tipoTexturaPared);
 }
 
 void DecoratorElectrico::update() {
@@ -19,7 +19,7 @@ void DecoratorElectrico::update() {
 		cont2++;
 		if (cont2 >= notElectricTime) {
 			cont1 = 0;
-			setTexture(11);
+			((Pared*)widget)->setTexture(11);
 			state = 1;
 		}
 	}
@@ -28,7 +28,7 @@ void DecoratorElectrico::update() {
 			cont1++;
 			if (cont1 >= electricTime) {
 				cont2 = 0;
-				setTexture(10);
+				((Pared*)widget)->setTexture(10);
 				state = 0;
 				for (auto tile : tileGraph->get4Vecinos(tileActual)) {
 					if (tile != nullptr && tile->getPacman() != nullptr && tile->getPacman()->getState() == 2) {

@@ -1,14 +1,14 @@
 #include "GamePanel.h"
 
 GamePanel::GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY):
-	GameObject(_texturaGamePanel, nullptr)
+	GameObject(_texturaGamePanel)
 {
 	posicionX = _posicionX;
 	posicionY = _posicionY;
 	texto = "Pacman USFX, solo para universitarios.";
 }
 
-void GamePanel::render()
+void GamePanel::draw()
 {
 	TTF_Font* fuente = TTF_OpenFont("BarlowCondensed-Bold.ttf", 15);
 	SDL_Color colorFuente = { 155, 25, 255 };

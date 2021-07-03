@@ -1,30 +1,5 @@
 #include "Pacman.h"
 
-Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad):
-	GameObject(_texturaPacman, _tile)
-{
-	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_texturaPacman);
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
-
-	if (tileActual != nullptr) 
-		tileActual->setPacman(this);
-
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
-
-	velocidad= _velocidad;
-	enMovimiento = true;
-	framesMovimiento = 2;
-}
-
 Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad) :
 	GameObject(_texturaPacman, _tile)
 {
@@ -149,11 +124,15 @@ void Pacman::update()
 	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
 		if (revisarColision(colisionador, tileActual->getMoneda()->getColisionador())) {
-			if (tileActual->getMoneda()->getTipoObjeto() == PODER_SUPERMONEDA) {
+			if (tileActual->getMoneda()->getTipoPoderMoneda() == PODER_SUPERMONEDA) {
 				contState = 0;
 				state = 1;
+				cout << id << endl;
+				tileActual->getSuperMoneda()->deleteGameObject();
 			}
-			tileActual->getMoneda()->deleteGameObject();
+			else {
+				tileActual->getMoneda()->deleteGameObject();
+			}
 		}
 	}
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {

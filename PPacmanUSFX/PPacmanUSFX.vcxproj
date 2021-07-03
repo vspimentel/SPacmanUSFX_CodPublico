@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Decorator.cpp" />
+    <ClCompile Include="DecoratorAura.cpp" />
     <ClCompile Include="DecoratorElectrico.cpp" />
     <ClCompile Include="FactoryPacmanAsesino.cpp" />
     <ClCompile Include="FactoryPacmanClasico.cpp" />
@@ -62,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Decorator.h" />
+    <ClInclude Include="DecoratorAura.h" />
     <ClInclude Include="DecoratorElectrico.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="FactoryPacmanAsesino.h" />

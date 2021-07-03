@@ -32,7 +32,6 @@ protected:
 
 public:
 
-	Fruta(Tile* _tile, Texture* _frutaTexture);
 	Fruta(Tile* _tile, string _frutaTexture);
 	~Fruta();
 	

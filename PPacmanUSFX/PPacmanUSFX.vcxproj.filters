@@ -135,6 +135,9 @@
     <ClCompile Include="DecoratorElectrico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="DecoratorAura.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pacman.h">
@@ -264,6 +267,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="DecoratorElectrico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="DecoratorAura.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

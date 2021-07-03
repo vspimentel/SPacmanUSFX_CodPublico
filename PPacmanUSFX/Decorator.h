@@ -1,11 +1,12 @@
 #pragma once
 #include "Pared.h"
-class Decorator : public Pared
+class Decorator : public GameObject
 {
 protected:
-    Pared* widget;
+    GameObject* widget;
 public:
-    Decorator(Pared* _widget);
+    Decorator(GameObject* _widget);
     void update();
+    void draw();
 };
 

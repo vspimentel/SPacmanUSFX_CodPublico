@@ -7,6 +7,11 @@
 
 using namespace std;
 
+enum PODER_MONEDA {
+	PODER_MONEDA_NINGUNO,
+	PODER_SUPERMONEDA
+};
+
 enum TIPO_OBJETO {
 	FANTASMA,
 	PARED,
@@ -26,6 +31,8 @@ protected:
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
+	int id;
+
 	bool visible = true;
 	bool enMovimiento;
 	bool eliminar = false;
@@ -41,8 +48,12 @@ protected:
 	int frameX;
 	int frameY;
 
+	int alpha;
+
 	int anchoClip = Tile::anchoTile;
 	int altoClip = Tile::altoTile;
+
+	PODER_MONEDA tipoPoderMoneda;
 
 	string textureID;
 
@@ -62,7 +73,7 @@ public:
 public:
 	//Constructores y destructores
 	GameObject();
-	GameObject(Texture* _textura, Tile* _tile);
+	GameObject(Texture* _textura);
 	GameObject(string _textureID, Tile* _tile);
 	~GameObject();
 
@@ -81,6 +92,8 @@ public:
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	Texture* getTextura() { return textura; }
 	string getTexturaID() { return textureID; }
+	int getFrameX() { return frameX; }
+	int getFrameY() { return frameY; }
 	virtual SDL_Rect* getColisionador() { return colisionador; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
@@ -91,6 +104,8 @@ public:
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
 	void setAlive(bool _alive) { alive = _alive; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
+	void setFrameX(int _frameX) { frameX = _frameX; }
+	void setFrameY(int _frameY) { frameY = _frameY; }
 	virtual void setTile(Tile* _tileNuevo) {};
 	void setTextura(Texture* _textura) { textura = _textura; }
 	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }

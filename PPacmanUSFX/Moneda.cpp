@@ -1,11 +1,10 @@
 #include "Moneda.h"
 
-Moneda::Moneda(Tile* _tile, Texture* _monedaTextura) :
+Moneda::Moneda(Tile* _tile, string _monedaTextura) :
 	GameObject(_monedaTextura, _tile)
 {
 	if (tileActual != nullptr)
 		tileActual->setMoneda(this);
-
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
@@ -13,14 +12,12 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura) :
 	framesMovimiento = 4;
 }
 
-Moneda::Moneda(Tile* _tile, string _monedaTextura) :
-	GameObject(_monedaTextura, _tile)
-{
+Moneda::Moneda(Tile* _tile, string _monedaTextura, PODER_MONEDA _poder):
+	GameObject(_monedaTextura, _tile){
 	if (tileActual != nullptr)
 		tileActual->setMoneda(this);
-
 	valor = 1;
-	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
+	tipoPoderMoneda = _poder;
 	tiempoPoderMoneda = 0;
 
 	framesMovimiento = 4;

@@ -10,9 +10,9 @@ private:
     int cont2 = 100;
     const int electricTime = 50;
     const int notElectricTime = 100;
+    int tipoTexturaPared;
 public:
     DecoratorElectrico(Pared* _widget);
     void update();
-    //void render() { widget->render(); }
 };
 

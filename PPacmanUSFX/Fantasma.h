@@ -32,7 +32,6 @@ protected:
 
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _velocidad);
 	Fantasma(Tile* _tile, string _fantasmaTexture, int _velocidad);
 	~Fantasma();
 

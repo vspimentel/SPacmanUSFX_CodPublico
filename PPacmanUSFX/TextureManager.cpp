@@ -128,6 +128,7 @@ void TextureManager::initializeSDL() {
 	load(pathSuperMonedaClasico, "supermoneda_clasico");
 	load(pathParedClasico, "pared_clasico");
 	load(pathParedClasicoAdapter, "pared_clasico_adapter");
+	load(pathAuraClasico, "aura_clasico");
 
 	load(pathPacmanGalactico, "pacman_galactico");
 	load(pathFantasmaGalactico1, "fantasma_galactico1");
@@ -138,6 +139,7 @@ void TextureManager::initializeSDL() {
 	load(pathMonedaGalactico, "moneda_galactico");
 	load(pathSuperMonedaGalactico, "supermoneda_galactico");
 	load(pathParedGalactico, "pared_galactico");
+	load(pathAuraGalactico, "aura_galactico");
 
 	load(pathPacmanAsesino, "pacman_asesino");
 	load(pathFantasmaAsesino1, "fantasma_asesino1");
@@ -148,6 +150,7 @@ void TextureManager::initializeSDL() {
 	load(pathMonedaAsesino, "moneda_asesino");
 	load(pathSuperMonedaAsesino, "supermoneda_asesino");
 	load(pathParedAsesino, "pared_asesino");
+	load(pathAuraGalactico, "aura_asesino");
 }
 
 TextureManager::~TextureManager() {

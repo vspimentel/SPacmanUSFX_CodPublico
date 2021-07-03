@@ -44,44 +44,46 @@ bool MapGenerator::load(string path)
 		// Divide la linea leida y la guarda en un vector de caracteres
 		vector<char> chars(line.begin(), line.end());
 		for (unsigned int x = 0; x < chars.size(); x++) {
-			GameObject* objetoNuevo = nullptr;
-			Tile* tileNuevo = tileGraph->getTileEn(x, y);
+			GameObject* newObject = nullptr;
+			Tile* newTile = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
 			case 'x':
-				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager);
+				newObject = factory->createParedInstance(newTile);
 				break;
 			case '/':
-				objetoNuevo = factory->createParedPoderInstance(tileNuevo, textureManager);
+				newObject = factory->createParedPoderInstance(newTile);
 				break;
 			case '.':
-				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);
+				newObject = factory->createMonedaInstance(newTile);
+				break;
+			case '+':
+				newObject = factory->createMonedaPoderInstance(newTile);
 				break;
 			case 'p':
-				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, 5);
+				newObject = factory->createPacmanInstance(newTile, 5);
 				break;
 			case 'a':
-				objetoNuevo = FantasmasFactory::getTipoBlinky();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
-				start = tileNuevo;
+				newObject = FantasmasFactory::getTipoBlinky();
+				((Fantasma*)newObject)->reconfigurar(newTile, 2);
 				break;
 			case 'b':
-				objetoNuevo = FantasmasFactory::getTipoClyde();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
+				newObject = FantasmasFactory::getTipoClyde();
+				((Fantasma*)newObject)->reconfigurar(newTile, 3);
 				break;
 			case 'c':
-				objetoNuevo = FantasmasFactory::getTipoInkey();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 2);
+				newObject = FantasmasFactory::getTipoInkey();
+				((Fantasma*)newObject)->reconfigurar(newTile, 2);
 				break;
 			case 'd':
-				objetoNuevo = FantasmasFactory::getTipoPinky();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, 3);
+				newObject = FantasmasFactory::getTipoPinky();
+				((Fantasma*)newObject)->reconfigurar(newTile, 3);
 				break;
 			}
-			if (objetoNuevo != nullptr) {
-				vectorObjetosJuego.push_back(objetoNuevo);
+			if (newObject != nullptr) {
+				vectorObjetosJuego.push_back(newObject);
 			}
 		}
 		y++;
@@ -106,7 +108,7 @@ void MapGenerator::newObjects() {
 		do {
 			newTile = tileGraph->getTileEn(rand() % tileGraph->getAnchoTile(), rand() % tileGraph->getAltoTile());
 		} while (newTile->getPared() != nullptr);
-		TIPO_FRUTA t = static_cast<TIPO_FRUTA> (rand()% MAX);
+		TIPO_FRUTA t = ((TIPO_FRUTA)(rand()% MAX));
 		if (newTile->getMoneda() != nullptr)
 			newTile->getMoneda()->deleteGameObject();
 		GameObject* newObject = FrutaFactory::getTipoFruta();

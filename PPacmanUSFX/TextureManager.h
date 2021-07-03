@@ -15,10 +15,11 @@ private:
 	const string pathFantasmaClasico3 = "Resources/InkeyClasico.bmp";
 	const string pathFantasmaClasico4 = "Resources/PinkyClasico.bmp";
 	const string pathFrutaClasico = "Resources/FrutasClasico.png";
-	const string pathMonedaClasico = "Resources/MonedasClasico.jpg";
+	const string pathMonedaClasico = "Resources/MonedasClasico.png";
 	const string pathSuperMonedaClasico = "Resources/SupermonedasClasico.jpg";
 	const string pathParedClasico = "Resources/Pared.png";
 	const string pathParedClasicoAdapter = "Resources/ParedClasico.bmp";
+	const string pathAuraClasico = "Resources/AuraSupermoneda.png";
 
 	const string pathPacmanGalactico = "Resources/PacmanGalactico.bmp";
 	const string pathFantasmaGalactico1 = "Resources/BlinkyGalactico.bmp";
@@ -29,6 +30,7 @@ private:
 	const string pathMonedaGalactico = "Resources/MonedasGalactico.png";
 	const string pathSuperMonedaGalactico = "Resources/SupermonedasGalactico.png";
 	const string pathParedGalactico = "Resources/Pared.png";
+	const string pathAuraGalactico = "Resources/AuraSupermoneda.png";
 
 	const string pathPacmanAsesino = "Resources/PacmanGalactico.bmp";
 	const string pathFantasmaAsesino1 = "Resources/BlinkyGalactico.bmp";
@@ -39,6 +41,7 @@ private:
 	const string pathMonedaAsesino = "Resources/MonedasGalactico.png";
 	const string pathSuperMonedaAsesino = "Resources/SupermonedasGalactico.png";
 	const string pathParedAsesino = "Resources/Pared.png";
+	const string pathAuraAsesino = "Resources/AuraSupermoneda.png";
 
 	Texture* pacmanClasicoTexture;
 	Texture* fantasmaClasico1Texture;

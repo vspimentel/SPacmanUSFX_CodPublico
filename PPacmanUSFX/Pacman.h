@@ -9,6 +9,7 @@
 #include "TextureAnimation.h" 
 #include "Moneda.h"
 #include "Fruta.h"
+#include "DecoratorAura.h"
 
 using namespace std;
 
@@ -30,7 +31,6 @@ protected:
 
 public:
 
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _velocidad);
 	Pacman(Tile* _tile, string _texturaPacman, int _velocidad);
 	~Pacman();
 
