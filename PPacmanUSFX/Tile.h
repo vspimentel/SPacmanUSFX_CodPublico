@@ -40,8 +40,8 @@ public:
 	Fruta* getFruta() { return fruta; }
 	Moneda* getMoneda() { return moneda; }
 	Pared* getPared() { return pared; }
+	DecoratorAura* getSupermoneda() { return supermoneda; }
 	Wall* GetWall() { return ((Wall*)pared); }
-	DecoratorAura* getSuperMoneda() { return supermoneda; }
 
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
@@ -54,9 +54,9 @@ public:
 	void setFantasma(Fantasma* _fantasma) { fantasma = _fantasma; }
 	void setFruta(Fruta* _fruta){ fruta = _fruta; }
 	void setMoneda(Moneda* _moneda) { moneda = _moneda; }
-	void setSuperMoneda(DecoratorAura* _supermoneda) { supermoneda = _supermoneda; }
 	void setPared(Pared* _pared) { pared = _pared; }
 	void SetWall(Wall* _wall) { pared = ((Pared*)_wall); }
+	void setSupermoneda(DecoratorAura* _supermoneda) { supermoneda = _supermoneda; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }

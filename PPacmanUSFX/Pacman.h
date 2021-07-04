@@ -10,7 +10,6 @@
 #include "Moneda.h"
 #include "Fruta.h"
 #include "DecoratorAura.h"
-
 using namespace std;
 
 class Pacman : public GameObject

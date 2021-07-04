@@ -12,7 +12,7 @@ private:
     const int notElectricTime = 100;
     int tipoTexturaPared;
 public:
-    DecoratorElectrico(Pared* _widget);
+    DecoratorElectrico(GameObject* _widget);
     void update();
 };
 

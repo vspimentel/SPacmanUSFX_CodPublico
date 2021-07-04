@@ -17,6 +17,6 @@ GameObject* FactoryPacmanAsesino::createMonedaInstance(Tile* _tile) {
 }
 
 GameObject* FactoryPacmanAsesino::createMonedaPoderInstance(Tile* _tile) {
-    return ((Moneda*)new DecoratorAura(new MonedaAsesino(_tile, "moneda_galactico", PODER_SUPERMONEDA)));
+    return new MonedaAsesino(_tile, "moneda_galactico", PODER_SUPERMONEDA);
 }
 

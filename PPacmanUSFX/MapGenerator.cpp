@@ -2,23 +2,22 @@
 
 MapGenerator* MapGenerator::instance = nullptr;
 
-MapGenerator* MapGenerator::createInstance(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* _fabrica) {
+MapGenerator* MapGenerator::createInstance(TileGraph* _tileGraph, Factory* _fabrica) {
 	if (instance == nullptr)
-		instance = new MapGenerator(_tileGraph, _textureManager, _fabrica);
+		instance = new MapGenerator(_tileGraph, _fabrica);
 	return instance;
 }
 
-MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* _factory)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, Factory* _factory)
 {
 	factory = _factory;
 	tileGraph = _tileGraph;
-	textureManager = _textureManager;
 
-	//FantasmasFactory::initializeClasico();
-	FantasmasFactory::initializeGalactico();
+	FantasmasFactory::initializeClasico();
+	//FantasmasFactory::initializeGalactico();
 	//FantasmasFactory::initializaeAsesino();
-	//FrutaFactory::initializeClasico();
-	FrutaFactory::initializeGalactico();
+	FrutaFactory::initializeClasico();
+	//FrutaFactory::initializeGalactico();
 	//FrutaFactory::initializeAsesino();
 }
 
@@ -45,6 +44,7 @@ bool MapGenerator::load(string path)
 		vector<char> chars(line.begin(), line.end());
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* newObject = nullptr;
+			Decorator* newDecorator = nullptr;
 			Tile* newTile = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
@@ -61,6 +61,8 @@ bool MapGenerator::load(string path)
 				break;
 			case '+':
 				newObject = factory->createMonedaPoderInstance(newTile);
+				newDecorator = new DecoratorAura(newObject);
+				vectorObjetosJuego.push_back(newDecorator);
 				break;
 			case 'p':
 				newObject = factory->createPacmanInstance(newTile, 5);
@@ -107,7 +109,7 @@ void MapGenerator::newObjects() {
 	else {
 		do {
 			newTile = tileGraph->getTileEn(rand() % tileGraph->getAnchoTile(), rand() % tileGraph->getAltoTile());
-		} while (newTile->getPared() != nullptr);
+		} while (newTile->getPared() != nullptr || newTile->getSupermoneda() != nullptr);
 		TIPO_FRUTA t = ((TIPO_FRUTA)(rand()% MAX));
 		if (newTile->getMoneda() != nullptr)
 			newTile->getMoneda()->deleteGameObject();

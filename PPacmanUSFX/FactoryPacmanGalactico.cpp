@@ -9,7 +9,7 @@ GameObject* FactoryPacmanGalactico::createParedInstance(Tile* _tile) {
 }
 
 GameObject* FactoryPacmanGalactico::createParedPoderInstance(Tile* _tile){
-    return new DecoratorElectrico(new ParedGalactico(_tile, "pared_galactico"));
+    return new DecoratorElectrico((new ParedGalactico(_tile, "pared_galactico")));
 }
 
 GameObject* FactoryPacmanGalactico::createMonedaInstance(Tile* _tile) {
@@ -17,5 +17,5 @@ GameObject* FactoryPacmanGalactico::createMonedaInstance(Tile* _tile) {
 }
 
 GameObject* FactoryPacmanGalactico::createMonedaPoderInstance(Tile* _tile) {
-    return ((Moneda*)new DecoratorAura(new MonedaGalactico(_tile, "moneda_galactico", PODER_SUPERMONEDA)));
+    return new MonedaGalactico(_tile, "moneda_galactico", PODER_SUPERMONEDA);
 }

@@ -8,6 +8,6 @@ class ParedClasicoAdapter :
 public:
     ParedClasicoAdapter(Tile* _tile, string _paredTexturaID, Texture* _paredTextura);
     
-    void render() override { Wall::Render(); }
+    void render() { Wall::Render(); }
 };
 

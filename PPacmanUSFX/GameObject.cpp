@@ -4,6 +4,17 @@ TileGraph* GameObject::tileGraph = nullptr;
 
 GameObject::GameObject() {
 	alpha = 255;
+	textureID = "";
+	textura = nullptr;
+	tileActual = nullptr;
+	ancho = Tile::anchoTile;
+	alto = Tile::altoTile;
+	visible = true;
+	eliminar = false;
+	enMovimiento = false;
+	numeroFrame = 0;
+	contadorFrames = 0;
+	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 }
 
 GameObject::GameObject(Texture* _textura) {
@@ -35,17 +46,6 @@ GameObject::GameObject(string _textureID, Tile* _tile) {
 
 GameObject::~GameObject() {
 	deleteGameObject();
-}
-
-void GameObject::render()
-{
-	if (textura != nullptr) {
-		if (visible) {
-			SDL_Rect rect = { posicionX, posicionY, ancho, alto };
-			SDL_Rect clip = { 0 + frameX * anchoClip, 0 + frameY * altoClip, anchoClip, altoClip };
-			textura->render(&clip, &rect);
-		}
-	}
 }
 
 void GameObject::draw() {

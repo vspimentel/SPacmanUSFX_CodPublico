@@ -7,10 +7,6 @@
 
 using namespace std;
 
-enum PODER_MONEDA {
-	PODER_MONEDA_NINGUNO,
-	PODER_SUPERMONEDA
-};
 
 enum TIPO_OBJETO {
 	FANTASMA,
@@ -53,8 +49,6 @@ protected:
 	int anchoClip = Tile::anchoTile;
 	int altoClip = Tile::altoTile;
 
-	PODER_MONEDA tipoPoderMoneda;
-
 	string textureID;
 
 	int numeroFrame;
@@ -94,6 +88,7 @@ public:
 	string getTexturaID() { return textureID; }
 	int getFrameX() { return frameX; }
 	int getFrameY() { return frameY; }
+	int getFramesMovimiento() { return framesMovimiento; }
 	virtual SDL_Rect* getColisionador() { return colisionador; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
@@ -114,7 +109,6 @@ public:
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
 
-	virtual void render();
 	virtual void update() {};
 	virtual void draw();
 	virtual void updateFrames() {};

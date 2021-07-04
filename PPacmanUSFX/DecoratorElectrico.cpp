@@ -1,15 +1,7 @@
 #include "DecoratorElectrico.h"
 
-DecoratorElectrico::DecoratorElectrico(Pared* _widget):Decorator(_widget) {
-	posicionX = _widget->getPosicionX();
-	posicionY = _widget->getPosicionY();
-	textureID = _widget->getTexturaID();
-	ancho = _widget->getAncho();
-	alto = _widget->getAlto();
+DecoratorElectrico::DecoratorElectrico(GameObject* _widget):Decorator(_widget) {
 	tileActual = _widget->getTile();
-	altoClip = 140;
-	anchoClip = 140;
-	((Pared*)widget)->setTexture(tipoTexturaPared);
 }
 
 void DecoratorElectrico::update() {

@@ -25,5 +25,5 @@ GameObject* FactoryPacmanClasico::createMonedaInstance(Tile* _tile) {
 
 
 GameObject* FactoryPacmanClasico::createMonedaPoderInstance(Tile* _tile) {
-    return ((Moneda*)new DecoratorAura(new MonedaClasico(_tile, "moneda_clasico", PODER_SUPERMONEDA)));
+    return new MonedaClasico(_tile, "moneda_clasico", PODER_SUPERMONEDA);
 }

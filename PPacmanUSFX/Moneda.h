@@ -10,10 +10,10 @@ enum GameMonedaType {
     MONEDA_GALACTICO
 };
 
-//enum PODER_MONEDA {
-//    PODER_MONEDA_NINGUNO,
-//    PODER_SUPERMONEDA
-//};
+enum PODER_MONEDA {
+    PODER_MONEDA_NINGUNO,
+    PODER_SUPERMONEDA
+};
 
 class Moneda : public GameObject
 {
@@ -22,6 +22,8 @@ protected:
     int valor;
 
     GameMonedaType tipoMoneda;
+
+    PODER_MONEDA tipoPoderMoneda;
 
     int tiempoPoderMoneda;
 

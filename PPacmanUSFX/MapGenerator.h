@@ -6,11 +6,12 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "FactoryPacmanClasico.h"
-#include "FactoryPacmanGalactico.h"
 #include "Factory.h"
 #include "FantasmasFactory.h"
 #include "FrutaFactory.h"
+#include "Decorator.h"
+#include "DecoratorElectrico.h"
+#include "DecoratorAura.h"
 #include "GamePanel.h"
 
 using namespace std;
@@ -21,7 +22,6 @@ private:
 
 	vector<GameObject*> vectorObjetosJuego;
 	TileGraph* tileGraph;
-	TextureManager* textureManager;
 	Factory* factory;
 
 	Tile* start;
@@ -32,12 +32,12 @@ private:
 	int contDelay = 100;
 	const int delayTime = 100;
 
-	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
+	MapGenerator(TileGraph* _tileGraph, Factory* fabrica);
 	static MapGenerator* instance;
 
 public:
 
-	static MapGenerator* createInstance(TileGraph* _tileGraph, TextureManager* _textureManager, Factory* fabrica);
+	static MapGenerator* createInstance(TileGraph* _tileGraph, Factory* fabrica);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);
