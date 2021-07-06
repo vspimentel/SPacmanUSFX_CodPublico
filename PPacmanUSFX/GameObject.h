@@ -9,8 +9,8 @@ using namespace std;
 
 
 enum TIPO_OBJETO {
-	FANTASMA,
 	PARED,
+	FANTASMA,
 	PACMAN,
 	FRUTA,
 	MONEDA

@@ -28,31 +28,31 @@ int GameManager::onExecute() {
 	textureManager->setRenderer(gRenderer);
 	textureManager->initializeSDL();
 	GameObject::tileGraph = &tileGraphGM; 
-	//tipoFabrica = new FactoryPacmanClasico;
+	tipoFabrica = new FactoryPacmanClasico;
 	//tipoFabrica = new FactoryPacmanGalactico;
-	tipoFabrica = new FactoryPacmanAsesino;
-	generadorNivelJuego = MapGenerator::createInstance(&tileGraphGM, tipoFabrica);
-	generadorNivelJuego->load("Resources/mapa.txt");
-	generadorNivelJuego->populate(actoresJuego);
+	//tipoFabrica = new FactoryPacmanAsesino;
+	gGenerator = MapGenerator::createInstance(&tileGraphGM, tipoFabrica);
+	gGenerator->load("Resources/mapa.txt");
+	//gGenerator->populate(actoresJuego);
     SDL_Event Event;
 
     while (juego_en_ejecucion) {
+		gGenerator->newObjects();
 
-		for (int i = 0; i < actoresJuego.size(); i++) {
-			if (((GameObject*)actoresJuego[i])->getEliminar()) {
-				actoresJuego.erase(remove(actoresJuego.begin(), actoresJuego.end(), actoresJuego[i]), actoresJuego.end());
+		for (int i = 0; i < gGenerator->actors.size(); i++) {
+			if (((GameObject*)gGenerator->actors[i])->getEliminar()) {
+				//cout << " ad" << endl;
+				gGenerator->actors.erase(remove(gGenerator->actors.begin(), gGenerator->actors.end(), gGenerator->actors[i]), gGenerator->actors.end());
 			}
 		}
 
-		generadorNivelJuego->newObjects();
-		generadorNivelJuego->populate(actoresJuego);
-
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
-			for (int i = 0; i < actoresJuego.size(); i++) {
-				actoresJuego[i]->handleEvent(&Event);
+			for (int i = 0; i < gGenerator->actors.size(); i++) {
+				gGenerator->actors[i]->handleEvent(&Event);
 			}
         }
+
 
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
@@ -117,10 +117,10 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
-	for (int i = 0; i < actoresJuego.size(); i++) {
-		actoresJuego[i]->updateFrames();
-		actoresJuego[i]->update();
-		actoresJuego[i]->draw();
+	for (int i = 0; i < gGenerator->actors.size(); i++) {
+		gGenerator->actors[i]->updateFrames();
+		gGenerator->actors[i]->update();
+		gGenerator->actors[i]->draw();
 	}
 };
 

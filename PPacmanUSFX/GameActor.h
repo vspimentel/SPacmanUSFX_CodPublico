@@ -34,6 +34,7 @@ public:
 	virtual SDL_Rect* getColisionador() { return colisionador; }
 
 	void setAlive(bool _alive) { alive = _alive; }
+	void setDead(bool _dead) { dead = _dead; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 	void setTextura(Texture* _textura) { textura = _textura; }
 	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }

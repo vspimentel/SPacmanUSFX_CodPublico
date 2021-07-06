@@ -13,11 +13,11 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, Factory* _factory)
 	factory = _factory;
 	tileGraph = _tileGraph;
 
-	//FantasmasFactory::initializeClasico();
-	FantasmasFactory::initializeGalactico();
+	FantasmasFactory::initializeClasico();
+	//FantasmasFactory::initializeGalactico();
 	//FantasmasFactory::initializaeAsesino();
-	//FrutaFactory::initializeClasico();
-	FrutaFactory::initializeGalactico();
+	FrutaFactory::initializeClasico();
+	//FrutaFactory::initializeGalactico();
 	//FrutaFactory::initializeAsesino();
 }
 
@@ -62,7 +62,7 @@ bool MapGenerator::load(string path)
 			case '+':
 				newObject = factory->createMonedaPoderInstance(newTile);
 				newDecorator = new DecoratorAura(newObject);
-				vectorObjetosJuego.push_back(newDecorator);
+				actors.push_back(newDecorator);
 				break;
 			case 'p':
 				newObject = factory->createPacmanInstance(newTile, 5);
@@ -85,7 +85,7 @@ bool MapGenerator::load(string path)
 				break;
 			}
 			if (newObject != nullptr) {
-				vectorObjetosJuego.push_back(newObject);
+				actors.push_back(newObject);
 			}
 		}
 		y++;
@@ -96,7 +96,7 @@ bool MapGenerator::load(string path)
 	
 	GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
 	
-	vectorObjetosJuego.push_back(((GameActor*)objetoPanel));
+	actors.push_back(((GameActor*)objetoPanel));
 
 	return true;
 }
@@ -108,19 +108,86 @@ void MapGenerator::newObjects() {
 	}
 	else {
 		newTile = tileGraph->getTileEn(9 + rand() % (11 - 9), 0);
-		TIPO_FRUTA t = ((TIPO_FRUTA)(rand()% MAX));
+		TIPO_FRUTA t = ((TIPO_FRUTA)(rand() % MAX));
 		GameActor* newObject = FrutaFactory::getTipoFruta();
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)
-			vectorObjetosJuego.push_back(newObject);
+			actors.push_back(newObject);
 		contFruta = 0;
+	}
+
+	vector<GameActor*> fantasmas;
+	for (int i = 0; i < actors.size(); i++) {
+		if (actors[i]->getTipoObjeto() == FANTASMA) {
+			fantasmas.push_back(actors[i]);
+		}
+	}
+	for (int i = 0; i < fantasmas.size(); i++) {
+		if (fantasmas[i]->getEliminar()) {
+			textura = fantasmas[i]->getTexturaID();
+			start = ((Fantasma*)fantasmas[i])->getStart();
+			velocidad = ((Fantasma*)fantasmas[i])->getVelocidad();
+
+		}
+
+		if (contDelay >= delayTime) {
+			if (!fantasmas[i]->getAlive() && !fantasmas[i]->getDead()) {
+				fantasmas[i]->setTile(((Fantasma*)fantasmas[i])->getStart());
+				fantasmas[i]->setAlive(true);
+				fantasmas[i]->setVisible(true);
+				contDelay = 0;
+			}
+		}
+		else
+			contDelay++;
+
+		if (textura == "fantasma_galactico1" || textura == "fantasma_clasico1") {
+			GameActor* newActor = FantasmasFactory::getTipoBlinky();
+			newActor->setDead(true);
+			newActor->setAlive(false);
+			newActor->setVisible(false);
+			((Fantasma*)newActor)->setStart(start);
+			((Fantasma*)newActor)->setVelocidad(velocidad);
+			actors.push_back(newActor);
+			textura = "";
+		}
+		else if (textura == "fantasma_galactico2" || textura == "fantasma_clasico2") {
+			GameActor* newActor = FantasmasFactory::getTipoClyde();
+			newActor->setDead(true);
+			newActor->setAlive(false);
+			newActor->setVisible(false);
+			((Fantasma*)newActor)->setStart(start);
+			((Fantasma*)newActor)->setVelocidad(velocidad);
+			actors.push_back(newActor);
+			textura = "";
+		}
+		else if (textura == "fantasma_galactico3" || textura == "fantasma_clasico3") {
+			GameActor* newActor = FantasmasFactory::getTipoInkey();
+			newActor->setDead(true);
+			newActor->setAlive(false);
+			newActor->setVisible(false);
+			((Fantasma*)newActor)->setStart(start);
+			((Fantasma*)newActor)->setVelocidad(velocidad);
+			actors.push_back(newActor);
+			textura = "";
+		}
+		else if (textura == "fantasma_galactico4" || textura == "fantasma_clasico4") {
+			GameActor* newActor = FantasmasFactory::getTipoPinky();
+			newActor->setDead(true);
+			newActor->setAlive(false);
+			newActor->setVisible(false);
+			((Fantasma*)newActor)->setStart(start);
+			((Fantasma*)newActor)->setVelocidad(velocidad);
+			actors.push_back(newActor);
+			textura = "";
+		}
 	}
 }
 
 void MapGenerator::populate(std::vector<GameActor*> &_vectorObjetosJuegoGM)
 {
-	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
+	for (auto ivoj = actors.begin(); ivoj != actors.end(); ++ivoj) {
 		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}
-	vectorObjetosJuego.clear();
+	actors.clear();
 }

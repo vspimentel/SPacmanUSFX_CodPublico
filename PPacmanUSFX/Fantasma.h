@@ -19,8 +19,12 @@ enum GameFantasmaType {
 class Fantasma : public GameActor {
 
 protected:
+	int deadTime = 100;
+	int contDead = 0;
 
 	GameFantasmaType tipoFantasma;
+
+	Tile* start;
 
 	int velocidad;
 
@@ -43,6 +47,10 @@ public:
 
 	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
+
+	Tile* getStart() { return start; }
+
+	void setStart(Tile* _start) { start = _start; }
 
 	virtual Fantasma* clone() = 0;
 	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }

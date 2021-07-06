@@ -20,7 +20,7 @@ Moneda::Moneda(Tile* _tile, string _monedaTextura, PODER_MONEDA _poder):
 	valor = 1;
 	tipoPoderMoneda = _poder;
 	tiempoPoderMoneda = 0;
-
+	tipoObjeto = MONEDA;
 	framesMovimiento = 4;
 }
 

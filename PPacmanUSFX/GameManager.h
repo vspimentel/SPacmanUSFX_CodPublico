@@ -26,8 +26,8 @@ private:
     //The window renderer
     SDL_Renderer* gRenderer;
    
-    vector<GameActor*> actoresJuego;
-    MapGenerator* generadorNivelJuego;
+    //vector<GameActor*> actoresJuego;
+    MapGenerator* gGenerator;
     TextureManager* textureManager;
     Factory* tipoFabrica;
 
