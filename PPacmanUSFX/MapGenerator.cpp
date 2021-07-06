@@ -13,11 +13,11 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, Factory* _factory)
 	factory = _factory;
 	tileGraph = _tileGraph;
 
-	FantasmasFactory::initializeClasico();
-	//FantasmasFactory::initializeGalactico();
+	//FantasmasFactory::initializeClasico();
+	FantasmasFactory::initializeGalactico();
 	//FantasmasFactory::initializaeAsesino();
-	FrutaFactory::initializeClasico();
-	//FrutaFactory::initializeGalactico();
+	//FrutaFactory::initializeClasico();
+	FrutaFactory::initializeGalactico();
 	//FrutaFactory::initializeAsesino();
 }
 
@@ -107,12 +107,8 @@ void MapGenerator::newObjects() {
 		contFruta++;
 	}
 	else {
-		do {
-			newTile = tileGraph->getTileEn(rand() % tileGraph->getAnchoTile(), rand() % tileGraph->getAltoTile());
-		} while (newTile->getPared() != nullptr || newTile->getSupermoneda() != nullptr);
+		newTile = tileGraph->getTileEn(9 + rand() % (11 - 9), 0);
 		TIPO_FRUTA t = ((TIPO_FRUTA)(rand()% MAX));
-		if (newTile->getMoneda() != nullptr)
-			newTile->getMoneda()->deleteGameObject();
 		GameActor* newObject = FrutaFactory::getTipoFruta();
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)

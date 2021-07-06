@@ -42,6 +42,7 @@ public:
 	virtual void update() {};
 	virtual void draw() { GameObject::draw(); };
 	virtual void updateFrames() {};
+	virtual void handleEvent(SDL_Event* event) {};
 
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);

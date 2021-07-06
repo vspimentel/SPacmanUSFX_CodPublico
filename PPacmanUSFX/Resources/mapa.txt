@@ -1,4 +1,4 @@
-///xxxxxxxxxxxxxx///
+///xxxxxx  xxxxxx///
 /+................+/
 /./xx.xxx..xxx.xx/./
 x..................x
@@ -12,4 +12,4 @@ xxxxx.xxxxxxxx.xxxxx
 x..................x
 x.xxxxxxxxxxxxxxxx.x
 x+.......p........+x
-xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxx  xxxxxxxxx

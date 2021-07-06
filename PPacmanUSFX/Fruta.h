@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
-
+#include "MoveDirection.h"
+#include "PathFinder.h"
 #include "GameActor.h"
 
 using namespace std;
@@ -25,8 +26,17 @@ protected:
 	TIPO_FRUTA tipoFruta;
 	GameFrutaType GameFrutaTipo;
 
+	MoveDirection direccionActual;
+	MoveDirection direccionSiguiente;
+
+	Tile* tileDestino;
+
+	vector<Tile*> camino;
+
 	const int timeFruit = 400;
 	int cont = 0;
+
+	int velocidad;
 
 	Tile* tileActual;
 
@@ -46,6 +56,8 @@ public:
 	void setTile(Tile* _tileNuevo);
 
 	void update();
+
+	static bool avoidInPathFinder(Tile* _tile);
 
 	void deleteGameObject() override;
 };
