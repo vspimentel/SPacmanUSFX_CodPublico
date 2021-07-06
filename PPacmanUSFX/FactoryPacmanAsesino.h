@@ -8,9 +8,9 @@
 class FactoryPacmanAsesino : public Factory
 {
 public:
-    GameObject* createPacmanInstance(Tile* _tile, int _velocidad) override;
-    GameObject* createParedInstance(Tile* _tile) override;
-    GameObject* createParedPoderInstance(Tile* _tile) override;
-    GameObject* createMonedaInstance(Tile* _tile) override;
-    GameObject* createMonedaPoderInstance(Tile* _tile) override;
+    GameActor* createPacmanInstance(Tile* _tile, int _velocidad) override;
+    GameActor* createParedInstance(Tile* _tile) override;
+    GameActor* createParedPoderInstance(Tile* _tile) override;
+    GameActor* createMonedaInstance(Tile* _tile) override;
+    GameActor* createMonedaPoderInstance(Tile* _tile) override;
 };

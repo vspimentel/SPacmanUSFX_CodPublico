@@ -8,7 +8,7 @@ private:
 	const int timeState = 500;
 	int contState = 500;
 public:
-	DecoratorAura(GameObject* widget);
+	DecoratorAura(GameActor* widget);
 	void draw();
 	void update() override;
 	void deleteGameObject() override;

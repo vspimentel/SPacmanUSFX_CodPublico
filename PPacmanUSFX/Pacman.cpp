@@ -1,7 +1,7 @@
 #include "Pacman.h"
 
 Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad) :
-	GameObject(_texturaPacman, _tile)
+	GamePawn(_texturaPacman, _tile)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));

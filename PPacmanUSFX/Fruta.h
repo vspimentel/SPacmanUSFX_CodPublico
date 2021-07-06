@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 
-#include "GameObject.h"
+#include "GameActor.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ enum GameFrutaType {
 	FRUTA_ASESINO
 };
 
-class Fruta : public GameObject {
+class Fruta : public GameActor {
 protected:
 
 	TIPO_FRUTA tipoFruta;

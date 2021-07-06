@@ -20,7 +20,7 @@ class MapGenerator
 {
 private:
 
-	vector<GameObject*> vectorObjetosJuego;
+	vector<GameActor*> vectorObjetosJuego;
 	TileGraph* tileGraph;
 	Factory* factory;
 
@@ -45,6 +45,6 @@ public:
 	void newObjects();
 
 	// carga los objetos generados por la clase MapGeneratos a un array de punteros a objetos GameObject*
-	void populate(vector<GameObject*> &_vectorObjetosJuegoGM);
+	void populate(vector<GameActor*> &_vectorObjetosJuegoGM);
 };
 

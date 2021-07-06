@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <iostream>
 #include "GameObject.h"
+#include "GameActor.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ enum PODER_MONEDA {
     PODER_SUPERMONEDA
 };
 
-class Moneda : public GameObject
+class Moneda : public GameActor
 {
 protected:
 

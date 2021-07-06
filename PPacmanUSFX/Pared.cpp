@@ -6,7 +6,7 @@ Pared::Pared() {
 }
 
 Pared::Pared(Tile* _tile, string _paredTextura):
-GameObject(_paredTextura, _tile){
+GameActor(_paredTextura, _tile){
 
 	setTexture(tipoTexturaPared);
 

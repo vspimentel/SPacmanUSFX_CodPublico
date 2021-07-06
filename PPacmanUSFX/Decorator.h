@@ -1,6 +1,6 @@
 #pragma once
-#include "Pared.h"
-class Decorator : public GameObject
+#include "GameActor.h"
+class Decorator : public GameActor
 {
 protected:
     GameObject* widget;

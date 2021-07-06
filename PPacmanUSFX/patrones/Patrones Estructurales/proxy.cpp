@@ -1,3 +1,8 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Person
 {
     string nameString;
@@ -25,7 +30,7 @@ class PettyCashProtected
   public:
     PettyCashProtected()
     {
-        balance = 500;
+        balance = 500
     }
     bool withdraw(int amount)
     {
@@ -59,12 +64,13 @@ class PettyCash
 
 int main()
 {
-  PettyCash pc;
-  Person workers[4];
-  for (int i = 0, amount = 100; i < 4; i++, amount += 100)
-    if (!pc.withdraw(workers[i], amount))
-      cout << "No money for " << workers[i].name() << '\n';
-    else
-      cout << amount << " dollars for " << workers[i].name() << '\n';
-  cout << "Remaining balance is " << pc.getBalance() << '\n';
+    PettyCash pc;
+    Person workers[4];
+    for (int i = 0, amount = 100; i < 4; i++, amount += 100) {
+        if (!pc.withdraw(workers[i], amount))
+            cout << "No money for " << workers[i].name() << '\n';
+        else
+            cout << amount << " dollars for " << workers[i].name() << '\n';
+        cout << "Remaining balance is " << pc.getBalance() << '\n';
+    }
 }

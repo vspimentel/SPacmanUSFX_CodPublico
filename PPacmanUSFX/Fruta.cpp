@@ -1,7 +1,7 @@
 #include "Fruta.h"
 
 Fruta::Fruta(Tile* _tile, string _frutaTexture) :
-	GameObject(_frutaTexture, _tile)
+	GameActor(_frutaTexture, _tile)
 {
 	tileActual = _tile;
 

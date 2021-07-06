@@ -1,5 +1,6 @@
 #pragma once
 #include "Decorator.h"
+#include "Pared.h"
 #include "Pacman.h"
 class DecoratorElectrico : public Decorator
 {
@@ -12,7 +13,7 @@ private:
     const int notElectricTime = 100;
     int tipoTexturaPared;
 public:
-    DecoratorElectrico(GameObject* _widget);
+    DecoratorElectrico(GameActor* _widget);
     void update();
 };
 

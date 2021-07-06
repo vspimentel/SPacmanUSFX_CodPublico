@@ -4,7 +4,7 @@
 #include <string>
 
 #include "TileGraph.h"
-#include "GameObject.h"
+#include "GamePawn.h"
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
 #include "Moneda.h"
@@ -12,7 +12,7 @@
 #include "DecoratorAura.h"
 using namespace std;
 
-class Pacman : public GameObject
+class Pacman : public GamePawn
 {
 protected:
 

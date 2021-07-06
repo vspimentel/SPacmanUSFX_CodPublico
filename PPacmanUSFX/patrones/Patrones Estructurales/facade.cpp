@@ -1,4 +1,6 @@
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 class MisDepartment
 {
@@ -74,6 +76,8 @@ class FacilitiesDepartment
     };
     int _state;
 };
+
+
 
 class FacilitiesFacade
 {
@@ -152,8 +156,7 @@ int main()
 
   facilities.submitNetworkRequest();
   /* Keep checking until job is complete */
-  while (!facilities.checkOnStatus())
-    ;
+  while (!facilities.checkOnStatus());
   cout << "job completed after only " << facilities.getNumberOfCalls() << 
     " phone calls" << endl;
 }

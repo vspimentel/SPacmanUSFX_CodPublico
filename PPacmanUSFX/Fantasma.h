@@ -4,6 +4,7 @@
 
 #include "MoveDirection.h"
 #include "TextureAnimation.h"
+#include "GameActor.h"
 #include "PathFinder.h"
 #include "Pacman.h"
 
@@ -15,7 +16,7 @@ enum GameFantasmaType {
 	FANTASMA_ASESINO
 };
 
-class Fantasma : public GameObject {
+class Fantasma : public GameActor {
 
 protected:
 

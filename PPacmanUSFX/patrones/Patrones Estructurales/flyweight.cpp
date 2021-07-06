@@ -1,12 +1,14 @@
-#include <iostream.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class Icon
 {
   public:
-    Icon(char *fileName)
+    Icon(const char *fileName)
     {
-        strcpy(_name, fileName);
+        strcpy_s(_name, fileName);
         if (!strcmp(fileName, "go"))
         {
             _width = 20;
@@ -32,7 +34,7 @@ class Icon
     {
         return _name;
     }
-    draw(int x, int y)
+    void draw(int x, int y)
     {
         cout << "   drawing " << _name << ": upper left (" << x << "," << y << 
           ") - lower right (" << x + _width << "," << y + _height << ")" <<
@@ -47,11 +49,12 @@ class Icon
 class FlyweightFactory
 {
   public:
-    static Icon *getIcon(char *name)
+    static Icon* getIcon(const char *name)
     {
-        for (int i = 0; i < _numIcons; i++)
-          if (!strcmp(name, _icons[i]->getName()))
-            return _icons[i];
+        for (int i = 0; i < _numIcons; i++) {
+            if (!strcmp(name, _icons[i]->getName()))
+                return _icons[i];
+        }
         _icons[_numIcons] = new Icon(name);
         return _icons[_numIcons++];
     }
@@ -68,7 +71,7 @@ class FlyweightFactory
         MAX_ICONS = 5
     };
     static int _numIcons;
-    static Icon *_icons[MAX_ICONS];
+    static Icon* _icons[5];
 };
 
 int FlyweightFactory::_numIcons = 0;
@@ -125,7 +128,7 @@ class CommitTransaction: public DialogBox
 
 int main()
 {
-  DialogBox *dialogs[2];
+  DialogBox* dialogs[2];
   dialogs[0] = new FileSelection(FlyweightFactory::getIcon("go"),
     FlyweightFactory::getIcon("stop"), FlyweightFactory::getIcon("select"));
   dialogs[1] = new CommitTransaction(FlyweightFactory::getIcon("select"),

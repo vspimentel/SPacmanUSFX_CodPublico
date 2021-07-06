@@ -1,10 +1,10 @@
 #pragma once
 #include <string> 
 
-#include "GameObject.h"
+#include "GameActor.h"
 
 
-class Pared : public GameObject
+class Pared : public GameActor
 {
 protected:
 

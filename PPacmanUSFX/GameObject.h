@@ -24,16 +24,10 @@ protected:
 
 	Texture* textura;
 
-	Tile* tileActual;
-	Tile* tileSiguiente;
-
-	int id;
-
 	bool visible = true;
 	bool enMovimiento;
 	bool eliminar = false;
-	bool alive = true;
-	bool dead = false;
+
 
 	int posicionX;
 	int posicionY;
@@ -80,10 +74,6 @@ public:
 	bool getVisible() { return visible; }
 	bool getEliminar() { return eliminar; }
 	bool getEnMovimiento() { return enMovimiento; }
-	bool getAlive() { return alive; }
-	bool getDead() { return dead; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
 	Texture* getTextura() { return textura; }
 	string getTexturaID() { return textureID; }
 	int getFrameX() { return frameX; }
@@ -97,13 +87,12 @@ public:
 	void setAlto(int _alto) { alto = _alto; }
 	void setVisible(bool _visible) { visible = _visible; }
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
-	void setAlive(bool _alive) { alive = _alive; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 	void setFrameX(int _frameX) { frameX = _frameX; }
 	void setFrameY(int _frameY) { frameY = _frameY; }
-	virtual void setTile(Tile* _tileNuevo) {};
+
 	void setTextura(Texture* _textura) { textura = _textura; }
-	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }
+
 
 	
 	bool revisarColision(const SDL_Rect* _otroColisionador);

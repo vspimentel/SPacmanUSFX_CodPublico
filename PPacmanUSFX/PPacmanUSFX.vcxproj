@@ -35,9 +35,11 @@
     <ClCompile Include="FrutaClasico.cpp" />
     <ClCompile Include="FrutaFactory.cpp" />
     <ClCompile Include="FrutaGalactico.cpp" />
+    <ClCompile Include="GameActor.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePanel.cpp" />
+    <ClCompile Include="GamePawn.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
@@ -79,9 +81,11 @@
     <ClInclude Include="FrutaClasico.h" />
     <ClInclude Include="FrutaFactory.h" />
     <ClInclude Include="FrutaGalactico.h" />
+    <ClInclude Include="GameActor.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePanel.h" />
+    <ClInclude Include="GamePawn.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MonedaAsesino.h" />

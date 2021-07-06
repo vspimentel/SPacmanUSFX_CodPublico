@@ -1,32 +1,19 @@
-#include "GameObject.h"
+#include "GameActor.h"
 
-TileGraph* GameObject::tileGraph = nullptr;
-
-GameObject::GameObject() {
+GameActor::GameActor() {
 	alpha = 255;
-	textureID = "";
-	textura = nullptr;
-	ancho = Tile::anchoTile;
-	alto = Tile::altoTile;
-	visible = true;
-	eliminar = false;
-	enMovimiento = false;
-	numeroFrame = 0;
-	contadorFrames = 0;
-	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 }
 
-GameObject::GameObject(Texture* _textura) {
-	textura = _textura;
-	visible = true;
-	eliminar = false;
-	enMovimiento = false;
-}
-
-GameObject::GameObject(string _textureID, Tile* _tile) {
+GameActor::GameActor(string _textureID, Tile* _tile) : GameObject(_textureID, _tile) {
 	textureID = _textureID;
 	alpha = 255;
 	textura = nullptr;
+	tileActual = _tile;
+	if (tileActual != nullptr) {
+		tileSiguiente = tileActual;
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+	}
 	ancho = Tile::anchoTile;
 	alto = Tile::altoTile;
 	visible = true;
@@ -37,18 +24,8 @@ GameObject::GameObject(string _textureID, Tile* _tile) {
 	colisionador = new SDL_Rect({ posicionX, posicionY, 0, 0 });
 }
 
-GameObject::~GameObject() {
-	deleteGameObject();
-}
 
-void GameObject::draw() {
-	if (visible) {
-		TextureManager::createInstance()->drawFrame(textureID, posicionX, posicionY,
-			ancho, alto, frameY, frameX, altoClip, anchoClip, 0, alpha);
-	}
-}
-
-bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
+bool GameActor::revisarColision(const SDL_Rect* _otroColisionador)
 {
 	if (_otroColisionador->x > colisionador->x + colisionador->w) {
 		return false;
@@ -69,7 +46,7 @@ bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
 	return true;
 }
 
-bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2)
+bool GameActor::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2)
 {
 	if (_colisionador1->x > _colisionador2->x + _colisionador2->w) {
 		return false;

@@ -43,7 +43,7 @@ bool MapGenerator::load(string path)
 		// Divide la linea leida y la guarda en un vector de caracteres
 		vector<char> chars(line.begin(), line.end());
 		for (unsigned int x = 0; x < chars.size(); x++) {
-			GameObject* newObject = nullptr;
+			GameActor* newObject = nullptr;
 			Decorator* newDecorator = nullptr;
 			Tile* newTile = tileGraph->getTileEn(x, y);
 
@@ -96,7 +96,7 @@ bool MapGenerator::load(string path)
 	
 	GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
 	
-	vectorObjetosJuego.push_back(objetoPanel);
+	vectorObjetosJuego.push_back(((GameActor*)objetoPanel));
 
 	return true;
 }
@@ -113,7 +113,7 @@ void MapGenerator::newObjects() {
 		TIPO_FRUTA t = ((TIPO_FRUTA)(rand()% MAX));
 		if (newTile->getMoneda() != nullptr)
 			newTile->getMoneda()->deleteGameObject();
-		GameObject* newObject = FrutaFactory::getTipoFruta();
+		GameActor* newObject = FrutaFactory::getTipoFruta();
 		((Fruta*)newObject)->reconfigurar(newTile, t);
 		if (newObject != nullptr)
 			vectorObjetosJuego.push_back(newObject);
@@ -121,7 +121,7 @@ void MapGenerator::newObjects() {
 	}
 }
 
-void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
+void MapGenerator::populate(std::vector<GameActor*> &_vectorObjetosJuegoGM)
 {
 	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
 		_vectorObjetosJuegoGM.push_back(*ivoj);

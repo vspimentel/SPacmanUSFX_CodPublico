@@ -1,7 +1,7 @@
 #include "Fantasma.h"
 
 Fantasma::Fantasma(Tile* _tile, string _fantasmaTexture, int _velocidad) :
-	GameObject(_fantasmaTexture, _tile)
+	GameActor(_fantasmaTexture, _tile)
 {
 	tipoObjeto = FANTASMA;
 

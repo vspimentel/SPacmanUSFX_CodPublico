@@ -1,6 +1,6 @@
 #include "DecoratorAura.h"
 
-DecoratorAura::DecoratorAura(GameObject* _widget) : Decorator(_widget)
+DecoratorAura::DecoratorAura(GameActor* _widget) : Decorator(_widget)
 {
 	tileActual = _widget->getTile();
 	if (tileActual != nullptr)

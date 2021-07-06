@@ -39,7 +39,7 @@ int GameManager::onExecute() {
     while (juego_en_ejecucion) {
 
 		for (int i = 0; i < actoresJuego.size(); i++) {
-			if (actoresJuego[i]->getEliminar()) {
+			if (((GameObject*)actoresJuego[i])->getEliminar()) {
 				actoresJuego.erase(remove(actoresJuego.begin(), actoresJuego.end(), actoresJuego[i]), actoresJuego.end());
 			}
 		}

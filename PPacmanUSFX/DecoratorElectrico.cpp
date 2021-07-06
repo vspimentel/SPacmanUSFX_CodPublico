@@ -1,6 +1,6 @@
 #include "DecoratorElectrico.h"
 
-DecoratorElectrico::DecoratorElectrico(GameObject* _widget):Decorator(_widget) {
+DecoratorElectrico::DecoratorElectrico(GameActor* _widget):Decorator(_widget) {
 	tileActual = _widget->getTile();
 }
 
