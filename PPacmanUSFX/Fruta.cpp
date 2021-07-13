@@ -3,7 +3,6 @@
 Fruta::Fruta(Tile* _tile, string _frutaTexture) :
 	GameActor(_frutaTexture, _tile)
 {
-
 	tipoObjeto = FRUTA;
 
 	if (tileActual != nullptr)
@@ -14,16 +13,6 @@ Fruta::Fruta(Tile* _tile, string _frutaTexture) :
 
 	velocidad = 2;
 	framesMovimiento = 1;
-
-	//tileActual = _tile;
-	//
-	//velocidad = 2;
-
-	//if (tileActual != nullptr)
-	//	tileActual->setFruta(this);
-
-	//tipoFruta = TIPO_FRUTA_FRUTILLA;
-	//framesMovimiento = 1;
 }
 
 Fruta::~Fruta() {

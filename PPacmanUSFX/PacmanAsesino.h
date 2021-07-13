@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pacman.h"
+#include "MovePacmanSlow.h"
 
 class PacmanAsesino : public Pacman
 {

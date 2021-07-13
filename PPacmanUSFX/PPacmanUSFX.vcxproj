@@ -61,6 +61,9 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
+    <ClCompile Include="MovePacman.cpp" />
+    <ClCompile Include="MovePacmanSlow.cpp" />
+    <ClCompile Include="MovePacmanFast.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +112,9 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
     <ClInclude Include="TipoTexturaPared.h" />
+    <ClInclude Include="MovePacman.h" />
+    <ClInclude Include="MovePacmanSlow.h" />
+    <ClInclude Include="MovePacmanFast.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>

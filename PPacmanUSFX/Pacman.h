@@ -10,6 +10,8 @@
 #include "Moneda.h"
 #include "Fruta.h"
 #include "DecoratorAura.h"
+#include "MovePacman.h"
+
 using namespace std;
 
 class Pacman : public GamePawn
@@ -19,7 +21,7 @@ protected:
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
-	int velocidad;
+	MovePacman* estrategiaMov;
 
 	TextureAnimation* texturaAnimacion;
 
@@ -30,7 +32,7 @@ protected:
 
 public:
 
-	Pacman(Tile* _tile, string _texturaPacman, int _velocidad);
+	Pacman(Tile* _tile, string _texturaPacman, int _velocidad/*, UpdatePacman* strategy*/);
 	~Pacman();
 
 	int getVelocidad() { return velocidad; }
@@ -39,6 +41,7 @@ public:
 	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
 	void setState(int _state) { state = _state; }
+	void setStrategy(MovePacman* _strategy) { estrategiaMov = _strategy; }
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);

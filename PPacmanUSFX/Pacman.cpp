@@ -1,8 +1,10 @@
 #include "Pacman.h"
 
-Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad) :
+Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad/*, UpdatePacman* strategy*/) :
 	GamePawn(_texturaPacman, _tile)
-{
+{/*
+	estrategiaMov = strategy;*/
+
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
@@ -147,20 +149,9 @@ void Pacman::update()
 			tratarDeMover(direccionActual);
 	}
 	else {
-		switch (direccionActual)
-		{
-		case MOVE_UP:
-			posicionY = std::max(posicionY - velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_DOWN:
-			posicionY = std::min(posicionY + velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_LEFT:
-			posicionX = std::max(posicionX - velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
-		case MOVE_RIGHT:
-			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
+
+		if (estrategiaMov != nullptr) {
+			estrategiaMov->move(this, direccionActual);
 		}
 
 		colisionador->x = posicionX;
