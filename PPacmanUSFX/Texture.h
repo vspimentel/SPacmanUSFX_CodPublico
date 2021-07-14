@@ -1,15 +1,19 @@
 #pragma once
 
-#include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#include <string>
+
+using namespace std;
 
 class Texture
 {
 private:
 	// Textura actual
 	SDL_Texture* texture;
+
+	string name;
 
 	int ancho;
 	int alto;
@@ -20,14 +24,14 @@ public:
 	// TODO: Temporary solution, should be removed after implementation of Game class
 	static SDL_Renderer* renderer;
 
-	Texture();
+	Texture(string name);
 	~Texture();
 
 	// Load texture from file
-	bool loadFromImage(std::string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);
+	bool loadFromImage(string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);
 
 	// Load texture from rendered text
-	bool loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color textColor);
+	bool loadFromRenderedText(TTF_Font* font, string text, SDL_Color textColor);
 
 	// Render the texture
 	void render(SDL_Rect* clip = nullptr, SDL_Rect* rect = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip renderFlip = SDL_FLIP_NONE);
@@ -47,6 +51,7 @@ public:
 
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
+	string getName() { return name; }
 
 };
 

@@ -94,7 +94,7 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 	
-	GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
+	GameObject* objetoPanel = new GamePanel(new Texture("Panel1"), 20, 450);
 	
 	actors.push_back(((GameActor*)objetoPanel));
 

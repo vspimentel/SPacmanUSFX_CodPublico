@@ -24,6 +24,7 @@ public:
 
 	GameActor();
 	GameActor(string _textureID, Tile* _tile);
+	GameActor(Tile* tile);
 
 	bool getEnMovimiento() { return enMovimiento; }
 	bool getAlive() { return alive; }
@@ -42,6 +43,7 @@ public:
 
 	virtual void update() {};
 	virtual void draw() { GameObject::draw(); };
+	virtual void render() { GameObject::render(); };
 	virtual void updateFrames() {};
 	virtual void handleEvent(SDL_Event* event) {};
 

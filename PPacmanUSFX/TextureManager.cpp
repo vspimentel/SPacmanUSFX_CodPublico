@@ -13,7 +13,7 @@ TextureManager::TextureManager()
 }
 
 void TextureManager::initialize() {
-	pacmanClasicoTexture = new Texture();
+	/*pacmanClasicoTexture = new Texture();
 	pacmanClasicoTexture->loadFromImage(pathPacmanClasico);
 	addTexture("pacman_clasico", pacmanClasicoTexture);
 
@@ -114,7 +114,7 @@ void TextureManager::initialize() {
 
 	paredAsesinoTexture = new Texture();
 	paredAsesinoTexture->loadFromImage(pathParedAsesino);
-	addTexture("pared_asesino", paredAsesinoTexture);
+	addTexture("pared_asesino", paredAsesinoTexture);*/
 }
 
 void TextureManager::initializeSDL() {

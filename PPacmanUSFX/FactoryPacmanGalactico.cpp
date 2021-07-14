@@ -5,17 +5,17 @@ GameActor* FactoryPacmanGalactico::createPacmanInstance(Tile* _tile, int _veloci
 }
 
 GameActor* FactoryPacmanGalactico::createParedInstance(Tile* _tile) {
-    return new ParedGalactico(_tile, "pared_galactico");
+    return new ParedGalactico(_tile, FlyweightFactory::getTexture("pared_galactico", "Resources/Pared.png"));
 }
 
 GameActor* FactoryPacmanGalactico::createParedPoderInstance(Tile* _tile){
-    return new DecoratorElectrico(new ParedGalactico(_tile, "pared_galactico"));
+    return new DecoratorElectrico(new ParedGalactico(_tile, FlyweightFactory::getTexture("pared_galactico", "Resources/Pared.png")));
 }
 
 GameActor* FactoryPacmanGalactico::createMonedaInstance(Tile* _tile) {
-    return new MonedaGalactico(_tile, "moneda_galactico");
+    return new MonedaGalactico(_tile, FlyweightFactory::getTexture("moneda_galactico", "Resources/MonedasGalactico.png"));
 }
 
 GameActor* FactoryPacmanGalactico::createMonedaPoderInstance(Tile* _tile) {
-    return new MonedaGalactico(_tile, "moneda_galactico", PODER_SUPERMONEDA);
+    return new MonedaGalactico(_tile, FlyweightFactory::getTexture("moneda_galactico", "Resources/MonedasGalactico.png"), PODER_SUPERMONEDA);
 }

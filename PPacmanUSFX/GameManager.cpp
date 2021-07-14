@@ -121,6 +121,7 @@ void GameManager::onRender() {
 		gGenerator->actors[i]->updateFrames();
 		gGenerator->actors[i]->update();
 		gGenerator->actors[i]->draw();
+		gGenerator->actors[i]->render();
 	}
 };
 

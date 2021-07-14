@@ -17,7 +17,6 @@ public:
 
 	static void  initializeClasico()
 	{
-		TextureManager* textures = TextureManager::createInstance();
 		tipoBlinky = new FantasmaClasico(nullptr, "fantasma_clasico1", 0);
 		tipoClyde = new FantasmaClasico(nullptr, "fantasma_clasico2", 0);
 		tipoInkey = new FantasmaClasico(nullptr, "fantasma_clasico3", 0);
@@ -25,7 +24,6 @@ public:
 	}
 
 	static void initializeGalactico(){
-		TextureManager* textures = TextureManager::createInstance();
 		tipoBlinky = new FantasmaGalactico(nullptr, "fantasma_galactico1", 0);
 		tipoClyde = new FantasmaGalactico(nullptr, "fantasma_galactico2", 0);
 		tipoInkey = new FantasmaGalactico(nullptr, "fantasma_galactico3", 0);
@@ -33,7 +31,6 @@ public:
 	}
 
 	static void initializaeAsesino() {
-		TextureManager* textures = TextureManager::createInstance();
 		tipoBlinky = new FantasmaAsesino(nullptr, "fantasma_galactico1", 0);
 		tipoClyde = new FantasmaAsesino(nullptr, "fantasma_galactico2", 0);
 		tipoInkey = new FantasmaAsesino(nullptr, "fantasma_galactico3", 0);

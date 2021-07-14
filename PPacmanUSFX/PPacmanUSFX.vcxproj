@@ -30,6 +30,7 @@
     <ClCompile Include="FantasmaClasico.cpp" />
     <ClCompile Include="FantasmaGalactico.cpp" />
     <ClCompile Include="FantasmasFactory.cpp" />
+    <ClCompile Include="FlyweightFactory.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
@@ -46,6 +47,7 @@
     <ClCompile Include="MonedaAsesino.cpp" />
     <ClCompile Include="MonedaClasico.cpp" />
     <ClCompile Include="MonedaGalactico.cpp" />
+    <ClCompile Include="MovePacmanNormal.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="PacmanAsesino.cpp" />
     <ClCompile Include="PacmanClasico.cpp" />
@@ -61,7 +63,6 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
-    <ClCompile Include="MovePacman.cpp" />
     <ClCompile Include="MovePacmanSlow.cpp" />
     <ClCompile Include="MovePacmanFast.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -79,6 +80,7 @@
     <ClInclude Include="FantasmaClasico.h" />
     <ClInclude Include="FantasmaGalactico.h" />
     <ClInclude Include="FantasmasFactory.h" />
+    <ClInclude Include="FlyweightFactory.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />
@@ -95,6 +97,7 @@
     <ClInclude Include="MonedaClasico.h" />
     <ClInclude Include="MonedaGalactico.h" />
     <ClInclude Include="MoveDirection.h" />
+    <ClInclude Include="MovePacmanNormal.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="PacmanAsesino.h" />
     <ClInclude Include="PacmanClasico.h" />

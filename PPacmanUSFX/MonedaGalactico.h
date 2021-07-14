@@ -4,7 +4,7 @@ class MonedaGalactico :
     public Moneda
 {
 public:
-    MonedaGalactico(Tile* _tile, string _monedaTextura);
-    MonedaGalactico(Tile* _tile, string _monedaTextura, PODER_MONEDA _poder);
+    MonedaGalactico(Tile* _tile, Texture* _monedaTextura);
+    MonedaGalactico(Tile* _tile, Texture* _monedaTextura, PODER_MONEDA _poder);
 };
 

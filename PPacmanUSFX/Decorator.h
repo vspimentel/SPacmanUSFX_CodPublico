@@ -8,5 +8,6 @@ public:
     Decorator(GameObject* _widget);
     void update();
     void draw();
+    void render();
 };
 

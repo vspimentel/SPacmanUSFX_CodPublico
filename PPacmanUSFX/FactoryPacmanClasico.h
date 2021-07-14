@@ -4,9 +4,10 @@
 #include "ParedClasico.h"
 #include "ParedClasicoAdapter.h"
 #include "MonedaClasico.h"
+#include "FlyweightFactory.h"
 
-class FactoryPacmanClasico :
-    public Factory
+
+class FactoryPacmanClasico : public Factory
 {
 public:
     GameActor* createPacmanInstance(Tile* _tile, int _velocidad) override;

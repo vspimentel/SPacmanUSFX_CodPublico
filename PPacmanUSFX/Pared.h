@@ -13,7 +13,7 @@ protected:
 
 public:
 
-    Pared(Tile* _tile, string _paredTextura);
+    Pared(Tile* _tile, Texture* _paredTextura);
     Pared();
     ~Pared();
 

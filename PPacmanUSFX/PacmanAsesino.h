@@ -2,6 +2,7 @@
 
 #include "Pacman.h"
 #include "MovePacmanSlow.h"
+#include "MovePacmanNormal.h"
 
 class PacmanAsesino : public Pacman
 {

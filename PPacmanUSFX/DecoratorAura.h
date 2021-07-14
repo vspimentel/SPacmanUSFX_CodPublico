@@ -10,6 +10,7 @@ private:
 public:
 	DecoratorAura(GameActor* widget);
 	void draw();
+	void render() { Decorator::render(); }
 	void update() override;
 	void deleteGameObject() override;
 

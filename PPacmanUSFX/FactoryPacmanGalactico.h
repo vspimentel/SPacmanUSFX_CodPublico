@@ -4,11 +4,12 @@
 #include "ParedGalactico.h"
 #include "MonedaGalactico.h"
 #include "DecoratorElectrico.h"
+#include "FlyweightFactory.h"
 
-class FactoryPacmanGalactico :
-    public Factory
+class FactoryPacmanGalactico : public Factory
 {
 public:
+
     GameActor* createPacmanInstance(Tile* _tile, int _velocidad) override;
     GameActor* createParedInstance(Tile* _tile) override;
     GameActor* createParedPoderInstance(Tile* _tile) override;

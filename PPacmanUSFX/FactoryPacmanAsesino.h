@@ -4,6 +4,7 @@
 #include "ParedAsesino.h"
 #include "MonedaAsesino.h"
 #include "DecoratorElectrico.h"
+#include "FlyweightFactory.h"
 
 class FactoryPacmanAsesino : public Factory
 {

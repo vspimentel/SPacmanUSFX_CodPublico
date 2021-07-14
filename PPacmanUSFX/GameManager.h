@@ -11,6 +11,7 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "FactoryPacmanAsesino.h"
+#include "FlyweightFactory.h"
 
 using namespace std;
 
@@ -25,8 +26,6 @@ private:
 
     //The window renderer
     SDL_Renderer* gRenderer;
-   
-    //vector<GameActor*> actoresJuego;
     MapGenerator* gGenerator;
     TextureManager* textureManager;
     Factory* tipoFabrica;

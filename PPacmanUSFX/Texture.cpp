@@ -2,8 +2,9 @@
 
 SDL_Renderer* Texture::renderer = nullptr;
 
-Texture::Texture()
+Texture::Texture(string _name)
 {
+	name = _name;
 	texture = nullptr;
 	ancho = 0;
 	alto = 0;
@@ -89,16 +90,7 @@ void Texture::render(SDL_Rect* clip, SDL_Rect* rect, double angle, SDL_Point* ce
 	// Return if the renderer was not set
 	if (renderer == nullptr)
 		return;
-	//if (rect == nullptr) {
-	//	SDL_Rect rect = { x, y, ancho, alto };
-	//	if (clip != nullptr) {
-	//		rect.w = clip->w;
-	//		rect.h = clip->h;
-	//	}
-	//	SDL_RenderCopyEx(renderer, texture, clip, &rect, angle, center, renderFlip);
-	////}
-	//else
-		SDL_RenderCopyEx(renderer, texture, clip, rect, angle, center, renderFlip);
+	SDL_RenderCopyEx(renderer, texture, clip, rect, angle, center, renderFlip);
 }
 
 void Texture::Render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)

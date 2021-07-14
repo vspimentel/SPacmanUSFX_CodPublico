@@ -11,7 +11,7 @@ private:
 
 public:
 
-	ParedClasico(Tile* _tile, string _paredTextura);
+	ParedClasico(Tile* _tile, Texture* _paredTextura);
 	void update();
 
 };

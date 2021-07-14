@@ -1,6 +1,6 @@
 #include "ParedClasico.h"
 
-ParedClasico::ParedClasico(Tile* _tile, string _paredTextura)
+ParedClasico::ParedClasico(Tile* _tile, Texture* _paredTextura)
 	:Pared(_tile, _paredTextura)
 {
 	tipoTexturaPared = 17 + rand() % (22 - 17);

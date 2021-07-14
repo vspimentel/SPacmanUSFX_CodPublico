@@ -1,6 +1,7 @@
 #pragma once
 #include "Pacman.h"
 #include "MovePacmanSlow.h"
+#include "MovePacmanNormal.h"
 
 using namespace std;
 

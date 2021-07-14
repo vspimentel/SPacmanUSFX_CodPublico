@@ -1,6 +1,6 @@
 #include "ParedGalactico.h"
 
-ParedGalactico::ParedGalactico(Tile* _tile, string _paredTextura)
+ParedGalactico::ParedGalactico(Tile* _tile, Texture* _paredTextura)
 :Pared(_tile, _paredTextura)
 {
 	tipoTexturaPared = 10;

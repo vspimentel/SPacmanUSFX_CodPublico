@@ -2,5 +2,5 @@
 
 PacmanAsesino::PacmanAsesino(Tile* _tile, string _texturaPacmanAsesino, int _velocidad):
 	Pacman(_tile, _texturaPacmanAsesino, _velocidad) {
-	estrategiaMov = new MovePacmanSlow;
+	estrategiaMov = new MovePacmanNormal;
 }

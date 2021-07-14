@@ -16,6 +16,6 @@ private:
 
 public:
 
-    ParedAsesino(Tile* _tile, string _paredTextura);
+    ParedAsesino(Tile* _tile, Texture* _paredTextura);
 
 };

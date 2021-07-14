@@ -11,3 +11,7 @@ void Decorator::update() {
 void Decorator::draw() {
 	widget->draw();
 }
+
+void Decorator::render() {
+	widget->render();
+}

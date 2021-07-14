@@ -1,6 +1,12 @@
 #pragma once
-#include "GameObject.h"
+
+#include <string>
+
+#include "GameActor.h"
 #include "DecoratorAura.h"
+#include "FlyweightFactory.h"
+
+using namespace std;
 
 class Factory
 {

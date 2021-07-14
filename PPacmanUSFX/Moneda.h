@@ -3,6 +3,7 @@
 #include <iostream>
 #include "GameObject.h"
 #include "GameActor.h"
+#include "Texture.h"
 
 using namespace std;
 
@@ -29,8 +30,8 @@ protected:
     int tiempoPoderMoneda;
 
 public:
-    Moneda(Tile* _tile, string _monedaTextura);
-    Moneda(Tile* _tile, string _monedaTextura, PODER_MONEDA _poder);
+    Moneda(Tile* _tile, Texture* textura);
+    Moneda(Tile* _tile, Texture* _monedaTextura, PODER_MONEDA _poder);
     ~Moneda();
 
     int getValor() { return valor; }

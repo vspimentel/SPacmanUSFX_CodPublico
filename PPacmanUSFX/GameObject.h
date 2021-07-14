@@ -61,7 +61,7 @@ public:
 public:
 	//Constructores y destructores
 	GameObject();
-	GameObject(Texture* _textura);
+	GameObject(Tile* _tile);
 	GameObject(string _textureID, Tile* _tile);
 	~GameObject();
 
@@ -100,6 +100,7 @@ public:
 
 	virtual void update() {};
 	virtual void draw();
+	virtual void render();
 	virtual void updateFrames() {};
 
 	virtual void handleEvent(SDL_Event* event) {};

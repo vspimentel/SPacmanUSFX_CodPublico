@@ -5,9 +5,10 @@ Pared::Pared() {
 
 }
 
-Pared::Pared(Tile* _tile, string _paredTextura):
-GameActor(_paredTextura, _tile){
+Pared::Pared(Tile* _tile, Texture* _paredTextura):
+GameActor(_tile){
 	tipoObjeto = PARED;
+	textura = _paredTextura;
 	setTexture(tipoTexturaPared);
 
 	if (tileActual != nullptr) 
