@@ -109,7 +109,7 @@ void ClientCode() {
     std::cout << "________________Iterator with custom Class______________________________" << std::endl;
     Iterator<Data, Container<Data>>* it2 = cont2.CreateIterator();
     for (it2->First(); !it2->IsDone(); it2->Next()) {
-        std::cout << it2->Current()->data() << std::endl;
+        std::cout << it2->Current()->get_data() << std::endl;
     }
     delete it;
     delete it2;

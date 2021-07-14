@@ -9,8 +9,8 @@ DecoratorAura::DecoratorAura(GameActor* _widget) : Decorator(_widget)
 
 void DecoratorAura::draw() {
 	if (widget != nullptr) {
-	TextureManager::createInstance()->drawFrame("aura_clasico", widget->getPosicionX(), widget->getPosicionY(),
-		widget->getAncho(), widget->getAlto(), 0, 0, 556, 556, 0, alpha);
+		TextureManager::createInstance()->drawFrame("aura_clasico", widget->getPosicionX(), widget->getPosicionY(),
+			widget->getAncho(), widget->getAlto(), 0, 0, 556, 556, 0, alpha);
 	}
 	else {
 		deleteGameObject();

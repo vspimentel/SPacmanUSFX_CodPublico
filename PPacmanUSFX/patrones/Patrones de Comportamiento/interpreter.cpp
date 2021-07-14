@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
 
 class Thousand;
@@ -71,7 +71,7 @@ class Thousand: public RNInterpreter
     }
     char *four()
     {
-        return "";
+        return '';
     }
     char five()
     {
@@ -79,7 +79,7 @@ class Thousand: public RNInterpreter
     }
     char *nine()
     {
-        return "";
+        return '';
     }
     int multiplier()
     {

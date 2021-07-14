@@ -1,9 +1,9 @@
 #include "Pacman.h"
 
-Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad/*, UpdatePacman* strategy*/) :
-	GamePawn(_texturaPacman, _tile)
-{/*
-	estrategiaMov = strategy;*/
+Pacman::Pacman(Tile* _tile, string _texturaPacman, int _velocidad) :GamePawn(_texturaPacman, _tile)
+{
+
+	mediator = new MediatorCollisions;
 
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
@@ -125,18 +125,18 @@ void Pacman::update()
 {
 	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
-		if (revisarColision(colisionador, tileActual->getMoneda()->getColisionador())) {
-			if (tileActual->getMoneda()->getTipoPoderMoneda() == PODER_SUPERMONEDA) {
+		if (mediator->getBool(this, tileActual->getMoneda(), "colision")) {
+			if (mediator->getBool(this, tileActual->getMoneda(), "isSupermoneda")) {
 				contState = 0;
 				state = 1;
-				tileActual->getSupermoneda()->setWidget(this);
+				mediator->notify(this, tileActual->getSupermoneda(), "setDecorator");
 			}
-			tileActual->getMoneda()->deleteGameObject();
+			mediator->notify(this, tileActual->getMoneda(), "eliminar");
 		}
 	}
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
-		if (revisarColision(colisionador, tileActual->getFruta()->getColisionador())) {
-			tileActual->getFruta()->deleteGameObject();
+		if (mediator->getBool(this, tileActual->getFruta(), "colision")) {
+			mediator->notify(this, tileActual->getFruta(), "eliminar");
 		}
 	}
 
@@ -183,21 +183,8 @@ void Pacman::draw()
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
-	if (cuadroAnimacion->x != 0) {
-		frameX = cuadroAnimacion->x / anchoClip;
-	}
-	else
-	{
-		frameX = cuadroAnimacion->x;
-	}
-
-	if (cuadroAnimacion->y != 0) {
-		frameY = cuadroAnimacion->y / anchoClip;
-	}
-	else
-	{
-		frameY = cuadroAnimacion->y;
-	}
+	frameX = cuadroAnimacion->x / anchoClip;
+	frameY = cuadroAnimacion->y / anchoClip;
 	TextureManager::createInstance()->drawFrame(textureID, (Uint32)posicionX, (Uint32)posicionY,
 		ancho, alto, frameY, frameX, altoClip, anchoClip, 0, 255);
 }

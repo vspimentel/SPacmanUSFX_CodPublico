@@ -43,6 +43,7 @@
     <ClCompile Include="GamePawn.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="MediatorCollisions.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="MonedaAsesino.cpp" />
     <ClCompile Include="MonedaClasico.cpp" />
@@ -92,6 +93,8 @@
     <ClInclude Include="GamePanel.h" />
     <ClInclude Include="GamePawn.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="Mediator.h" />
+    <ClInclude Include="MediatorCollisions.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MonedaAsesino.h" />
     <ClInclude Include="MonedaClasico.h" />

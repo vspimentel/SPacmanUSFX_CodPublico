@@ -1,20 +1,23 @@
-#include <iostream.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class FileSelectionDialog;
 
 class Widget
 {
   public:
-    Widget(FileSelectionDialog *mediator, char *name)
+    Widget(FileSelectionDialog *mediator, string name)
     {
         _mediator = mediator;
-        strcpy(_name, name);
+        _name =  name;
     }
     virtual void changed();
     virtual void updateWidget() = 0;
     virtual void queryWidget() = 0;
   protected:
-    char _name[20];
+      string _name;
   private:
     FileSelectionDialog *_mediator;
 };
@@ -22,7 +25,7 @@ class Widget
 class List: public Widget
 {
   public:
-    List(FileSelectionDialog *dir, char *name): Widget(dir, name){}
+    List(FileSelectionDialog* dir, string name): Widget(dir, name){}
     void queryWidget()
     {
         cout << "   " << _name << " list queried" << endl;
@@ -36,7 +39,7 @@ class List: public Widget
 class Edit: public Widget
 {
   public:
-    Edit(FileSelectionDialog *dir, char *name): Widget(dir, name){}
+    Edit(FileSelectionDialog* dir, string name): Widget(dir, name){}
     void queryWidget()
     {
         cout << "   " << _name << " edit queried" << endl;

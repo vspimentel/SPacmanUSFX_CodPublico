@@ -16,7 +16,6 @@ public:
 
 	void setWidget(GameObject* _widget) { 
 		widget = _widget;
-		Decorator::widget = _widget;
 		if (widget->getTipoObjeto() == PACMAN) {
 			contState = 0;
 		}

@@ -56,7 +56,7 @@ class StackIter
     }
 };
 
-StackIter* Stack::createIterator()const
+StackIter* Stack::createIterator()
 {
   return new StackIter(this);
 }

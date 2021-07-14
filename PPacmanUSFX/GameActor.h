@@ -1,8 +1,11 @@
 #pragma once
 #include "GameObject.h"
+#include "Mediator.h"
 class GameActor : public GameObject
 {
 protected:
+	Mediator* mediator;
+
 	Tile* tileActual;
 	Tile* tileSiguiente;
 

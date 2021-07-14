@@ -10,6 +10,7 @@
 #include "Moneda.h"
 #include "Fruta.h"
 #include "DecoratorAura.h"
+#include "MediatorCollisions.h"
 #include "MovePacman.h"
 
 using namespace std;
@@ -32,7 +33,7 @@ protected:
 
 public:
 
-	Pacman(Tile* _tile, string _texturaPacman, int _velocidad/*, UpdatePacman* strategy*/);
+	Pacman(Tile* _tile, string _texturaPacman, int _velocidad);
 	~Pacman();
 
 	int getVelocidad() { return velocidad; }
