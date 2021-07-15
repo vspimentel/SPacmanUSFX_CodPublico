@@ -159,6 +159,9 @@
     <ClCompile Include="MediatorCollisions.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="ProxyPathFinder.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pacman.h">
@@ -257,9 +260,6 @@
     <ClInclude Include="ParedClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="TipoTexturaPared.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="PacmanClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -318,6 +318,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="MediatorCollisions.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ProxyPathFinder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

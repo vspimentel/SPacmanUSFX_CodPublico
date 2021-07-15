@@ -1,8 +1,8 @@
 #pragma once
 #include <SDL.h>
 #include "MoveDirection.h"
-#include "PathFinder.h"
 #include "GameActor.h"
+#include "ProxyPathFinder.h"
 
 using namespace std;
 
@@ -22,6 +22,8 @@ enum GameFrutaType {
 
 class Fruta : public GameActor {
 protected:
+
+	ProxyPathFinder proxy;
 
 	TIPO_FRUTA tipoFruta;
 	GameFrutaType GameFrutaTipo;
@@ -56,8 +58,6 @@ public:
 	void setTile(Tile* _tileNuevo);
 
 	void update();
-
-	static bool avoidInPathFinder(Tile* _tile);
 
 	void deleteGameObject() override;
 };

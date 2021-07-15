@@ -5,7 +5,7 @@
 #include "MoveDirection.h"
 #include "TextureAnimation.h"
 #include "GameActor.h"
-#include "PathFinder.h"
+#include "ProxyPathFinder.h"
 #include "Pacman.h"
 
 using namespace std;
@@ -19,6 +19,8 @@ enum GameFantasmaType {
 class Fantasma : public GameActor {
 
 protected:
+	ProxyPathFinder proxy;
+
 	int deadTime = 100;
 	int contDead = 0;
 
@@ -57,7 +59,6 @@ public:
 
 	virtual void update();
 	void updateFrames();
-	static bool avoidInPathFinder(Tile* _tile);
 
 	void deleteGameObject() override;
 };

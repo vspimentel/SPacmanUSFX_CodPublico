@@ -22,18 +22,15 @@ int GameManager::onExecute() {
     if (onInit() == false) {
         return -1;
     }
-	srand(time(nullptr));
+
+	srand(time(NULL));
+
 	TileGraph tileGraphGM(20, 15);
-	textureManager = TextureManager::createInstance();
-	textureManager->setRenderer(gRenderer);
-	textureManager->initializeSDL();
-	GameObject::tileGraph = &tileGraphGM; 
-	tipoFabrica = new FactoryPacmanClasico;
-	//tipoFabrica = new FactoryPacmanGalactico;
-	//tipoFabrica = new FactoryPacmanAsesino;
+	GameObject::tileGraph = &tileGraphGM;
+	initialize("Clasico");
 	gGenerator = MapGenerator::createInstance(&tileGraphGM, tipoFabrica);
 	gGenerator->load("Resources/mapa.txt");
-	//gGenerator->populate(actoresJuego);
+
     SDL_Event Event;
 
     while (juego_en_ejecucion) {
@@ -41,7 +38,6 @@ int GameManager::onExecute() {
 
 		for (int i = 0; i < gGenerator->actors.size(); i++) {
 			if (((GameObject*)gGenerator->actors[i])->getEliminar()) {
-				//cout << " ad" << endl;
 				gGenerator->actors.erase(remove(gGenerator->actors.begin(), gGenerator->actors.end(), gGenerator->actors[i]), gGenerator->actors.end());
 			}
 		}
@@ -106,6 +102,26 @@ bool GameManager::onInit() {
 		}
 	}
 	return success;
+}
+void GameManager::initialize(string modo)
+{
+	TextureManager::createInstance()->setRenderer(gRenderer);
+	TextureManager::createInstance()->initializeSDL();
+	if (modo == "Clasico"){
+		tipoFabrica = new FactoryPacmanClasico;
+		FantasmasFactory::initializeClasico();
+		FrutaFactory::initializeClasico();
+	}
+	else if (modo == "Galactico") {
+		tipoFabrica = new FactoryPacmanGalactico;
+		FantasmasFactory::initializeGalactico();
+		FrutaFactory::initializeGalactico();
+	}
+	else if (modo == "Asesino") {
+		tipoFabrica = new FactoryPacmanAsesino;
+		FantasmasFactory::initializaeAsesino();
+		FrutaFactory::initializeAsesino();
+	}
 };
 
 void GameManager::onEvent(SDL_Event* Event) {

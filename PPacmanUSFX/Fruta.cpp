@@ -67,9 +67,7 @@ void Fruta::update()
 {
 
 	if (tileActual == tileSiguiente) {
-		PathFinder astar(tileGraph);
-		astar.SetAvoidFunction(Fruta::avoidInPathFinder);
-		camino = astar.CalculateRoute(tileActual, tileDestino);
+		camino = proxy.getPath(tileActual, tileDestino);
 	}
 	if (camino.size() > 1) {
 		tileSiguiente = camino[1];
@@ -115,11 +113,4 @@ void Fruta::update()
 void Fruta::deleteGameObject() {
 	GameObject::deleteGameObject();
 	tileActual->setFruta(nullptr);
-}
-
-bool Fruta::avoidInPathFinder(Tile* _tile)
-{
-	if (_tile->getPared() != nullptr)
-		return true;
-	return false;
 }

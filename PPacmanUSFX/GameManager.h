@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
+#include <string>
 
 #include <SDL.h>
 
@@ -11,7 +12,8 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "FactoryPacmanAsesino.h"
-#include "FlyweightFactory.h"
+#include "FantasmasFactory.h"
+#include "FrutaFactory.h"
 
 using namespace std;
 
@@ -39,6 +41,7 @@ public:
 
     int onExecute();
     bool onInit();
+    void initialize(string modo);
     void onEvent(SDL_Event* Event);
     void onLoop();
     void onRender();

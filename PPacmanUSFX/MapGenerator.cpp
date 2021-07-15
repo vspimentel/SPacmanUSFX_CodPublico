@@ -13,12 +13,12 @@ MapGenerator::MapGenerator(TileGraph* _tileGraph, Factory* _factory)
 	factory = _factory;
 	tileGraph = _tileGraph;
 
-	FantasmasFactory::initializeClasico();
-	//FantasmasFactory::initializeGalactico();
-	//FantasmasFactory::initializaeAsesino();
-	FrutaFactory::initializeClasico();
-	//FrutaFactory::initializeGalactico();
-	//FrutaFactory::initializeAsesino();
+	//FantasmasFactory::initializeClasico();
+	////FantasmasFactory::initializeGalactico();
+	////FantasmasFactory::initializaeAsesino();
+	//FrutaFactory::initializeClasico();
+	////FrutaFactory::initializeGalactico();
+	////FrutaFactory::initializeAsesino();
 }
 
 bool MapGenerator::load(string path)

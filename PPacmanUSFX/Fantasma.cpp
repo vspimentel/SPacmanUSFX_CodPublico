@@ -71,9 +71,7 @@ void Fantasma::update()
 		if (pacman != nullptr) {
 
 			if (tileActual == tileSiguiente) {
-				PathFinder astar(tileGraph);
-				astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
-				camino = astar.CalculateRoute(tileActual, pacman->getTile());
+				camino = proxy.getPath(tileActual, pacman->getTile());
 			}
 			if (camino.size() > 1) {
 				tileSiguiente = camino[1];
@@ -159,13 +157,6 @@ void Fantasma::updateFrames() {
 		}
 		contadorFrames = 0;
 	}
-}
-
-bool Fantasma::avoidInPathFinder(Tile* _tile)
-{
-	if (_tile->getPared() != nullptr)
-		return true;
-	return false;
 }
 
 void Fantasma::deleteGameObject()
