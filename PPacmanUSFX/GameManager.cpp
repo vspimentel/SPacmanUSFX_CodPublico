@@ -27,7 +27,7 @@ int GameManager::onExecute() {
 
 	TileGraph tileGraphGM(20, 15);
 	GameObject::tileGraph = &tileGraphGM;
-	initialize("Clasico");
+	facade("Clasico");
 	gGenerator = MapGenerator::createInstance(&tileGraphGM, tipoFabrica);
 	gGenerator->load("Resources/mapa.txt");
 
@@ -103,7 +103,7 @@ bool GameManager::onInit() {
 	}
 	return success;
 }
-void GameManager::initialize(string modo)
+void GameManager::facade(string modo)
 {
 	TextureManager::createInstance()->setRenderer(gRenderer);
 	TextureManager::createInstance()->initializeSDL();

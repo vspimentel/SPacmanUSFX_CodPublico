@@ -41,7 +41,7 @@ public:
 
     int onExecute();
     bool onInit();
-    void initialize(string modo);
+    void facade(string modo);
     void onEvent(SDL_Event* Event);
     void onLoop();
     void onRender();
